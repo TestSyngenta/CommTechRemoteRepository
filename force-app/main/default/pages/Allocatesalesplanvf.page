@@ -1,0 +1,215 @@
+<!--/********************************************************************************************
+* Page:      Allocatesalesplanvf
+* ------------------------------------------------------------------------------------------
+* Date          Name                    Modification Description
+* ------------------------------------------------------------------------------------------     
+* 08-Jan-2018    Hema Latha        Created  (US-234151)
+*********************************************************************************************/     -->
+
+<apex:page standardController="Opportunity" extensions="Allocatesalesplanctr"  lightningStylesheets="true" standardStylesheets="false" showHeader="false">
+    <apex:pageMessages id="showmsg"></apex:pageMessages>
+    <apex:form >
+    <!--  <style>
+       .container1{
+           overflow-x : visible;
+           width : 100%;
+           height : 540px;
+           overflow : hidden;
+       }
+    </style>
+   <style type="text/css">
+                .activeTab {font-family: 'Salesforce Sans',Arial,sans-serif; background-color: white; color: #16325C; background-image: none; font-size: 100%; }
+                .inactiveTab {font-family: 'Salesforce Sans',Arial,sans-serif; background-color: white; color: #16325C; background-image: none; font-size: 100%; }
+            </style> -->
+ <html>
+        <head>
+            <apex:includeScript value="/support/console/32.0/integration.js"></apex:includeScript>
+           <apex:slds />
+           <apex:includeScript value="{!$Resource.DetectSF1}"/>
+          <!--   <apex:stylesheet value="{!URLFOR($Resource.slds103, 'assets/styles/salesforce-lightning-design-system.min.css')}"></apex:stylesheet>
+            <apex:stylesheet value="{!URLFOR($Resource.slds103, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}"></apex:stylesheet> -->
+              <script>
+
+                   function goToOpp(){
+                    var Opportunityid= '{!opportunityId}';
+                    if( ForceUI.isSalesforce1() ) {
+                    // Salesforce1 navigation
+                        sforce.one.navigateToSObject('{!opportunityId}');
+                    }
+                    else {
+                    // Set the windows URL using a Visualforce expression
+                        window.location.href = '{!URLFOR($Action.Opportunity.View, Opportunityid)}';
+                    }
+                }
+
+            </script>
+        </head>
+     <body>
+        <div>
+            <div>
+                  <div class="slds-page-header" role="banner">
+                          <!-- PAGE HEADER TOP ROW -->
+                      <div class="slds-grid">
+                            <!-- PAGE HEADER / ROW 1 / COLUMN 1 -->
+                         <div class="slds-col">
+                           <!-- HEADING AREA -->
+                           <!-- MEDIA OBJECT = FIGURE + BODY -->
+                           <div class="slds-media">
+                             <div class="slds-media__figure">
+                              <svg aria-hidden="true" class="slds-icon slds-icon--large slds-icon-standard-user">
+                                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+                              </svg>
+                             </div>
+                            <apex:outputPanel rendered="{!rtName =='CU_Seeds_Allocation'}"  layout="block" style="overflow:auto;width:750px" >
+                                <div class="slds-media__body">
+                                  <p class="slds-text-heading--label" >{!$Label.SA_CUname}</p>
+                                  <h1 class="slds-text-heading--medium" >{!CUname}</h1>
+                                </div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!rtName =='District_Seeds_Allocation'}"  layout="block" style="overflow:auto;width:750px" >
+                                <div class="slds-media__body">
+                                  <p class="slds-text-heading--label" >District Name</p>
+                                  <h1 class="slds-text-heading--medium" >{!CUname}</h1>
+                                </div>
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!rtName =='Territory_Seeds_Allocation'}"  layout="block" style="overflow:auto;width:750px" >
+                                            <div class="slds-media__body">
+                                                <p class="slds-text-heading--label" >Territory Name</p>
+                                                <h1 class="slds-text-heading--medium" >{!CUname}</h1>
+                                            </div>
+                           </apex:outputPanel>
+                            
+                          </div>
+                          <!-- / MEDIA OBJECT -->
+                          <!-- HEADING AREA -->
+                        </div>
+                        <!-- / PAGE HEADER / ROW 1 / COLUMN 1 -->
+                        <!-- PAGE HEADER / ROW 1 / COLUMN 2 -->
+                        <div class="slds-col slds-no-flex slds-align-middle">
+                          <div class="slds-button-group" role="group">
+                            
+                            <!--JS method to make the buttons SF1 comaptible -->      
+                 
+                          <!--   <div style="{!IF(bpId != null,'','display:none')}"><input type="button" class="slds-button slds-button--neutral" rendered="{!NOT(ISBLANK(bpId))}" value="{!$Label.SP_Btn_GotoBP}" onClick="goToBp()" /></div>   --> 
+                                                 
+                            <apex:outputPanel rendered="{!If(((rtName =='CU_Seeds_Allocation') && ShowAllocateToTerritories),true,false)}">
+                              <button class="slds-button slds-button--neutral" >
+                                <apex:commandLink action="{!AllocateToTerritories}" value="Finalize Allocations"  />
+                              </button>
+                              <input type="button" class="slds-button slds-button--neutral" value="{!$Label.SP_Btn_GotoOpp}" onClick="goToOpp()" />
+                            </apex:outputPanel> 
+                            <apex:outputPanel rendered="{!If(((rtName =='District_Seeds_Allocation') && ShowAllocateToTerritories),true,false)}">
+                              <button class="slds-button slds-button--neutral" >
+                                <apex:commandLink action="{!AllocateToAccounts}" value="Finalize Allocations"  />
+                              </button>
+                              <input type="button" class="slds-button slds-button--neutral" value="{!$Label.SP_Btn_GotoOpp}" onClick="goToOpp()" />
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!If(((rtName =='Territory_Seeds_Allocation') && ShowAllocateToTerritories),true,false)}">
+                                            <!--<button class="slds-button slds-button--neutral" >
+                                                <apex:commandLink action="{!AllocateToTerritories}" value="Finalize Allocations"  />
+                                            </button>-->
+                                            <input type="button" class="slds-button slds-button--neutral" value="{!$Label.SP_Btn_GotoOpp}" onClick="goToOpp()" />
+                            </apex:outputPanel>
+                          </div>
+                        </div>
+                        <!-- / PAGE HEADER / ROW 1 / COLUMN 2 -->
+                      </div>    
+                                
+                            <div class="slds-grid slds-page-header__detail-row">
+                                <!-- PAGE HEADER / ROW 2 / COLUMN 1 -->
+                                <div class="slds-col--padded slds-size--1-of-4">
+                                    <dl>
+                                        <dt>
+                                            <p class="slds-text-heading--label slds-truncate">{!$Label.SA_oppname}</p>
+                                        </dt>
+                                        <dd>
+                                         
+                                            <p class="slds-text-body--regular">{!oppName}</p>
+                                       </dd>
+                                   </dl>
+                                </div>
+                              <!-- PAGE HEADER / ROW 2 / COLUMN 2 -->
+                              <div class="slds-col--padded slds-size--1-of-4">
+                                <apex:outputPanel rendered="{!rtName =='CU_Seeds_Allocation'}">
+                                <dl>
+                                  <dt>
+                                      <p class="slds-text-heading--label slds-truncate">{!$Label.SA_cuhead}</p>
+                                  </dt>
+                                  <dd>
+                                      <p class="slds-text-body--regular slds-truncate">{!AssignedRep}</p>
+                                  </dd>
+                                </dl>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!rtName =='District_Seeds_Allocation'}">
+                                <dl>
+                                  <dt>
+                                      <p class="slds-text-heading--label slds-truncate">District Manager</p>
+                                  </dt>
+                                  <dd>
+                                      <p class="slds-text-body--regular slds-truncate">{!AssignedRep}</p>
+                                  </dd>
+                                </dl>
+                                </apex:outputPanel>
+                                <apex:outputPanel rendered="{!rtName =='Territory_Seeds_Allocation'}">
+                                        <dl>
+                                            <dt>
+                                                <p class="slds-text-heading--label slds-truncate">Sales Rep</p>
+                                            </dt>
+                                            <dd>
+                                                <p class="slds-text-body--regular slds-truncate">{!AssignedRep}</p>
+                                            </dd>
+                                        </dl>
+                                    </apex:outputPanel> 
+                              </div>
+                              <div class="slds-col--padded slds-size--1-of-4">
+                               <dl>
+                                  <dt>
+                                    <p class="slds-text-heading--label slds-truncate">{!$Label.SP_lbl_Year}</p>
+                                  </dt>
+                                  <dd>
+                                      <p class="slds-text-body--regular slds-truncate" id="statusField">{!Year}</p>
+                                  </dd>
+                               </dl>
+                           </div>
+                          </div>
+                                                  
+                       </div>
+                 </div>
+                    <apex:outputPanel >
+                        <apex:variable var="gridPage" value="{!URLFOR($Page.GBLite__Grid)}" />
+                        <apex:variable var="gridPage" value="{!gridPage & IF(CONTAINS(gridPage, '?'), '&', '?')}" />
+                        <apex:tabPanel rendered="{!rtName=='CU_Seeds_Allocation'}" selectedTab="allocToDist" id="TabPanel1" tabClass="activeTab"
+                                            inactiveTabClass="inactiveTab" switchType="client">
+                            <apex:tab label="Allocate to Districts" name="allocToDist">
+                            <iframe id="gridFrame1" scrolling="auto" height="800" width="100%" frameborder="0" src="{!gridPage}gname=AllocateToDistricts&sh=0&fpf=OpportunityId&fpv={!ChildOpportunityIds}">
+                            </iframe>
+                            </apex:tab>
+                        </apex:tabPanel>
+                        <apex:tabPanel rendered="{!rtName=='District_Seeds_Allocation'}" selectedTab="allocToTerr" id="TabPanel2" tabClass="activeTab"
+                                            inactiveTabClass="inactiveTab" switchType="client">
+                            <apex:tab label="Allocate to Territories" name="allocToTerr">
+                            <iframe id="gridFrame2" scrolling="auto" height="800" width="100%" frameborder="0" src="{!gridPage}gname=AllocateToTerritories&sh=0&fpf=OpportunityId&fpv={!TerOpportunityIds}">
+                            </iframe>
+                            </apex:tab>
+                        </apex:tabPanel>
+                        <apex:tabPanel rendered="{!rtName=='Territory_Seeds_Allocation'}" selectedTab="allocToAcc" id="TabPanel3" tabClass="activeTab"
+                                       inactiveTabClass="inactiveTab" switchType="client">
+                            <apex:tab label="Allocate to Retail Accounts" name="allocToTerr">
+                                <iframe id="gridFrame3" scrolling="auto" height="800" width="100%" frameborder="0" src="{!gridPage}gname=AllocateToAccounts&sh=0&fpf=OpportunityId&fpv={!AccOpportunityIds}">
+                                </iframe>
+                            </apex:tab>
+                        </apex:tabPanel>
+                        </apex:outputPanel> 
+            </div>
+            
+
+        
+     </body>
+    </html>
+        <apex:outputPanel rendered="{!!errorExists}">
+      <!--  <div id="iframeDivHolder">
+            <apex:include pageName="GBEmbed_Opportunity"/>
+        </div> -->
+        </apex:outputPanel> 
+       </apex:form> 
+    </apex:page>

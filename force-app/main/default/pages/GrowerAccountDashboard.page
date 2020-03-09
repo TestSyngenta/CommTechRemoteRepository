@@ -1,0 +1,12 @@
+<apex:page sidebar="false" standardController="Account">
+        
+  <wave:dashboard dashboardId="0FK1N000000GrCrWAK" 
+        hideOnError="true"
+        rendered="true"
+        showTitle="false" 
+        height="880px" 
+        openLinksInNewWindow="true" 
+        filter="{'datasets' : {'OTG_Sales': [ {'fields':['Account__c.Grower_Name_Wave__c'], 'filter': {'operator':'in', 'values': ['{!JSENCODE(Account.Grower_Name_Wave__c)}']}}]}}"/>
+
+        
+</apex:page>

@@ -1,0 +1,12 @@
+<apex:page sidebar="false" standardController="Business_Plan__c">
+        
+  <wave:dashboard dashboardId="0FK1N0000003Rk6WAE" 
+        hideOnError="true"
+        rendered="true"
+        showTitle="false" 
+        height="880px" 
+        openLinksInNewWindow="true" 
+        filter="{'datasets' : {'OTG_Sales': [ {'fields':['Retailer__c.Retailer_Head_Office__c'], 'filter': {'operator':'in', 'values': ['{!JSENCODE(Business_Plan__c.Account__r.Name)}']}}]}}"/>
+
+        
+</apex:page>

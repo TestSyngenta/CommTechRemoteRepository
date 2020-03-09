@@ -1,0 +1,182 @@
+<apex:page standardController="Opportunity" extensions="GB_Helper" sidebar="false" showHeader="false" >
+    <apex:pageMessages id="showmsg"></apex:pageMessages>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css"></link>
+    <style>
+        /* Fix for dots in nested tabs in IE11 */
+        ul { list-style: none; }
+
+        .ui-widget {
+            font-family: Arial, Verdana, sans-serif;
+            font-size: 1em;
+        }
+
+        .ui-widget-content {
+            border: none;
+            background: none;
+            padding: 0;
+        }
+
+        .ui-widget-header {
+            border: none;
+            background: none;
+        }
+
+        .ui-tabs .ui-tabs-nav {
+            padding-left: 6px;
+        }
+
+        .ui-tabs .ui-tabs-nav li {
+            margin-right: 3px;
+        }
+
+        .ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+            border-top-right-radius: 6px;
+        }
+
+        .ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+            border-top-left-radius: 6px;
+        }
+
+        .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+            color: #222;
+            font-weight: bold;
+            padding: 4px 7px 3px 7px;
+        }
+
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+            background: #f8f8f8; /* Old browsers */
+            background: -moz-linear-gradient(top,  #f8f8f8 0%, #f8f8f8 3%, #ededed 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(3%,#f8f8f8), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  #f8f8f8 0%,#f8f8f8 3%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  #f8f8f8 0%,#f8f8f8 3%,#ededed 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  #f8f8f8 0%,#f8f8f8 3%,#ededed 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  #f8f8f8 0%,#f8f8f8 3%,#ededed 100%); /* W3C */
+            border-color: #dbdbdb;
+        }
+
+        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+            background: #fff;
+            border-color: #eee;
+        }
+
+        .ui-tabs .ui-tabs-nav li.ui-tabs-active {
+            margin-bottom: -3px;
+            padding-bottom: 3px;
+        }
+
+        .ui-tabs .ui-tabs-panel {
+            border: 1px solid #d4dadc;
+            border-top: 3px solid #747e96;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+        }
+        
+        /* used to dynamically hide tabs */
+        .hidden {display:none;}
+        
+        /* this class on the wrapper div prevents the iframe from stretching out the page on mobile safari */
+
+       
+       @media screen and (min-device-width: 1024px) and (max-device-width: 1366px), screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+        #tabs {position:relative; height:630px; -webkit-overflow-scrolling:touch;}
+       } 
+
+   
+    </style>
+    
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+ 
+    <GBLite:EmbedComponent baseGridUrl="{!$Page.GBLite__Grid}" />
+    
+    <!-- First tab grid URL -->
+    <apex:variable var="GridUrlOne" value="{!gridPage}gname={!TabOnePage}&fpf={!TaboneField}&fpv={!TabOneFieldValue}&sfname=Default&sh=0&ro=0&desktopView=1" />
+
+    <script type="text/javascript">
+        // Add tab configuration here. Keys should match the div IDs, values should contain the grid URL.
+        var pagesToLoad = {
+            'tabs-2': '{!gridPage}gname={!TabTwoPage}&fpf={!TabTwoField}&fpv={!TabTwoFieldValue}&sfname=Default&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-3': '{!gridPage}gname={!TabThreePage}&fpf={!TabThreeField}&fpv={!TabThreeFieldValue}&sfname=Default&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-4': '{!gridPage}gname={!TabFourPage}&fpf={!TabFourField}&fpv={!TabFourFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-5': '{!gridPage}gname={!TabFivePage}&fpf={!TabFiveField}&fpv={!TabFiveFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-6': '{!gridPage}gname={!TabSixPage}&fpf={!TabSixField}&fpv={!TabSixFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-7': '{!gridPage}gname={!TabSevenPage}&fpf={!TabSevenField}&fpv={!TabSevenFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-8': '{!gridPage}gname={!TabEightPage}&fpf={!TabEightField}&fpv={!TabEightFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-9': '{!gridPage}gname={!TabNinePage}&fpf={!TabNineField}&fpv={!TabNineFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-10': '{!gridPage}gname={!TabTenPage}&fpf={!TabTenField}&fpv={!TabTenFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-11': '{!gridPage}gname={!TabElevenPage}&fpf={!TabElevenField}&fpv={!TabElevenFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-12': '{!gridPage}gname={!TabTwelvePage}&fpf={!TabTwelveField}&fpv={!TabTwelveFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-13': '{!gridPage}gname={!TabThirteenPage}&fpf={!TabThirteenField}&fpv={!TabThirteenFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-14': '{!gridPage}gname={!TabFourteenPage}&fpf={!TabFourteenField}&fpv={!TabFourteenFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-15': '{!gridPage}gname={!TabFifteenPage}&fpf={!TabFifteenField}&fpv={!TabFifteenFieldValue}&sh=0&ro=0&sfname=default&desktopView=1',
+            'tabs-16': '{!gridPage}gname={!TabSixteenPage}&fpf={!TabSixteenField}&fpv={!TabSixteenFieldValue}&sh=0&ro=0&sfname=default&desktopView=1'
+        };  
+        
+        function loadPage(pageKey) {
+            var pageURL = pagesToLoad[pageKey];
+            if (pageURL && pageURL.length > 0) {
+                
+                var pageWrapper = document.getElementById(pageKey);
+                if (pageWrapper.innerHTML.length == 0) {
+                    // page not loaded yet
+                    pageWrapper.innerHTML = '<div class="iframeDiv"><iframe scrolling="auto" height="610" width="100%" frameborder="0" src="' + pageURL + '"></iframe></div>';
+                }
+            }
+        }      
+        
+        $(function() {
+            $('#tabs').tabs({
+                activate: function(event, ui) {
+                    var tabId = ui.newTab.find('a').attr('href').substring(1);
+                    loadPage(tabId);
+                }
+            });            
+        });
+         
+    </script>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">{!TabOneLabel}</a></li>
+            <li class="{!IF(ShowTabTwo, '', 'hidden')}"><a href="#tabs-2">{!TabTwoLabel}</a></li>
+            <li class="{!IF(ShowTabThree, '', 'hidden')}"><a href="#tabs-3">{!TabThreeLabel}</a></li>
+            <li class="{!IF(ShowTabFour, '', 'hidden')}"><a href="#tabs-4">{!TabFourLabel}</a></li>
+            <li class="{!IF(ShowTabFive, '', 'hidden')}"><a href="#tabs-5">{!TabFiveLabel}</a></li>
+            <li class="{!IF(ShowTabSix, '', 'hidden')}"><a href="#tabs-6">{!TabSixLabel}</a></li>
+            <li class="{!IF(ShowTabSeven, '', 'hidden')}"><a href="#tabs-7">{!TabSevenLabel}</a></li>
+            <li class="{!IF(ShowTabEight, '', 'hidden')}"><a href="#tabs-8">{!TabEightLabel}</a></li>
+            <li class="{!IF(ShowTabNine, '', 'hidden')}"><a href="#tabs-9">{!TabNineLabel}</a></li>
+            <li class="{!IF(ShowTabTen, '', 'hidden')}"><a href="#tabs-10">{!TabTenLabel}</a></li>
+            <li class="{!IF(ShowTabEleven, '', 'hidden')}"><a href="#tabs-11">{!TabElevenLabel}</a></li>
+            <li class="{!IF(ShowTabTwelve, '', 'hidden')}"><a href="#tabs-12">{!TabTwelveLabel}</a></li>
+            <li class="{!IF(ShowTabThirteen, '', 'hidden')}"><a href="#tabs-13">{!TabThirteenLabel}</a></li>
+            <li class="{!IF(ShowTabFourteen, '', 'hidden')}"><a href="#tabs-14">{!TabFourteenLabel}</a></li>
+            <li class="{!IF(ShowTabFifteen, '', 'hidden')}"><a href="#tabs-15">{!TabFifteenLabel}</a></li>
+            <li class="{!IF(ShowTabSixteen, '', 'hidden')}"><a href="#tabs-16">{!TabSixteenLabel}</a></li>
+        </ul>
+        <div id="tabs-1">
+            <!-- (3) Modify the first tab's grid URL. This tab will be shown by default. -->
+            <div class="iframeDiv">
+                <iframe id="gridFrame" scrolling="auto" height="650" width="100%" frameborder="0" src="{!GridUrlOne}"></iframe>
+            </div>
+        </div>
+        
+        <div id="tabs-2" class="frameScrollFix {!IF(ShowTabTwo, '', 'hidden')}"></div>
+        <div id="tabs-3" class="frameScrollFix {!IF(ShowTabThree, '', 'hidden')}"></div>
+        <div id="tabs-4" class="frameScrollFix {!IF(ShowTabFour, '', 'hidden')}"></div>
+        <div id="tabs-5" class="frameScrollFix {!IF(ShowTabFive, '', 'hidden')}"></div>
+        <div id="tabs-6" class="frameScrollFix {!IF(ShowTabSix, '', 'hidden')}"></div>
+        <div id="tabs-7" class="frameScrollFix {!IF(ShowTabSeven, '', 'hidden')}"></div>
+        <div id="tabs-8" class="frameScrollFix {!IF(ShowTabEight, '', 'hidden')}"></div>
+        <div id="tabs-9" class="frameScrollFix {!IF(ShowTabNine, '', 'hidden')}"></div>
+        <div id="tabs-10" class="frameScrollFix {!IF(ShowTabTen, '', 'hidden')}"></div>
+        <div id="tabs-11" class="frameScrollFix {!IF(ShowTabEleven, '', 'hidden')}"></div>
+        <div id="tabs-12" class="frameScrollFix {!IF(ShowTabTwelve, '', 'hidden')}"></div>
+        <div id="tabs-13" class="frameScrollFix {!IF(ShowTabThirteen, '', 'hidden')}"></div>
+        <div id="tabs-14" class="frameScrollFix {!IF(ShowTabFourteen, '', 'hidden')}"></div>
+        <div id="tabs-15" class="frameScrollFix {!IF(ShowTabFifteen, '', 'hidden')}"></div>
+        <div id="tabs-16" class="frameScrollFix {!IF(ShowTabSixteen, '', 'hidden')}"></div>
+        
+    </div>   
+</apex:page>

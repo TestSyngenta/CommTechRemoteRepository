@@ -1,0 +1,2 @@
+<apex:page standardController="Settlement__c" extensions="Settlement_Send_ERelease_Controller" action="{!SendRelease}">
+</apex:page>

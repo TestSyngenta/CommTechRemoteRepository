@@ -1,0 +1,28 @@
+<apex:page standardController="Account" extensions="AccountDetails_PurchHist_Controller" showHeader="false">
+<script src="//cdn.ckeditor.com/4.5.3/standard/ckeditor.js"></script>   
+    <script>
+    function resizeFrame() {
+        var sframe = parent.document.getElementById("itarget"); //get id of iframe from parent
+        if (navigator.userAgent.indexOf("Firefox") != -1) { //if Firefox
+            var nHeight = document.body.scrollHeight+10; //add ten pixels to height of sControl frame
+        } else { //otherwise
+            var nHeight = document.body.scrollHeight; //use the returned height of sControl frame
+        }
+        sframe.style.height = nHeight+"px"; //set the frame height to correspond to the content
+    }
+    window.onload=function()
+    {
+        resizeIframe();
+    };
+    </script>
+    
+    <apex:stylesheet value="{!URLFOR($Resource.CSS_MyDataTable)}"/>
+    <apex:dataTable value="{!PurchaseHistoryList}" var="p" styleClass="MyDataTable" id="hoverTable">
+        <apex:column value="{!p.Brand_Name__c}" headerValue="Brand Name"/>
+        <apex:column value="{!p.PY0_Individual_SDP__c}" headerValue="2016 (SDP $)" style="text-align:center"/>
+        <apex:column value="{!p.PY1_Individual_SDP__c}" headerValue="2015 (SDP $)" style="text-align:center"/>
+        <apex:column value="{!p.PY2_Individual_SDP__c}" headerValue="2014 (SDP $)" style="text-align:center"/>
+        <apex:column value="{!p.PY3_Individual_SDP__c}" headerValue="2013 (SDP $)" style="text-align:center"/>
+    </apex:dataTable>
+    
+</apex:page>

@@ -1,0 +1,7 @@
+<apex:page >
+    <div style="font-size: 16px;color : #FF0000">
+     <apex:outputText style="color: red;">Error: There are no sales plans created yet for this retailer. Please create atleast
+         one sales plan first before opening the associated Consolidated View.
+        </apex:outputText>
+        </div>
+</apex:page>

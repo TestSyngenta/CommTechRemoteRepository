@@ -1,0 +1,72 @@
+<apex:page standardController="Cheque_Run__c" extensions="ChequeRun_ControllerExt" tabstyle="Cheque_Run__c" title="New Cheque Run">
+    <apex:pagemessages id="errormsg"/>
+    <apex:sectionHeader title="Settlement Payments" subtitle="New Cheque Run"/>
+    <apex:form >
+        <apex:selectRadio value="{!typeFilterSelection}" >
+            <apex:actionSupport event="onchange" action="{!RefreshSettlementWrapperList}" status="RefreshStatus" rerender="errormsg,mainTable,summary,mainPanel" />
+            <apex:selectOptions value="{!typeFilterOptions}" />
+        </apex:selectRadio>
+        <apex:outputPanel id="mainPanel">
+        <apex:outputPanel rendered="{!settlementListSize>=0}" id="mainPanel2">
+            <apex:outputText value="New settlements ready to be paid: {!settlementWrapperList.size} ({0, number, currency})" style="font-size:14pt" id="summary">
+                <apex:param value="{!totalAmount}" />
+            </apex:outputText>
+            <apex:pageBlock id="mainTable">
+                <apex:pageBlockButtons location="top">
+                    <apex:actionStatus id="RefreshStatus">
+                        <apex:facet name="stop">
+                            <apex:outputPanel >
+                                <apex:commandButton value="Add Selected" action="{!addSelected}" />
+                                <apex:commandButton value="Refresh" action="{!RefreshSettlementWrapperList}" status="RefreshStatus" rerender="errormsg,mainTable,summary,mainPanel"/>
+                                <apex:commandButton value="Cancel" action="{!CancelAndRollback}" status="SaveButtonStatus" rerender="errormsg"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:facet name="start">
+                            <apex:outputPanel >
+                                <apex:commandButton value="Refreshing" disabled="true"/>
+                                <apex:commandButton value="Refreshing" disabled="true"/>
+                                <apex:commandButton value="Refreshing" disabled="true"/>
+                            </apex:outputPanel>
+                        </apex:facet>
+                    </apex:actionStatus>                    
+                </apex:pageBlockButtons>
+                <apex:outputPanel >
+                <apex:pageBlockTable value="{!settlementWrapperList}" var="s" >
+                    <apex:column width="30px" >
+                        <apex:facet name="header">
+                            <apex:inputCheckbox selected="true">
+                                <apex:actionSupport event="onclick" onsubmit="checkAll(this)" rerender="mainTable"/>
+                            </apex:inputCheckbox>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!s.selected}" id="checkbox">
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    <apex:column headerValue="Account" value="{!s.settlement.Case__r.AccountID}" />
+                    <apex:column headerValue="Case" value="{!s.settlement.Case__c}" />
+                    <apex:column headerValue="Case Type" value="{!s.settlement.Case__r.RecordType.Name}" />
+                    <apex:column headerValue="Settlement">
+                         <apex:outputLink value="/{!s.settlement.ID}">{!s.settlement.Name}</apex:outputLink>
+                    </apex:column>
+                    <apex:column headerValue="Settlement Type" value="{!s.settlement.RecordType.Name}" />
+                    <apex:column headerValue="Amount" value="{!s.settlement.Settlement_Amount__c}" />
+                    <apex:column headerValue="Pay-To" value="{!s.settlement.Payable_To_Picklist__c}" />
+                    <apex:column headerValue="Pay-To Name" value="{!s.settlement.Pay_To_Name__c}" />
+    <!--                <apex:column headerValue="Status" value="{!s.settlement.Status__c}" />  -->
+                    <apex:column headerValue="Created Date" value="{!s.settlement.CreatedDate}" />
+                </apex:pageBlockTable>
+                </apex:outputPanel>
+            </apex:pageBlock>
+        </apex:outputPanel>
+        </apex:outputPanel>
+    </apex:form>
+    
+    <script>
+        function checkAll(cb){
+            var inputElem = document.getElementsByTagName("input");
+            for(var i=0; i<inputElem.length; i++){
+            if(inputElem[i].id.indexOf("checkbox")!=-1)
+                inputElem[i].checked = cb.checked;
+            }
+        }    
+    </script>
+</apex:page>

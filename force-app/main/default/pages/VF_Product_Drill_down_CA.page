@@ -1,0 +1,362 @@
+<!--/********************************************************************************************
+* Page:      VF_Product_Drill_down_CA
+
+* ------------------------------------------------------------------------------------------
+* Date          Name                    Modification Description
+* ------------------------------------------------------------------------------------------     
+* 20-Feb-2018    Sravani                          Created  (US-278514)
+********************************************************************************************/     -->
+
+<apex:page standardController="opportunity" extensions="CTR_Product_Drill_Down_CA" sidebar="false"  >
+<style>
+    .not-active {
+   pointer-events: none;
+   cursor: default;
+}
+</style>
+<apex:form id="formId" >
+<apex:pageMessages />
+
+ <head >
+        <title>Forecast Report</title>
+        <apex:includeScript value="/support/console/32.0/integration.js"></apex:includeScript>
+        <apex:slds />
+           <!-- <apex:stylesheet value="{!URLFOR($Resource.slds103, 'assets/styles/salesforce-lightning-design-system.min.css')}"></apex:stylesheet>
+            <apex:stylesheet value="{!URLFOR($Resource.slds103, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}"></apex:stylesheet> -->
+    </head>
+  <body style="width:100%"> 
+
+        <div class="slds" style="overflow:scroll; "> 
+        <h1 class="slds-text-heading--medium" >Forecast Report</h1>
+        <br/>
+        <p class="slds-text-heading--label slds-truncate" style="font-weight:bold;">Account Name: {!accountname}</p>
+        <p class="slds-text-heading--label slds-truncate" style="font-weight:bold;">Opportunity Name: {!oppname}</p>
+        <apex:outputPanel rendered="{!If(recordtype == 'TerritoryCPSalesPlan' || recordtype == 'DistrictCPSalesPlan' || recordtype == 'Territory_Seeds_Sales_Plan' || recordtype == 'District_Seeds_Sales_Plan',true,false)}" >
+        <p class="slds-text-heading--label slds-truncate" style="font-weight:bold;">Territory Number: {!terrname}</p>
+        </apex:outputPanel>
+        <apex:outputPanel rendered="{!If(recordtype == 'CU_CPSalesPlan' || recordtype == 'CUSeedsSalesPlan',true,false)}" >
+        <p class="slds-text-heading--label slds-truncate" style="font-weight:bold;">Territory Number: {!communit}</p>
+        </apex:outputPanel>
+        <br/>
+        
+            <div class="slds-scrollable--x" style="position: relative;">
+            
+            <table class="slds-table slds-table--bordered" style="width: 50px;" >
+                <apex:outputPanel rendered="{!If(recordtype == 'TerritoryCPSalesPlan' || recordtype == 'DistrictCPSalesPlan',true,false)}" >
+                <thead>
+                    <tr>
+                        <th scope="col"><a href="/apex/PopulateOli?id={!ParentOppId}&sfname=default"  target="_self">Go to Forecast</a></th>
+                        <th scope="col"></th>
+                        <th scope="col">CY-1 OTG Units</th>
+                        <th scope="col">CY -1 Ending  <br/>  Inventory Units</th>
+                        <th scope="col">CY Ending Inventory <br/> Projection % </th>
+                        <th scope="col">CY Projected  <br/>  Ending Inventory <br/> Units </th>
+                        <th scope="col">CY -1 <br/>  % Inventory/OTG <br/> Inventory Units </th>
+                        <th scope="col"> CY OTG Forecast </th>
+                        <th scope="col"> CY  OTG Units </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold;">Rolled up Values</td>
+                        <td style="font-weight:bold;">{!Header.product2.name}</td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.OTG_CY_1__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_Ending_Inventory_CY_1__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.RolledUpEndingInventoryProjection_CY__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.RolledUpCYProjectedEndingInventory__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.RolledUpCY1InventoryOTG__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.RolledupCYOTGForecast__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.OTG_CY__c}" /> </apex:outputText></td>       
+                        
+                   </tr>
+                    
+                    <apex:repeat value="{!childoliList}" var="spa">
+                        <tr>
+                           <td>
+                                <!--Child OLI List-->
+                           <apex:outputPanel rendered="{!IF((spa.opportunityid != 'null' || spa.opportunityid != ''),true,false)}"><a href="/apex/PopulateOli?id={!spa.opportunityid}&sfname=default"  target="_blank">Click here</a> </apex:outputPanel>
+                           </td>
+                            <td >{!spa.opportunity.Account.name}-{!spa.opportunity.Account.billingcity},{!spa.opportunity.Account.billingstate}</td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.OTG_CY_1__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.Ending_Inventory_CY_1__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.Ending_Inventory_Projection_CY__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.ProjectedEndingInventoryCY__c}" /> </apex:outputText></td>
+                            <apex:outputPanel rendered="{!If(recordtype == 'TerritoryCPSalesPlan',true,false)}" >
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.CY_1_Inventory_OTG__c}" /> </apex:outputText></td>
+                            </apex:outputPanel> 
+                            <apex:outputPanel rendered="{!If(recordtype == 'DistrictCPSalesPlan',true,false)}" >
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.RolledUpCY1InventoryOTG__c}" /> </apex:outputText></td>
+                            </apex:outputPanel>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.OTG_FRCST_CY__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.OTG_CY__c}" /> </apex:outputText></td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!If(recordtype == 'Territory_Seeds_Sales_Plan' || recordtype == 'District_Seeds_Sales_Plan',true,false)}" >
+                <thead>
+                    <tr>
+                        <th scope="col"><a href="/apex/PopulateOli?id={!ParentOppId}&sfname=default"  target="_self">Go to Forecast</a></th>
+                        <th scope="col"></th>
+                        <th scope="col">CY-2 Sales</th>
+                        <th scope="col">CY-1 Sales</th>
+                        <th scope="col">CY Planned Sales</th>
+                        <th scope="col">CY+1 Forecast sales</th>
+                        <th scope="col">CY Q4 Planned Ship</th>
+                        <th scope="col">CY Actual Sales</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold;">Rolled up Values</td>
+                        <td style="font-weight:bold;">{!Header.product2.name}</td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.FNS_CY_2__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.FNS_CY_1__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_up_CY_Planned_Sales__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_up_CY_1_Forecast_Sales__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rtlr_Plnd_CY_Q4_Ship__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.FNS_CY_Actual__c}" /> </apex:outputText></td>
+                    </tr>
+                    
+                    <apex:repeat value="{!childoliList}" var="spa">
+                        <tr>
+                           <td>
+                                <!--Child OLI List-->
+                           <apex:outputPanel rendered="{!IF((spa.opportunityid != 'null' || spa.opportunityid != ''),true,false)}"><a href="/apex/PopulateOli?id={!spa.opportunityid}&sfname=default"  target="_blank">Click here</a> </apex:outputPanel>
+                           </td>
+                            <td >{!spa.opportunity.Account.name}-{!spa.opportunity.Account.billingcity},{!spa.opportunity.Account.billingstate}</td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY_2__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY_1__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.CY_1_Forecast_Sales__c}" /> </apex:outputText></td>
+                            <apex:outputPanel rendered="{!If(recordtype == 'Territory_Seeds_Sales_Plan',true,false)}" >
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.Q4_Planned_Ship_CY__c}" /> </apex:outputText></td>
+                            </apex:outputPanel> 
+                            <apex:outputPanel rendered="{!If(recordtype == 'District_Seeds_Sales_Plan',true,false)}" >
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.Rtlr_Plnd_CY_Q4_Ship__c}" /> </apex:outputText></td>
+                            </apex:outputPanel>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY_Actual__c}" /> </apex:outputText></td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!If(recordtype == 'DistributorCPSalesPlan',true,false)}" >
+                <thead>
+                    <tr>
+                        <th scope="col"><a href="/apex/PopulateOli?id={!ParentOppId}&sfname=default"  target="_self">Go to Forecast</a></th>
+                        <th scope="col"></th>
+                        <th scope="col">CY-2 OTG Units</th>
+                        <th scope="col">CY-1 OTG Units</th>
+                        <th scope="col">CY-1 OTG @ SDP</th>
+                        <th scope="col">CY OTG <BR/>Forecast</th>
+                        <th scope="col">CY OTG <BR/>Forecast @ SDP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold;">Rolled up Values</td>
+                        <td style="font-weight:bold;">{!Header.product2.name}</td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_CY_2_OTG_Units_Field_UOM__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_CY_1_OTG_Units_Field_UOM__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_CY_1_OTG_Value_SDP__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_CY_OTG_Forecast_Field_UOM__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_CY_OTG_Forecast_SDP_Field_UOM__c}" /> </apex:outputText></td>
+                    </tr>
+                    
+                    <apex:repeat value="{!childoliList}" var="spa">
+                        <tr>
+                           <td>
+                                <!--Child OLI List-->
+                           <apex:outputPanel rendered="{!IF((spa.opportunityid != 'null' || spa.opportunityid != ''),true,false)}"><a href="/apex/PopulateOli?id={!spa.opportunityid}&sfname=default"  target="_blank">Click here</a> </apex:outputPanel>
+                           </td>
+                            <td >{!spa.opportunity.Account.name}-{!spa.opportunity.Account.billingcity},{!spa.opportunity.Account.billingstate}</td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.CY_2_OTG_Units_Field_UOM__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.CY_1_OTG_Units_Field_UOM__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.OTG_SDP_CY_1__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.CY_OTG_Forecast_Field_UOM__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.OTG_CY_Forecast_SDP__c}" /> </apex:outputText></td>
+                            
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!If(recordtype == 'DistributorSeedsSalesPlan' || recordtype == 'SeedsRetailerHeadOfficeSalesPlan',true,false)}" >
+                <thead>
+                    <tr>
+                        <th scope="col"><a href="/apex/PopulateOli?id={!ParentOppId}&sfname=default"  target="_self">Go to Forecast</a></th>
+                        <th scope="col"></th>
+                        <th scope="col">MY FY Planned Ship Bulk</th>
+                        <th scope="col">MY FY Planned Ship Totes</th>                        
+                        <th scope="col">MY Q4 Planned Ship Bulk</th>
+                        <th scope="col">MY Q4 Planned Ship Totes</th>                        
+                        <th scope="col">MY Q1+Q2 Planned Ship Bulk</th>
+                        <th scope="col">MY Q1+Q2 Planned Ship Totes</th>
+                        <th scope="col">MY Planned FNS</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold;">Rolled up Values</td>
+                        <td style="font-weight:bold;">{!Header.product2.name}</td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_MY_FY_Planned_Ship_Bulk__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_MY_FY_Planned_Ship_Totes__c}" /> </apex:outputText></td>                        
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rtlr_Plnd_CY_Q4_Ship__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_MY_Q4_Planned_Ship_Totes__c}" /> </apex:outputText></td>                        
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_MY_Q1_Q2_Planned_Ship__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_MY_Q1_Q2_Planned_Ship_Totes__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_MY_Planned_FNS__c}" /> </apex:outputText></td>                        
+                    </tr>
+                    
+                    <apex:repeat value="{!childoliList}" var="spa">
+                        <tr>
+                           <td>
+                                <!--Child OLI List-->
+                           <apex:outputPanel rendered="{!IF((spa.opportunityid != 'null' || spa.opportunityid != ''),true,false)}"><a href="/apex/PopulateOli?id={!spa.opportunityid}&sfname=default"  target="_blank">Click here</a> </apex:outputPanel>
+                           </td>
+                            <td >{!spa.opportunity.Account.name}-{!spa.opportunity.Account.billingcity},{!spa.opportunity.Account.billingstate}</td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.plnd_CY_stock_odr__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.MY_FY_Planned_Ship_Totes__c}" /> </apex:outputText></td>                            
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.Q4_Planned_Ship_CY__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.MY_Q4_Planned_Ship_Totes__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.MY_Q1_Q2_Planned_Ship__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.MY_Q1_Q2_Planned_Ship_Totes__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY__c}" /> </apex:outputText></td>                            
+                        </tr>                   </apex:repeat>
+                </tbody>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!If(recordtype == 'CPRetailerHeadOfficeSalesPlan',true,false)}" >
+                <thead>
+                    <tr>
+                        <th scope="col"><a href="/apex/PopulateOli?id={!ParentOppId}&sfname=default"  target="_self">Go to Forecast</a></th>
+                        <th scope="col"></th>
+                        <th scope="col">CY Projected Ending <br/>Inventory Units</th>
+                        <th scope="col">CY-1 Retail OTG Units</th>
+                        <th scope="col">Retail CY OTG Forecast</th>
+                        <th scope="col">CY-1 Retail Ending <br/>Inventory Units</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold;">Rolled up Values</td>
+                        <td style="font-weight:bold;">{!Header.product2.name}</td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.RolledUpCYProjectedEndingInventory__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.OTG_CY_1__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.RolledupCYOTGForecast__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_Ending_Inventory_CY_1__c}" /> </apex:outputText></td>
+                    </tr>
+                    
+                    <apex:repeat value="{!childoliList}" var="spa">
+                        <tr>
+                           <td>
+                                <!--Child OLI List-->
+                           <apex:outputPanel rendered="{!IF((spa.opportunityid != 'null' || spa.opportunityid != ''),true,false)}"><a href="/apex/PopulateOli?id={!spa.opportunityid}&sfname=default"  target="_blank">Click here</a> </apex:outputPanel>
+                           </td>
+                            <td >{!spa.opportunity.Account.name}-{!spa.opportunity.Account.billingcity},{!spa.opportunity.Account.billingstate}</td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.ProjectedEndingInventoryCY__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.OTG_CY_1__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.OTG_FRCST_CY__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.Ending_Inventory_CY_1__c}" /> </apex:outputText></td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+                </apex:outputPanel>
+                
+                 <apex:outputPanel rendered="{!If(recordtype == 'CU_CPSalesPlan',true,false)}" >
+                <thead>
+                    <tr>
+                        <th scope="col"><a href="/apex/PopulateOli?id={!ParentOppId}&sfname=default"  target="_self">Go to Forecast</a></th>
+                        <th scope="col"></th>
+                        <th scope="col">CY-1 <br/> OTG Units</th>
+                        <th scope="col">CY-1 <br/> Ending Inventory Units</th>
+                        <th scope="col">CY <br/>OTG Forecast</th>
+                        <th scope="col">CY <br/>Sell In Plan</th>
+                        <th scope="col">CY <br/>Projected Ending<br/>Inventory Units</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold;">Rolled up Values</td>
+                        <td style="font-weight:bold;">{!Header.product2.name}, UOM=</td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.CY_1_Whole_Sale_OTG_Units__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Ending_Inventory_CY_1__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.RolledupCYOTGForecast__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.CY_Planned_Sales1__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.RolledUpCYProjectedEndingInventory__c}" /> </apex:outputText></td>
+                    </tr>
+                    
+                    <apex:repeat value="{!childoliList}" var="spa">
+                        <tr>
+                           <td>
+                                <!--Child OLI List-->
+                           <apex:outputPanel rendered="{!IF((spa.opportunityid != 'null' || spa.opportunityid != ''),true,false)}"><a href="/apex/PopulateOli?id={!spa.opportunityid}&sfname=default"  target="_blank">Click here</a> </apex:outputPanel>
+                           </td>
+                            <td >{!spa.opportunity.Account.name}-{!spa.opportunity.Account.billingcity},{!spa.opportunity.Account.billingstate}</td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.CY_1_Whole_Sale_OTG_Units__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.Ending_Inventory_CY_1__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.OTG_FRCST_CY__c}" /> </apex:outputText></td>           
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.CY_Distributor_Plan_to_Roll_Up__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.ProjectedEndingInventoryCY__c}" /> </apex:outputText></td>           
+                            
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+                </apex:outputPanel>
+                
+                <apex:outputPanel rendered="{!If(recordtype == 'CUSeedsSalesPlan',true,false)}" >
+                <thead>
+                    <tr>
+                        <th scope="col"><a href="/apex/PopulateOli?id={!ParentOppId}&sfname=default"  target="_self">Go to Forecast</a></th>
+                        <th scope="col"></th>
+                        <th scope="col">MY-2 FNS</th>
+                        <th scope="col">MY-1 FNS</th>
+                        <th scope="col">MY Planned FNS</th>
+                        <th scope="col">MY Actual FNS</th>
+                        <th scope="col">MY Planned Stock Orders</th>
+                        <th scope="col">MY Q4 Planned Ship</th>
+                        <th scope="col">MY+1 Forecast sales</th>
+                   </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold;">Rolled up Values</td>
+                        <td style="font-weight:bold;">{!Header.product2.name}</td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.FNS_CY_2__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.FNS_CY_1__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rolled_Up_MY_Planned_FNS__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.FNS_CY_Actual__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.plnd_CY_stock_odr__c}" /> </apex:outputText></td>
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.Rtlr_Plnd_CY_Q4_Ship__c}" /> </apex:outputText></td>                        
+                        <td style="font-weight:bold;"><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!Header.CY_1_Forecast_Sales__c}" /> </apex:outputText></td>
+                    </tr>
+                    
+                    <apex:repeat value="{!childoliList}" var="spa">
+                        <tr>
+                           <td>
+                                <!--Child OLI List-->
+                           <apex:outputPanel rendered="{!IF((spa.opportunityid != 'null' || spa.opportunityid != ''),true,false)}"><a href="/apex/PopulateOli?id={!spa.opportunityid}&sfname=default"  target="_blank">Click here</a> </apex:outputPanel>
+                           </td>
+                            <td >{!spa.opportunity.Account.name}-{!spa.opportunity.Account.billingcity},{!spa.opportunity.Account.billingstate}</td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY_2__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY_1__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY_Actual__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.plnd_CY_stock_odr__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.Q4_Planned_Ship_CY__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.FNS_CY_ALCTD__c}" /> </apex:outputText></td>
+                            <td ><apex:outputText value="{0, number, ###,##0}"> <apex:param value="{!spa.CY_1_Forecast_Sales__c}" /> </apex:outputText></td>
+                        </tr>
+                    </apex:repeat>
+                </tbody>
+                </apex:outputPanel>
+                
+                </table>
+            </div>
+       </div>
+ 
+  </body>
+ </apex:form>
+</apex:page>

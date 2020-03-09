@@ -1,0 +1,31 @@
+<apex:page standardController="Cheque_Run__c" extensions="ChequeRun_ControllerExt" tabStyle="Cheque_Run__c">
+    <apex:pageMessages />
+    <apex:sectionHeader title="Confirmation" subtitle="New Cheque Run: {!newChequeRun.Name}"/>
+    <apex:form >
+        <apex:outputText value="Settlements selected: {!settlements_selected.size} (${!totalAmount})" style="font-size:14pt"/><br />
+        <apex:outputText value="Payments to Generate: {!settlementPayments.size}" style="font-size:14pt"/>
+        <apex:pageBlock >
+            <apex:pageblockButtons >
+                <apex:commandButton value="Save" action="{!SaveChequeRun}"/>
+                <apex:commandButton value="Cancel" action="{!CancelAndRollback}"/>
+            </apex:pageblockButtons>
+            <apex:pageBlockTable value="{!settlementPayments}" var="sp">
+                <!-- Name field does not exist yet... 
+                <apex:column headerValue="Payment No." value="{!sp.Name}"/>
+                -->
+                <apex:column headerValue="Account" value="{!sp.Account__c}" />
+                <apex:column headerValue="Case" value="{!sp.Case__c}" />
+                <apex:column headerValue="Type" value="{!sp.Type__c}" />
+                <apex:column headerValue="Payment Status" value="{!sp.Status__c}" />
+                <apex:column headerValue="Amount" value="{!sp.Amount__c}" />
+                <apex:column headerValue="Pay-To" value="{!sp.Pay_To__c}" />
+                <apex:column headerValue="Pay-To Name" value="{!sp.Pay_To_Name__c}" />
+                <apex:column headerValue="Created Date">
+                    <apex:outputText value="{0,date,MM'/'dd'/'yyyy}">
+                        <apex:param value="{!today}" /> 
+                    </apex:outputText>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

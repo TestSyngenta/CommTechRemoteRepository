@@ -1,0 +1,134 @@
+<!--/********************************************************************************************
+* Page:      ConsolidatedOLI
+
+* ------------------------------------------------------------------------------------------
+* Date          Name                    Modification Description
+* ------------------------------------------------------------------------------------------     
+* 28-May-2018    Sravani Dasari         Created  (US-314301)
+* ********************************************************************************************/     -->
+<apex:page standardController="Business_Plan__c" extensions="ConsolidatedOLIHandler" action="{!salesPlanError}" lightningStylesheets="true" standardStylesheets="false" showHeader="false">
+    <apex:pageMessages id="showmsg"></apex:pageMessages>
+    <html>
+        <head>
+            <apex:includeScript value="/support/console/32.0/integration.js"></apex:includeScript>
+            <apex:slds />
+           <apex:includeScript value="{!$Resource.DetectSF1}"/>
+            <script>
+            
+            function goToBp(){
+                var bpId = '{!bpId}';  
+                if( ForceUI.isSalesforce1() ) {
+                    // Salesforce1 navigation
+                    sforce.one.navigateToSObject('{!bpId}');
+                }
+                else {   
+                    window.location.href = '/'+bpId;  
+                }
+            }
+            </script>
+        </head>
+        <body >
+            <div>
+                <div>
+                    <div class="slds-page-header" role="banner">
+                        <!-- PAGE HEADER TOP ROW -->
+                        <div class="slds-grid">
+                            <!-- PAGE HEADER / ROW 1 / COLUMN 1 -->
+                            <div class="slds-col">
+                                <!-- HEADING AREA -->
+                                <!-- MEDIA OBJECT = FIGURE + BODY -->
+                                <div class="slds-media">
+                                    <div class="slds-media__figure">
+                                        <svg aria-hidden="true" class="slds-icon slds-icon--large slds-icon-standard-user">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#account')}"></use>
+                                        </svg>
+                                    </div>
+                                    <apex:outputPanel rendered="true"  layout="block" style="overflow:auto;width:750px" >
+                                        <div class="slds-media__body">
+                                            <p class="slds-text-heading--label" >Account</p>
+                                            <h1 class="slds-text-heading--medium" >{!AccName}</h1>
+                                        </div>
+                                    </apex:outputPanel>
+                                    
+                                </div>
+                                <!-- / MEDIA OBJECT -->
+                                <!-- HEADING AREA -->
+                            </div>
+                            <!-- / PAGE HEADER / ROW 1 / COLUMN 1 -->
+                            <!-- PAGE HEADER / ROW 1 / COLUMN 2 -->
+                            <div class="slds-col slds-no-flex slds-align-middle">
+                                <div class="slds-button-group" role="group">
+                                 
+                                    <!--JS method to make the buttons SF1 comaptible -->      
+                                    
+                                    <div style="{!IF(bpId != null,'','display:none')}">
+                                    <input type="button" class="slds-button slds-button--neutral" rendered="{!NOT(ISBLANK(bpId))}" value="{!$Label.SP_Btn_GotoBP}" onClick="goToBp()" /></div>
+                         		</div>
+                                
+                            </div>
+                            
+                            <!-- / PAGE HEADER / ROW 1 / COLUMN 2 -->
+                        </div>    
+                        
+                        <div class="slds-grid slds-page-header__detail-row">
+                            <!-- PAGE HEADER / ROW 1 / COLUMN 1 -->
+                            <div class="slds-col--padded slds-size--1-of-4">
+                                <dl>
+                                    <dt>
+                                        <p class="slds-text-heading--label slds-truncate">{!$Label.SP_lbl_Year}</p>
+                                    </dt>
+                                    <dd>
+                                        <p class="slds-text-body--regular slds-truncate">{!Year}</p>
+                                    </dd>
+                                </dl>
+                            </div>
+                            
+                            <!-- PAGE HEADER / ROW 1 / COLUMN 3 -->
+                            <div class="slds-col--padded slds-size--1-of-4">
+                                
+                                <dl>
+                                    <dt>
+                                        <p class="slds-text-heading--label slds-truncate">{!$Label.SP_lbl_SalesRep}</p>
+                                    </dt>
+                                    <dd>
+                                        <p class="slds-text-body--regular slds-truncate" id="statusField">{!owner}</p>
+                                    </dd>
+                                </dl>
+                             </div>
+                            <!--PAGE HEADER / ROW 1 / COLUMN 4-->
+                            <div class="slds-col--padded slds-size--1-of-4">
+                             <dl>
+                                        <dt>
+                                            <p class="slds-text-heading--label slds-truncate">{!$Label.SP_lbl_Territory}</p>
+                                        </dt>
+                                        <dd>
+                                            <p class="slds-text-body--regular slds-truncate" id="statusField">{!territory}</p>
+                                        </dd>
+                             </dl>
+                            </div>
+                            <div class="slds-col--padded slds-size--1-of-4">
+                                <dl>
+                                    <dt>
+                                        <p class="slds-text-heading--label slds-truncate">{!$Label.SP_lbl_SalesOrg}</p>
+                                    </dt>
+                                    <dd>
+                                        <p class="slds-text-body--regular slds-truncate" id="statusField">{!salesOrg}</p>
+                                    </dd>
+                                </dl>
+                                    
+                            </div>
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+		</body>
+    </html>
+    <apex:outputPanel rendered="{!!errorExists}">
+        <div id="iframeDivHolder">
+            <apex:include pageName="GBEmbed_BusinessPlan"/>
+        </div>
+    </apex:outputPanel> 
+    
+    
+</apex:page>

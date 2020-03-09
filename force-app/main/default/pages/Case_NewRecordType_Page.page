@@ -1,0 +1,47 @@
+<apex:page standardcontroller="Case" extensions="Case_NewRecordType_Controller" action="{!SkipSelectionScreen}">
+  <style>
+      .firstcolumn {
+          padding:5px;
+          border-width:0px 1px 1px 1px; 
+          border-color:#E0E3E5; 
+          border-style:solid;
+          font-weight: bold;
+      }
+      .secondcolumn {
+          padding:5px;
+          border-width:0px 1px 1px 0px; 
+          border-color:#E0E3E5; 
+          border-style:solid;
+      }
+      .columnheader {
+          padding:5px;
+          border-width:1px 1px 1px 1px;
+          border-color:#E0E3E5; 
+          border-style:solid;
+          background-color:#F2F3F3;
+      }
+  </style>
+  <apex:PageMessages />
+  <apex:Form >
+      <apex:sectionHeader title="New Case" subtitle="Select Case Record Type" description="Select a record type for the new case."/>
+      <apex:PageBlock >
+          <apex:PageBlockSection columns="1">
+              <apex:OutputField value="{!parent.RecordType.Name}" label="Account Record Type"/>
+              <apex:selectList value="{!RecordTypeId}" label="Case Record Type" onchange="refresh()">
+                  <apex:selectOptions value="{!rtOptions}"/>
+              </apex:selectList>
+          </apex:PageBlockSection>
+
+          <apex:PageBlockButtons location="bottom">
+              <apex:commandButton value="Continue" action="{!GoToEditPage}" disabled="{!ContinueButtonStatus}"/>
+              <apex:commandButton value="Cancel" action="{!Cancel}"/>
+          </apex:PageBlockButtons>
+       </apex:PageBlock>
+       
+       <apex:outputText value="Available Case Record Types" style="font-weight: bold;padding:5px;" />
+       <apex:dataTable value="{!rtList}" var="opt">
+           <apex:column value="{!opt.Name}" headerValue="Record Type" styleClass="firstcolumn" headerClass="columnheader"/>
+           <apex:column value="{!opt.Description}" headerValue="Description" styleClass="secondcolumn" headerClass="columnheader"/>
+       </apex:dataTable>
+  </apex:Form>
+</apex:page>

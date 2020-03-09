@@ -1,0 +1,29 @@
+<apex:page standardController="Account" extensions="AccountDetails_Acreage_Controller" showHeader="false">
+<script src="//cdn.ckeditor.com/4.5.3/standard/ckeditor.js"></script>
+    <apex:stylesheet value="{!URLFOR($Resource.CSS_MyDataTable)}"/>
+    <apex:dataTable value="{!AcreageList}" var="p" styleClass="MyDataTable" id="hoverTable" >
+        <apex:column headerValue="Crop" value="{!p.Crop_description_formula__c}">
+            <apex:facet name="footer"><apex:outputText value="Total"/></apex:facet>
+        </apex:column>
+        <apex:column headerValue="Acres" value="{!p.Acres__c}" style="text-align:center">
+            <apex:facet name="footer">
+                <apex:outputText value="{0, number}">
+                    <apex:param value="{!totalAcres}" />
+                </apex:outputText>
+            </apex:facet>
+        </apex:column>
+        <apex:column headerValue="Bio Potential" value="{!p.BioPotential__c}" style="text-align:center">
+            <apex:facet name="footer">
+                <apex:outputText value="{0, number, currency}">
+                    <apex:param value="{!totalBP}"/>
+                </apex:outputText>
+            </apex:facet>
+        </apex:column>
+        <apex:column value="{!p.Year__c}" headerValue="Year" style="text-align:center">
+            <apex:facet name="footer">
+                <apex:outputText value="-"/>
+            </apex:facet>
+        </apex:column>
+    </apex:dataTable>
+
+</apex:page>
