@@ -1,3 +1,8 @@
 <apex:page standardController = "Programs__c" extensions = "sendDatatoContacts" action="{!sendData}">
-
+    <apex:form >  
+        <apex:pageBlock >  
+            <apex:pageMessages />  
+            Status  
+    </apex:pageBlock>  
+</apex:form>   
 </apex:page>
