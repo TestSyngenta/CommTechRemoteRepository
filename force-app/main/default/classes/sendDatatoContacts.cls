@@ -21,7 +21,7 @@ public with sharing class sendDatatoContacts {
         for(Contact con : contactId){
             for(Programs__c onerecord : con.Programs__r ){
                 if(onerecord.Actual_Cashback__c != null && (onerecord.Payout_Status__c == 'FINISH_PAYOUT' || con.Programs__r.Size() > 1 )){
-                 con.AgriclimeRefNumber__c = onerecord.Program_Reference__c;
+                 //con.AgriclimeRefNumber__c = onerecord.Program_Reference__c;
                  //con.Payout_Details__c += '<span style ="font-size:18px;"><strong>Actual Cash Back Amount: ' +'$' +onerecord.Actual_Cashback__c+' '+'CAD' +'</strong>';
                  con.Payout_Details__c+= '<span style="font-size:20px;"><span style="color:#71840a;">Field: <strong>farmName</strong></span></span><br><span style="font-size:18px;">Risk Period Start Date: <strong>'+onerecord.Risk_Start_Period__c+'</strong><br> Rainfall Threshold: <strong>'+onerecord.Rainfall_Threshold__c+'</strong><br>Rainfall Exit Ppoint: <strong>'+onerecord.Rainfall_Exit_Point__c+'</strong><br>Actual Rainfall: <strong>'+onerecord.Actual_Rainfall__c+'</strong><br>Actual Cashback: <strong>'+onerecord.Actual_Cashback__c+'</strong><br>&nbsp;<br>';
                  con.Agriclime_Total_Payout__c +=onerecord.Actual_Cashback__c;
