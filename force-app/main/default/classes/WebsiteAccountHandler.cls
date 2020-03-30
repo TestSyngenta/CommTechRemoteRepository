@@ -28,7 +28,7 @@ public with sharing class WebsiteAccountHandler {
                 List<CampaignMember> members = new List<CampaignMember>();                
                 farmtest = (FarmWrapper)JSON.deserialize(w.wint__Any__c, FarmWrapper.class); 
                 Map<Id,Contact> conList = new Map<Id,Contact>();
-                Integer Area = 0;
+                Double Area = 0;
                 Double potentialCashback = 0;
                 Double committedPurchase = 0;                
                 for(Contact e: contactId){
@@ -38,7 +38,7 @@ public with sharing class WebsiteAccountHandler {
                 }                                	               
                 for(FarmWrapper.cls_farms fm : farmtest.farms){
                     String farmName = (fm.name !=null ? fm.name : '*No Field Name Specified*'); //fm.name;
-                    Integer committedArea = fm.committedArea;
+                    Double committedArea = fm.committedArea;
                     Area += committedArea;
                     String commitedAreaUoM = fm.commitedAreaUoM;                    
                     Decimal CashBack = fm.cashback.setScale(2);

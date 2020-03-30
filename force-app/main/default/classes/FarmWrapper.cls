@@ -51,7 +51,7 @@ public class FarmWrapper {
    public class cls_farms {
         public cls_id id;
         public cls_address address;
-        public Integer committedArea;	//500
+        public Double committedArea;	//500
         public String commitedAreaUoM;	//HECTARE
         public String cashbackCurrency;	//AUD
         public Double actualCashback;	//20081.1
