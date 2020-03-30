@@ -96,9 +96,6 @@ public with sharing class sendDatatoContacts {
   
         //ApexPages.addmessage(new ApexPages.message(ApexPages.severity.CONFIRM,'Records were sent Successfully'));
         return null;
-
-   
-
 }
   
            
