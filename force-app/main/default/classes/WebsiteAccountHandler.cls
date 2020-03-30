@@ -38,7 +38,7 @@ public with sharing class WebsiteAccountHandler {
                 }                                	               
                 for(FarmWrapper.cls_farms fm : farmtest.farms){
                     String farmName = (fm.name !=null ? fm.name : '*No Field Name Specified*'); //fm.name;
-                    Double committedArea = fm.committedArea;
+                    Integer committedArea = fm.committedArea.intValue();
                     Area += committedArea;
                     String commitedAreaUoM = fm.commitedAreaUoM;                    
                     Decimal CashBack = fm.cashback.setScale(2);
@@ -71,7 +71,7 @@ public with sharing class WebsiteAccountHandler {
                         String quantityUoM = purchase.quantityUoM;
                         String amountCurrency = purchase.amountCurrency;
                         //String prdDetails = prdLabel +','+' '+ '$'+ amounts +' '+amountCurrency;
-                        String prdDetails = prdLabel +','+' '+ '$'+ amounts +' '+amountCurrency;                         
+                        String prdDetails = prdLabel +','+' '+ '$'+ amounts +' '+'CAD';                         
                         productDetails.add(prdDetails);
                     }
                     for(FarmWrapper.cls_riskPeriods Periods : fm.riskPeriods){
