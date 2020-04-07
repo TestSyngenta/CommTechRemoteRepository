@@ -52,13 +52,13 @@ public class Programs_TriggerHandler {
                 //con.Agriclime_Total_Payout__c +=onerecord.Actual_Cashback__c;
                 if(con.Agriclime_Total_Payout__c != 0 && (onerecord.Payout_Status__c == 'FINISH_PAYOUT' || con.Programs__r.Size() > 1 )){
                  con.Agriclime_Payout_Details__c+= '<span style="font-size:20px;"><span style="color:#71840a;">Field: <strong> </strong></span></span><br><span style="font-size:18px;"><span style="font-size:18px;">Longitude: <strong>'+onerecord.longitude__c+'</strong><br><span style="font-size:18px;">Latitude: <strong>'+onerecord.latitude__c+'</strong><br>Risk Period Start Date: <strong>'+onerecord.Risk_Start_Period__c+'</strong><br> Rainfall Threshold: <strong>'+onerecord.Rainfall_Threshold__c+'</strong><br>Rainfall Exit Ppoint: <strong>'+onerecord.Rainfall_Exit_Point__c+'</strong><br>Actual Rainfall: <strong>'+onerecord.Actual_Rainfall__c+'</strong><br>Actual Cashback: <strong>'+onerecord.Actual_Cashback__c+'</strong><br>&nbsp;<br>';            
-                 CampaignMember qualifiedMember = new CampaignMember(CampaignId  = '70163000000OZFa', ContactId = con.Id, Status = 'Qualified-Payout');
+                 CampaignMember qualifiedMember = new CampaignMember(CampaignId  = '7013m0000012fUUAAY', ContactId = con.Id, Status = 'Qualified-Payout');
                  database.upsert (QualifiedMember,false);
                  System.debug('actual cashback is:' +onerecord.Actual_Cashback__c);
                  
                 }
                 else if (con.Agriclime_Total_Payout__c == 0 && oneRecord.Payout_Status__c == 'FINISH_NO_PAYOUT') { 
-                        CampaignMember notQualifiedMember = new CampaignMember(CampaignId  = '70163000000OZFa', ContactId = con.Id, Status = 'Qualified-No-Payout');
+                        CampaignMember notQualifiedMember = new CampaignMember(CampaignId  = '7013m0000012fUUAAY', ContactId = con.Id, Status = 'Qualified-No-Payout');
                         database.insert (notQualifiedMember,false);
                 }
                 con.Payout_Email_Sent__c = false;
