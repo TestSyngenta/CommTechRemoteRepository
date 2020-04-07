@@ -31,7 +31,7 @@ public class Programs_TriggerHandler {
     }
 
     Public static void AgriclimeFulfilmentEmail(Programs__c[] listofAgriclimeProgramsRecord){ 
-        List<Programs__c> records = [SELECT Id, Contact__c, Risk_Start_Period__c, Actual_Cashback__c, Payout_Status__c, Actual_Rainfall__c, Program_Reference__c, Rainfall_Threshold__c, Rainfall_Exit_Point__c FROM Programs__c WHERE Id =: listofAgriclimeProgramsRecord];        
+        List<Programs__c> records = [SELECT Id, Contact__c, Risk_Start_Period__c, Actual_Cashback__c, Payout_Status__c, Actual_Rainfall__c, Program_Reference__c, Rainfall_Threshold__c, Rainfall_Exit_Point__c, Longitude__c, Latitude__c FROM Programs__c WHERE Id =: listofAgriclimeProgramsRecord];        
         Set<Id> contactIds = new Set<Id>();
         Map<Id,Contact> conList = new Map<Id,Contact>();
        
@@ -39,37 +39,33 @@ public class Programs_TriggerHandler {
             contactIds.add(record.Contact__c);
         }
         
-        List<Contact> contactId = [SELECT id, AgriclimeRefNumber__c, (SELECT Id, Risk_Start_Period__c, Actual_Cashback__c, Payout_Status__c, Actual_Rainfall__c, Program_Reference__c, Rainfall_Threshold__c, Rainfall_Exit_Point__c FROM Programs__r),  Payout_Email_Sent__c, Payout_Details__c, Agriclime_Total_Payout__c FROM Contact WHERE id =: contactIds ];
+        List<Contact> contactId = [SELECT id, AgriclimeRefNumber__c, (SELECT Id, Risk_Start_Period__c, Actual_Cashback__c, Payout_Status__c, Actual_Rainfall__c, Program_Reference__c, Rainfall_Threshold__c, Rainfall_Exit_Point__c, Longitude__c, Latitude__c FROM Programs__r),  Payout_Email_Sent__c, Agriclime_Payout_Details__c, Agriclime_Total_Payout__c FROM Contact WHERE id =: contactIds ];
         for(Contact e : ContactId){
-            e.Payout_Details__c = ('');
+            e.Agriclime_Payout_Details__c = ('');
             e.Agriclime_Total_Payout__c = 0;
         }
         for(Contact con : contactId){
+            for(Programs__c totalPayout : con.Programs__r ){
+                con.Agriclime_Total_Payout__c +=totalPayout.Actual_Cashback__c;
+            }
             for(Programs__c onerecord : con.Programs__r ){
-                if(onerecord.Actual_Cashback__c != null && (onerecord.Payout_Status__c == 'FINISH_PAYOUT' || con.Programs__r.Size() > 1 )){
-                 //con.AgriclimeRefNumber__c = onerecord.Program_Reference__c;
-                 //con.Payout_Details__c += '<span style ="font-size:18px;"><strong>Actual Cash Back Amount: ' +'$' +onerecord.Actual_Cashback__c+' '+'CAD' +'</strong>';
-                 con.Payout_Details__c+= '<span style="font-size:20px;"><span style="color:#71840a;">Field: <strong>farmName</strong></span></span><br><span style="font-size:18px;">Risk Period Start Date: <strong>'+onerecord.Risk_Start_Period__c+'</strong><br> Rainfall Threshold: <strong>'+onerecord.Rainfall_Threshold__c+'</strong><br>Rainfall Exit Ppoint: <strong>'+onerecord.Rainfall_Exit_Point__c+'</strong><br>Actual Rainfall: <strong>'+onerecord.Actual_Rainfall__c+'</strong><br>Actual Cashback: <strong>'+onerecord.Actual_Cashback__c+'</strong><br>&nbsp;<br>';
-                 con.Agriclime_Total_Payout__c +=onerecord.Actual_Cashback__c;
-                 CampaignMember qualifiedMember = new CampaignMember(CampaignId  = '70163000000OZFa', ContactId = con.Id, Status = 'Qualified');
+                //con.Agriclime_Total_Payout__c +=onerecord.Actual_Cashback__c;
+                if(con.Agriclime_Total_Payout__c != 0 && (onerecord.Payout_Status__c == 'FINISH_PAYOUT' || con.Programs__r.Size() > 1 )){
+                 con.Agriclime_Payout_Details__c+= '<span style="font-size:20px;"><span style="color:#71840a;">Field: <strong> </strong></span></span><br><span style="font-size:18px;"><span style="font-size:18px;">Longitude: <strong>'+onerecord.longitude__c+'</strong><br><span style="font-size:18px;">Latitude: <strong>'+onerecord.latitude__c+'</strong><br>Risk Period Start Date: <strong>'+onerecord.Risk_Start_Period__c+'</strong><br> Rainfall Threshold: <strong>'+onerecord.Rainfall_Threshold__c+'</strong><br>Rainfall Exit Ppoint: <strong>'+onerecord.Rainfall_Exit_Point__c+'</strong><br>Actual Rainfall: <strong>'+onerecord.Actual_Rainfall__c+'</strong><br>Actual Cashback: <strong>'+onerecord.Actual_Cashback__c+'</strong><br>&nbsp;<br>';            
+                 CampaignMember qualifiedMember = new CampaignMember(CampaignId  = '70163000000OZFa', ContactId = con.Id, Status = 'Qualified-Payout');
                  database.upsert (QualifiedMember,false);
-                 
                  System.debug('actual cashback is:' +onerecord.Actual_Cashback__c);
                  
                 }
-                else if (oneRecord.Actual_Cashback__c == 0 && oneRecord.Payout_Status__c == 'FINISH_NO_PAYOUT') { 
-                    //else if (oneRecord.Actual_Cashback__c == 0 ) { 
-                    //else{
-                        CampaignMember notQualifiedMember = new CampaignMember(CampaignId  = '70163000000OZFa', ContactId = con.Id, Status = 'Not Qualified');
+                else if (con.Agriclime_Total_Payout__c == 0 && oneRecord.Payout_Status__c == 'FINISH_NO_PAYOUT') { 
+                        CampaignMember notQualifiedMember = new CampaignMember(CampaignId  = '70163000000OZFa', ContactId = con.Id, Status = 'Qualified-No-Payout');
                         database.insert (notQualifiedMember,false);
-                    
-
                 }
                 con.Payout_Email_Sent__c = false;
         }       
-        conList.put(con.Id, con);
-        //Apexpages.addMessage(new ApexPages.message(ApexPages.severity.CONFIRM,'Payout Details Sent to Contacts Successfully'));     
+        conList.put(con.Id, con);     
     }
     Update ConList.values();
 }
+
 }
