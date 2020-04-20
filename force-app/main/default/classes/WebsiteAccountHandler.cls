@@ -20,14 +20,16 @@ public with sharing class WebsiteAccountHandler {
     
     public static void farmWrapperCalling(Set<id> triggernew){
         FarmWrapper farmtest;
-        List<wint__Website_Account__c> tempwebAcc = [SELECT id,wint__Contact__c,wint__Contact2__c,wint__Lead__c,wint__Any__c,wint__ReferenceNo__c,wint__FirstName__c,wint__LastName__c,wint__Company__c, wint__Street__c,wint__City__c, wint__Street2__c,wint__PostalCode__c, wint__State__c, wint__FarmName__c  FROM wint__Website_Account__c WHERE id IN :triggernew];      
+        List<wint__Website_Account__c> tempwebAcc = [SELECT id,wint__Contact__c, wint__Contact2__c, wint__Email__c, wint__Lead__c,wint__Any__c,wint__ReferenceNo__c,wint__FirstName__c,wint__LastName__c,wint__Company__c, wint__Street__c,wint__City__c, wint__Street2__c,wint__PostalCode__c, wint__State__c, wint__FarmName__c  FROM wint__Website_Account__c WHERE id IN :triggernew];      
         for(wint__Website_Account__c w : tempwebAcc){
-            if(w.wint__Contact__c != null ){
+            if(w.wint__Contact__c != null || w.wint__Lead__c != null ){
                 List <Contact> contactId = [SELECT id, AgriclimeProgramDetails__c FROM Contact WHERE id =: w.wint__Contact__c ];
+                List<Lead> LeadId = [SELECT id, Name, Email FROM Lead WHERE id =: w.wint__Lead__c ];
                 List<Campaign> campaigns = new List<Campaign>();
                 List<CampaignMember> members = new List<CampaignMember>();                
                 farmtest = (FarmWrapper)JSON.deserialize(w.wint__Any__c, FarmWrapper.class); 
                 Map<Id,Contact> conList = new Map<Id,Contact>();
+                Map<Id,Lead> leadList = new Map<Id, Lead>();
                 Double Area = 0;
                 Double potentialCashback = 0;
                 Double committedPurchase = 0;                
@@ -71,7 +73,7 @@ public with sharing class WebsiteAccountHandler {
                         String quantityUoM = purchase.quantityUoM;
                         String amountCurrency = purchase.amountCurrency;
                         //String prdDetails = prdLabel +','+' '+ '$'+ amounts +' '+amountCurrency;
-                        String prdDetails = prdLabel +','+' '+ '$'+ amounts +' '+'CAD';                         
+                        String prdDetails = prdLabel +','+' '+ '$'+ amounts +' '+amountCurrency;                         
                         productDetails.add(prdDetails);
                     }
                     for(FarmWrapper.cls_riskPeriods Periods : fm.riskPeriods){
@@ -97,9 +99,27 @@ public with sharing class WebsiteAccountHandler {
                         d.AgriclimeProgramDetails__c +='</strong></span></li> </ul> <p><span style="font-size:18px;"><strong></strong><br></span>';                        
                         conList.put(d.Id,d);                          
                     } 
+                    //if(Trigger.isinsert){
                     
-                    update conList.values();                      
-                }
+                //}   
+                    update conList.values();
+                    //update leadList.values();                     
+                }  
+                for(Lead ld : LeadId){
+                    if(w.wint__Email__c != null){
+                        Messaging.SingleEmailMessage singleMail = new Messaging.SingleEmailMessage();
+                        list<String> toAddresses = new List<String>{'cic.canada@syngenta.com'};
+                        singleMail.setToAddresses(toAddresses);
+                        singleMail.setSubject('Lead needs to be converted for :'+' ' +ld.Name);
+                        singleMail.setPlainTextBody('Please convert this lead to send out registration email to: ' +'<a href=' +System.URL.getSalesforceBaseUrl().toExternalForm()+'/'+ld.Id+' >'+ ld.Name+'</a> <br/>' + '<br>' + 'Email  address:</b>' +' '+ ld.Email);
+                        //singleMail.setHtmlBody('Please convert this lead to send out registration email to: <b> ' +ld.Name + '<br>' + 'Email  address:</b>' + ld.Email);
+                        singleMail.setHtmlBody('Please convert this lead to send out registration email to: <b> ' +'<a href=' +System.URL.getSalesforceBaseUrl().toExternalForm()+'/'+ld.Id+' >'+ ld.Name+'</a> <br/>' + '<br>' + 'Email  address :</b>' +' '+ ld.Email);
+                        Messaging.sendEMail(new Messaging.SingleEmailMessage[]{singleMail});
+                        //system.debug('lead is' +ld);
+
+                    }
+
+                }   
                 
             } 
             
