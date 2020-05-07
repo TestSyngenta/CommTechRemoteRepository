@@ -8,7 +8,7 @@
 * ----------------------------------------------------------------------------
 * Aakash                    06-Jan-2020            Created
 ***********************************************************************************************/
-public with sharing class WebsiteAccountHandler {
+ public with sharing class WebsiteAccountHandler {
     /********************************************************************************************
 * Method   : farmWrapperCalling
 * Description: Method to call farm wrapper class to deserialize the JSON data coming into webstie account   
@@ -73,7 +73,7 @@ public with sharing class WebsiteAccountHandler {
                         String quantityUoM = purchase.quantityUoM;
                         String amountCurrency = purchase.amountCurrency;
                         //String prdDetails = prdLabel +','+' '+ '$'+ amounts +' '+amountCurrency;
-                        String prdDetails = prdLabel +','+' '+ '$'+ amounts +' '+amountCurrency;                         
+                        String prdDetails = prdLabel +','+' '+ '$'+ amounts +' '+'CAD';                         
                         productDetails.add(prdDetails);
                     }
                     for(FarmWrapper.cls_riskPeriods Periods : fm.riskPeriods){
@@ -124,5 +124,5 @@ public with sharing class WebsiteAccountHandler {
             } 
             
         }                         
-    }      
+    }     
 }
