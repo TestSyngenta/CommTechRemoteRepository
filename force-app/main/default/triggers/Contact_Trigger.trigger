@@ -12,7 +12,7 @@
 trigger Contact_Trigger on Contact (before insert, before update, after insert, after update, after delete) {
     
     if (Trigger.isAfter){
-        if(UserInfo.getFirstName() <> 'Global'){
+        if(UserInfo.getFirstName() <> 'Global' ){
         if(UserInfo.getFirstName()=='Pardot'){
                 Contact_TriggerHandler.updateEmailMarketingFieldsExpressConsent(Trigger.new, Trigger.old);        
         }
@@ -24,7 +24,7 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         Contact_TriggerHandler.updateAccountContactDetails(Trigger.new, Trigger.old);
         Contact_TriggerHandler.updatePrimaryContact(Trigger.new, Trigger.old);
     }    
-    
+
     }
    if (Trigger.isBefore){   
        if(UserInfo.getProfileId()<>'00eo0000000K5iJAAS'){ 
