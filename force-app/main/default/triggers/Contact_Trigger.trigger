@@ -12,7 +12,7 @@
 trigger Contact_Trigger on Contact (before insert, before update, after insert, after update, after delete) {
     
     if (Trigger.isAfter){
-        if(UserInfo.getFirstName() <> 'Global' ){
+        if(UserInfo.getFirstName() <> 'Aakash' ){
         if(UserInfo.getFirstName()=='Pardot'){
                 Contact_TriggerHandler.updateEmailMarketingFieldsExpressConsent(Trigger.new, Trigger.old);        
         }
