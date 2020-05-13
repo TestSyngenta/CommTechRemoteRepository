@@ -20,6 +20,7 @@
     
     public static void farmWrapperCalling(Set<id> triggernew){
         FarmWrapper farmtest;
+        Map<Id,Contact> conList = new Map<Id,Contact>();
         List<wint__Website_Account__c> tempwebAcc = [SELECT id,wint__Contact__c, wint__Contact2__c, wint__Email__c, wint__Lead__c,wint__Any__c,wint__ReferenceNo__c,wint__FirstName__c,wint__LastName__c,wint__Company__c, wint__Street__c,wint__City__c, wint__Street2__c,wint__PostalCode__c, wint__State__c, wint__FarmName__c  FROM wint__Website_Account__c WHERE id IN :triggernew];      
         for(wint__Website_Account__c w : tempwebAcc){
             if(w.wint__Contact__c != null || w.wint__Lead__c != null ){
@@ -28,7 +29,7 @@
                 List<Campaign> campaigns = new List<Campaign>();
                 List<CampaignMember> members = new List<CampaignMember>();                
                 farmtest = (FarmWrapper)JSON.deserialize(w.wint__Any__c, FarmWrapper.class); 
-                Map<Id,Contact> conList = new Map<Id,Contact>();
+                //Map<Id,Contact> conList = new Map<Id,Contact>();
                 Map<Id,Lead> leadList = new Map<Id, Lead>();
                 Double Area = 0;
                 Double potentialCashback = 0;
@@ -102,7 +103,7 @@
                     //if(Trigger.isinsert){
                     
                 //}   
-                    update conList.values();
+                    //update conList.values();
                     //update leadList.values();                     
                 }  
                 for(Lead ld : LeadId){
@@ -123,6 +124,6 @@
                 
             } 
             
-        }                         
+        }   update conList.values();                      
     }     
 }
