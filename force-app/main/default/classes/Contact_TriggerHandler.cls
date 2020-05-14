@@ -467,6 +467,48 @@ public class Contact_TriggerHandler {
               
     }
     
+    public static void queueCreateInPardot(Contact[] newList){
+        
+        Integer i = 0;
+        for(Contact c: newList){
+            if(i > 50){
+                break;
+            }
+            
+            if(c.email <> null && c.pi__url__c == null && !System.IsBatch() && !System.IsQueueable() && !Test.isRunningTest()){
+                sendToPardot(c.Id, c.email);
+                i++;                  
+            }
+        }
+    
+    }
+    
+    
+    
+    @future (callout=true)
+    public static void sendToPardot(Id contactId, String email){
+         String apiKey = loginToPardot();
+         
+         /*System.Debug('API Key returned was ' + apiKey);*/
+         
+         String user_key = 'cd215fdd852b6c7e19038b14900d2f64';        
+         HttpRequest req = new HttpRequest();
+         HttpResponse res = new HttpResponse();
+         Http http = new Http();
+         
+         
+         req.setEndPoint('https://pi.pardot.com/api/prospect/version/4/do/create/email/' + email);
+         req.setBody('fid=' + contactId + '&api_key=' + apiKey + '&user_key=' + user_key);
+         req.setMethod('POST');
+         req.setTimeout(20000);
+         try{
+             res = http.send(req);
+         } 
+         catch(System.CalloutException e){
+             /* Allow for CalloutExceptions for timeout on request send */
+         }
+    }
+
     public static String loginToPardot(){ 
     
          String user_key = 'cd215fdd852b6c7e19038b14900d2f64';

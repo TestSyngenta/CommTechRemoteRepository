@@ -63,6 +63,8 @@ public class RollUpsUtilityClass {
                                               sum(AllocatedBaselineUnits__c)abusum,
                                               sum(Ending_Inventory_CY__c)eisum,
                                               sum(CY_Distributor_Plan_to_Roll_Up__c)cpssum,
+                                              sum(CY_Baseline_Sell_In_Plan__c)cbsip,
+                                              sum(CY_Current_Sell_In_Plan__c)ccsip,
                                               sum(CY_1_Forecast_Sales__c)cfssum,
                                               sum(Ending_Inventory_CY_1__c)eicsum,
                                               sum(FNS_CY_ALCTD__c)fcasum,
@@ -95,7 +97,8 @@ public class RollUpsUtilityClass {
                                               sum(Rolled_Up_CY_2_OTG_Sales_c__c)ruc2os,
                                               sum(RolledUpCY1InventoryOTG__c)rucyiotg,
                                               sum(CY_Order_Quantity__c)cycporder,
-                                              sum(CY_Shipped_Quantity__c)cycpshipped
+                                              sum(CY_Shipped_Quantity__c)cycpshipped,
+                                              sum(RolledupCYOTGForecast__c)rucof
                                               from OpportunityLineItem where OpportunityId in :opp and Product2Id in :prodids group by Product2Id,product2.Product_ID__c];
           //Fetching Parent Opportunity Olis
           for(OpportunityLineItem oli: [select Id,Product2Id,Actual_QTY__c,AllocatedBaselineUnits__c, 
@@ -110,7 +113,8 @@ public class RollUpsUtilityClass {
                                         Rolled_Up_CY_2_OTG_Sales_c__c,FNS_CY_ALCTD__c,
                                         Rolled_Up_MY_FY_Planned_Ship_Bulk__c,Rolled_Up_MY_FY_Planned_Ship_Totes__c,
                                         Rolled_Up_MY_Q4_Planned_Ship_Totes__c, Rolled_Up_MY_Planned_FNS__c,
-                                        Rolled_Up_CY_Order_Quantity__c, Rolled_Up_CY_Shipped_Quantity__c
+                                        Rolled_Up_CY_Order_Quantity__c, Rolled_Up_CY_Shipped_Quantity__c,
+                                        CY_Baseline_Sell_In_Plan__c, CY_Current_Sell_In_Plan__c
                                         from OpportunityLineItem where opportunityid=:globalOppId])
          {
           existingprods.put(oli.Product2Id,oli);
@@ -162,8 +166,11 @@ public class RollUpsUtilityClass {
                    opplnitm.Rolled_Up_Ending_Inventory_CY_1__c = (Decimal)ar.get('rueic');
                    opplnitm.Ending_Inventory_CY_1__c=(Decimal)ar.get('eicsum');
                    opplnitm.CY_Planned_Sales1__c=(Decimal)ar.get('cpssum');
+                   opplnitm.CY_Current_Sell_In_Plan__c = (Decimal)ar.get('ccsip');
+                   opplnitm.CY_Baseline_Sell_In_Plan__c = (Decimal)ar.get('cbsip');
                    opplnitm.Rtlr_CY_Alctd__c = (Decimal)ar.get('rucad');
                    opplnitm.FNS_CY_ALCTD__c= (Decimal)ar.get('fcasum');
+                   opplnitm.OTG_FRCST_CY__c = (Decimal)ar.get('rucof');
                 }
                 if(parntopp.RecordType.Developername==Label.District_Sales_Plan || parntopp.RecordType.developername == Label.District_Seeds_Sales_Plan)
                 {
@@ -237,6 +244,8 @@ public class RollUpsUtilityClass {
                                               sum(AllocatedBaselineUnits__c)abusum,
                                               sum(Ending_Inventory_CY__c)eisum,
                                               sum(CY_Distributor_Plan_to_Roll_Up__c)cpssum,
+                                              sum(CY_Baseline_Sell_In_Plan__c)cbsip,
+                                              sum(CY_Current_Sell_In_Plan__c)ccsip,                                              
                                               sum(CY_1_Forecast_Sales__c)cfssum,
                                               sum(Ending_Inventory_CY_1__c)eicsum,
                                               sum(FNS_CY_ALCTD__c)fcasum,
@@ -269,7 +278,8 @@ public class RollUpsUtilityClass {
                                               sum(Rolled_Up_CY_2_OTG_Sales_c__c)ruc2os,
                                               sum(RolledUpCY1InventoryOTG__c)rucyiotg,
                                               sum(CY_Order_Quantity__c)cycporder,
-                                              sum(CY_Shipped_Quantity__c)cycpshipped
+                                              sum(CY_Shipped_Quantity__c)cycpshipped,
+                                              sum(RolledupCYOTGForecast__c)rucof
                                               from OpportunityLineItem where OpportunityId in :opp and Product2Id NOT in :prodids group by Product2Id];
             List<OpportunityLineItem> opplineitem=[select Product2Id,product2.Product_ID__c
                                               from OpportunityLineItem where OpportunityId in :opp and Product2Id NOT in :prodids];
@@ -327,9 +337,12 @@ public class RollUpsUtilityClass {
                    opplnitm.Rolled_Up_CY_2_OTG_Sales_c__c=(Decimal)ar.get('ruc2os'); 
                    opplnitm.Rolled_Up_CY_1_OTG_Sales_c__c=(Decimal)ar.get('rucos');
                    opplnitm.Rolled_up_CY_Planned_Sales__c = (Decimal)ar.get('rucyps');
+                   opplnitm.CY_Current_Sell_In_Plan__c = (Decimal)ar.get('ccsip');
+                   opplnitm.CY_Baseline_Sell_In_Plan__c = (Decimal)ar.get('cbsip');
                    opplnitm.Rolled_Up_Ending_Inventory_CY_1__c = (Decimal)ar.get('rueic');
                    opplnitm.Ending_Inventory_CY_1__c=(Decimal)ar.get('eicsum');
                    opplnitm.CY_Planned_Sales1__c=(Decimal)ar.get('cpssum');
+                   opplnitm.OTG_FRCST_CY__c = (Decimal)ar.get('rucof');
                 }
                 if(parntopp.RecordType.Developername==Label.District_Sales_Plan || parntopp.RecordType.developername == Label.District_Seeds_Sales_Plan)
                 {

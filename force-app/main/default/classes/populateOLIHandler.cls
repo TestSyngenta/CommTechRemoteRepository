@@ -272,21 +272,30 @@ Method to Insert Oli's on click of Edit Sales Plan on Baseline Opportunity(Sales
                         oli.MY_FY_Planned_Ship_Total__c = oli.plnd_CY_stock_odr__c + oli.MY_FY_Planned_Ship_Totes__c;
                     }   
                       
-                    if(cropRetProv.get(cropGroupsECU.get(oli.PricebookEntryId))!=null && oliMap.get(oli.OpportunityId) == Label.ECU && oli.plnd_CY_stock_odr__c!=null && oli.FNS_CY__c != math.round((oli.plnd_CY_stock_odr__c + oli.MY_FY_Planned_Ship_Totes__c)* (1-(cropRetProv.get(cropGroupsECU.get(oli.PricebookEntryId)).ECUReturnProvision__c/100))))
-                    {
-                     //Old Order calculation
-                     //oli.plnd_CY_stock_odr__c = (oli.FNS_CY__c )/ (1-(cropRetProv.get(cropGroupsECU.get(oli.PricebookEntryId)).ECUReturnProvision__c/100));
-                         
-                     oli.FNS_CY__c  = math.round((oli.plnd_CY_stock_odr__c + oli.MY_FY_Planned_Ship_Totes__c)* (1-(cropRetProv.get(cropGroupsECU.get(oli.PricebookEntryId)).ECUReturnProvision__c/100)));
-                             
-                    }
-                    if(cropRetProv.get(cropGroupsWCU.get(oli.PricebookEntryId))!=null && oliMap.get(oli.OpportunityId) == Label.WCU && oli.plnd_CY_stock_odr__c!=null && oli.FNS_CY__c != math.round((oli.plnd_CY_stock_odr__c + oli.MY_FY_Planned_Ship_Totes__c )* (1-(cropRetProv.get(cropGroupsWCU.get(oli.PricebookEntryId)).WCUReturnProvision__c/100))))
-                    {
-                       /* Old Order calculation 
-                       oli.plnd_CY_stock_odr__c = (oli.FNS_CY__c) / (1-(cropRetProv.get(cropGroupsWCU.get(oli.PricebookEntryId)).WCUReturnProvision__c/100));
-                       */
-                       oli.FNS_CY__c  = math.round((oli.plnd_CY_stock_odr__c + oli.MY_FY_Planned_Ship_Totes__c )* (1-(cropRetProv.get(cropGroupsWCU.get(oli.PricebookEntryId)).WCUReturnProvision__c/100)));
-                    }                       
+                    if(cropRetProv.get(cropGroupsECU.get(oli.PricebookEntryId))!=null && oliMap.get(oli.OpportunityId) == Label.ECU && oli.plnd_CY_stock_odr__c!=null && oli.MY_FY_Planned_Ship_Totes__c !=null){
+                         if(cropRetProv.get(cropGroupsECU.get(oli.PricebookEntryId)).ECUReturnProvision__c != null){                       
+                            if(oli.FNS_CY__c != math.round((oli.plnd_CY_stock_odr__c + oli.MY_FY_Planned_Ship_Totes__c)* (1-(cropRetProv.get(cropGroupsECU.get(oli.PricebookEntryId)).ECUReturnProvision__c/100))))
+                            
+                            {
+                             //Old Order calculation
+                             //oli.plnd_CY_stock_odr__c = (oli.FNS_CY__c )/ (1-(cropRetProv.get(cropGroupsECU.get(oli.PricebookEntryId)).ECUReturnProvision__c/100));
+                                 
+                             oli.FNS_CY__c  = math.round((oli.plnd_CY_stock_odr__c + oli.MY_FY_Planned_Ship_Totes__c)* (1-(cropRetProv.get(cropGroupsECU.get(oli.PricebookEntryId)).ECUReturnProvision__c/100)));
+                                     
+                            }
+                         }
+                    }        
+                    if(cropRetProv.get(cropGroupsWCU.get(oli.PricebookEntryId))!=null && oliMap.get(oli.OpportunityId) == Label.WCU && oli.plnd_CY_stock_odr__c!=null && oli.MY_FY_Planned_Ship_Totes__c!=null){
+                        if(cropRetProv.get(cropGroupsWCU.get(oli.PricebookEntryId)).WCUReturnProvision__c!=null){
+                            if(oli.FNS_CY__c != math.round((oli.plnd_CY_stock_odr__c + oli.MY_FY_Planned_Ship_Totes__c )* (1-(cropRetProv.get(cropGroupsWCU.get(oli.PricebookEntryId)).WCUReturnProvision__c/100))))
+                            {
+                               /* Old Order calculation 
+                               oli.plnd_CY_stock_odr__c = (oli.FNS_CY__c) / (1-(cropRetProv.get(cropGroupsWCU.get(oli.PricebookEntryId)).WCUReturnProvision__c/100));
+                               */
+                               oli.FNS_CY__c  = math.round((oli.plnd_CY_stock_odr__c + oli.MY_FY_Planned_Ship_Totes__c )* (1-(cropRetProv.get(cropGroupsWCU.get(oli.PricebookEntryId)).WCUReturnProvision__c/100)));
+                            }                       
+                        }
+                    }       
                 }
             }
         }    

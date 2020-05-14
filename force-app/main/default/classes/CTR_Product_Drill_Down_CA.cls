@@ -72,7 +72,7 @@ public class CTR_Product_Drill_Down_CA
                                  Rolled_Up_MY_Q4_Planned_Ship_Totes__c, Rolled_Up_MY_Q1_Q2_Planned_Ship__c, Rolled_Up_MY_Q1_Q2_Planned_Ship_Totes__c,
                                  Rolled_Up_MY_Planned_FNS__c, Rolled_Up_CY_2_OTG_Units_Field_UOM__c, Rolled_Up_CY_1_OTG_Units_Field_UOM__c,
                                  Rolled_Up_CY_1_OTG_Value_SDP__c, Rolled_Up_CY_OTG_Forecast_Field_UOM__c, Rolled_Up_CY_OTG_Forecast_SDP_Field_UOM__c,
-                                 Field_UOM__c, Min_Saleable_UOM__c
+                                 Field_UOM__c, Min_Saleable_UOM__c, CY_Baseline_Sell_In_Plan__c, CY_Current_Sell_In_Plan__c
                                  from opportunityLineItem where id =:OliId];
        }
       if(oli!=null)

@@ -140,20 +140,15 @@ public class BusinessPlanTriggerHandler {
             
             if(oppKey.size() > 0){
                 for(Opportunity opp :[select id,AccountBusinessPlan__r.Lock_Business_Plan__c from Opportunity where Id in :oppKey and RecordType.DeveloperName = :recType]){
-                    if(opp.AccountBusinessPlan__r.Lock_Business_Plan__c == True){
-                        oppMap.put(opp.id, opp.AccountBusinessPlan__r.Lock_Business_Plan__c);
-                    }
-                    else {
                         oppMapValues.put(opp.id, opp.AccountBusinessPlan__r.Lock_Business_Plan__c);
-                    }
                 }
                for(OpportunityLineItem oli: keys){
-                    if(oppMap.get(oli.OpportunityId)!= null && oli.Updated_OTG_Forecast_CY__c !=null && oli.Ending_Inventory_CY_1__c !=null && oli.Ending_Inventory_Projection_CY__c !=null){
+                    /*if(oppMap.get(oli.OpportunityId)!= null && oli.Updated_OTG_Forecast_CY__c !=null && oli.Ending_Inventory_CY_1__c !=null && oli.Ending_Inventory_Projection_CY__c !=null){
                         oli.CY_Planned_Sales1__c = (oli.Updated_OTG_Forecast_CY__c * (oli.Ending_Inventory_Projection_CY__c/100) ) + (oli.Updated_OTG_Forecast_CY__c - oli.Ending_Inventory_CY_1__c);
                         if(oli.CY_Planned_Sales1__c < 0){
                               oli.CY_Planned_Sales1__c = 0;
                         }
-                    }
+                    }*/
                     if(oppMapValues.get(oli.OpportunityId)!= null && oli.OTG_FRCST_CY__c !=null && oli.Ending_Inventory_CY_1__c !=null && oli.Ending_Inventory_Projection_CY__c !=null){
                         oli.CY_Planned_Sales1__c = (oli.OTG_FRCST_CY__c *(oli.Ending_Inventory_Projection_CY__c/100) ) + (oli.OTG_FRCST_CY__c - oli.Ending_Inventory_CY_1__c);
                         if(oli.CY_Planned_Sales1__c < 0){

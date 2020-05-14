@@ -61,14 +61,28 @@ public class Settlement_NewRecordType_Controller {
     }
 
     public PageReference GoToEditPage(){
-        PageReference editPage = new PageReference('/a0l/e');
+        
+        String url = '';
+        if(UserInfo.getUiThemeDisplayed()=='Theme4D'){
+            url = '/lightning/o/Settlement__c/new';
+        }
+        else url = '/a0l/e';
+        
+        
+        PageReference editPage = new PageReference(url);
 
         Map<String,String> params = editPage.getParameters();
-        params.put('CF00No0000008RmZ5',parent.CaseNumber);
-        params.put('CF00No0000008RmZ5_lkid',parent.Id);
-        params.put('retURL',parent.Id);
-        params.put('RecordType',RecordTypeId);
-        params.put('nooverride', '1');        
+        
+        if(UserInfo.getUiThemeDisplayed()=='Theme4D'){
+            params.put('defaultFieldValues','RecordTypeId=' + RecordTypeId);
+        }
+        else{    
+            params.put('CF00No0000008RmZ5',parent.CaseNumber);
+            params.put('CF00No0000008RmZ5_lkid',parent.Id);
+            params.put('retURL',parent.Id);
+            params.put('RecordType',RecordTypeId);
+            params.put('nooverride', '1');        
+        }
         
         return editPage;
     }
