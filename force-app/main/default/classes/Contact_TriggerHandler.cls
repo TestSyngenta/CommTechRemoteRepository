@@ -68,6 +68,8 @@ public class Contact_TriggerHandler {
             }
     
         }
+        
+
         /* Insert transaction where Primary is checked.  Add to the list of Primary Contacts so that the 
         Account Main Contact relationship gets created 
         */
@@ -136,7 +138,7 @@ public class Contact_TriggerHandler {
                }
            }
        }    
-           
+      
        
        /* Primary Contacts to Uncheck */
        if (primaryContactsToUncheck.size() > 0){
@@ -205,6 +207,19 @@ public class Contact_TriggerHandler {
                 c.Contact_Type__c = RelatedAccountMap.get(c.AccountId).RecordType.Name;
             }    
         }
+    }
+    
+    /* Move any inactive contacts to a master inactive account and populate their original account field*/
+    Public static void updateContactDetailsonInactive(Contact[] newList, Contact[] oldList){
+        for(Contact con : newList){
+            if(con.Inactive__c <> null){
+                System.debug('Coming into the loop');
+                con.Original_Account__c = con.AccountId;
+
+            }
+        }update newList;
+
+
     }
 
     /* Function for updating the Account with details from all related Contacts */
