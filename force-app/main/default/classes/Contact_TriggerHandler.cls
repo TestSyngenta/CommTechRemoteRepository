@@ -211,15 +211,35 @@ public class Contact_TriggerHandler {
     
     /* Move any inactive contacts to a master inactive account and populate their original account field*/
     Public static void updateContactDetailsonInactive(Contact[] newList, Contact[] oldList){
-        for(Contact con : newList){
-            if(con.Inactive__c <> null){
-                System.debug('Coming into the loop');
-                con.Original_Account__c = con.AccountId;
-
+        List<Contact> changedContact = [SELECT Inactive__c, AccountId, Original_Account__c FROM Contact WHERE ID in :newList]; 
+        Map<Id, Contact> oldContactMap = new Map<Id, Contact>();
+        //Contact oldCon;
+        
+        if(oldList <> null){
+            for(Contact c : oldList)
+            {
+                oldContactMap.put(c.Id, c);
             }
-        }update newList;
-
-
+        } 
+        for(Contact con : changedContact){
+            //oldCon = oldContactMap.get(con.Id);
+            if(con.Inactive__c  == true){
+                System.debug('Coming into the loop');
+                con.Original_Account__c = oldContactMap.get(con.Id).AccountId;
+                con.AccountId =  '001o0000010sviy';
+                con.Date_Inactivated__c = Date.today();
+                con.Inactivated_By__c = UserInfo.getUserId();
+                con.Primary_Contact__c = false;
+            }
+            
+            else if (con.Inactive__c == false) {
+                con.AccountId = oldContactMap.get(con.Id).Original_Account__c;
+                con.Original_Account__c = null;
+                con.Date_Inactivated__c = null;
+                con.Inactivated_By__c = null;          
+            }
+        }//changedContact.add(con);
+        update changedContact;
     }
 
     /* Function for updating the Account with details from all related Contacts */
