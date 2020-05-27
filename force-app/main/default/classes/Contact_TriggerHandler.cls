@@ -213,8 +213,6 @@ public class Contact_TriggerHandler {
     Public static void updateContactDetailsonInactive(Contact[] newList, Contact[] oldList){
         List<Contact> changedContact = [SELECT Inactive__c, AccountId, Original_Account__c FROM Contact WHERE ID in :newList]; 
         Map<Id, Contact> oldContactMap = new Map<Id, Contact>();
-        //Contact oldCon;
-        
         if(oldList <> null){
             for(Contact c : oldList)
             {
@@ -230,16 +228,15 @@ public class Contact_TriggerHandler {
                 con.Date_Inactivated__c = Date.today();
                 con.Inactivated_By__c = UserInfo.getUserId();
                 con.Primary_Contact__c = false;
-            }
-            
+            }           
             else if (con.Inactive__c == false) {
                 con.AccountId = oldContactMap.get(con.Id).Original_Account__c;
                 con.Original_Account__c = null;
                 con.Date_Inactivated__c = null;
-                con.Inactivated_By__c = null;          
+                con.Inactivated_By__c = null;  
+                con.Inactive_Reason__c = null;        
             }
-        }//changedContact.add(con);
-        update changedContact;
+        }update changedContact;
     }
 
     /* Function for updating the Account with details from all related Contacts */
@@ -255,8 +252,7 @@ public class Contact_TriggerHandler {
                 oldContactMap.put(c.Id, c);
             }
         }    
-    
-        
+
         /* Update - For an update transaction, check to see if any of the fields that would affect the fields aggregated 
         at the account level, and if so add the current account to the list of accounts to be passed to the class that will update the
         Account fields.
