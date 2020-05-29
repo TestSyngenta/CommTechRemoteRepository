@@ -221,7 +221,7 @@ public class Contact_TriggerHandler {
         } 
         for(Contact con : changedContact){
             //oldCon = oldContactMap.get(con.Id);
-            if(con.Inactive__c  == true){
+            if(con.Inactive__c  == true && con.AccountId != null){
                 System.debug('Coming into the loop');
                 con.Original_Account__c = oldContactMap.get(con.Id).AccountId;
                 con.AccountId =  '001o0000010sviy';

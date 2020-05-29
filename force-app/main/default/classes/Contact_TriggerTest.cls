@@ -23,11 +23,13 @@ public class Contact_TriggerTest {
         Contact testContact6;
         Contact testContact7;        
         Contact testContact8;                
-        Contact testContact9;                
+        Contact testContact9;  
+        Contact testInactiveContact1;
         List<Contact> insertList1 = new List<Contact>();
         List<Contact> insertList2 = new List<Contact>();
         List<Contact> insertList3 = new List<Contact>();                 
-        List<Contact> deleteList1 = new List<Contact>();                   
+        List<Contact> deleteList1 = new List<Contact>();
+        List<Contact> insertinactive = new List<Contact>();
         System.runAs(testUser1){
             // insert test Account
             testAccount = new Account(Name='TestAccount', OwnerID=testUser1.id,
@@ -38,8 +40,11 @@ public class Contact_TriggerTest {
             insertList1.add(testContact1);
             // insert test Contact 2 with email
             testContact2 = new Contact(LastName='SyngentaContact_02', FirstName='Joe', Email='test2@goodtest.com', AccountId=testAccount.Id, Pardot_Opt_In_Email_Communications__c = 'No', Opt_in_ECom__c = 'No (Opted-out)');
+            testInactiveContact1 = new Contact(LastName='InactiveContact1', FirstName='Test', Email = 'test1@inactivetest.com', Phone='5556895253', AccountId=testAccount.Id,Inactive__c = true);
             insertList1.add(testContact2);
+            insertinactive.add(testInactiveContact1);
             insert(insertList1);
+            insert(insertinactive);
         }
     
         //check that Opt in Ecom is different for the two contacts (when 2 is inserted its changes were not replicated to 1)

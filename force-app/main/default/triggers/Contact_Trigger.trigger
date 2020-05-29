@@ -23,21 +23,26 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         }
         Contact_TriggerHandler.updateAccountContactDetails(Trigger.new, Trigger.old);
         Contact_TriggerHandler.updatePrimaryContact(Trigger.new, Trigger.old);
+        
+    }
+   if (Trigger.isBefore){   
+       if(UserInfo.getProfileId()<>'00eo0000000K5iJAAS'){ 
+           Contact_TriggerHandler.updateContactType(Trigger.new);
+       }
+       Contact oldContact = new Contact();
         for(Contact con : Trigger.new){
-            Contact oldContact = Trigger.oldMap.get(con.ID);
+            System.debug('old value is' +con);
+            if(Trigger.oldMap != null){
+            oldContact= Trigger.oldMap.get(con.ID);  
+            System.debug('old value is' +oldContact);
             if(con.Inactive__c != oldContact.Inactive__c){
+                
                 System.debug('Inactive Field is updated');
                 Contact_TriggerHandler.updateContactDetailsonInactive(Trigger.new, Trigger.old);
 
             }
 
         }
-    }    
-
-    //}
-   if (Trigger.isBefore){   
-       if(UserInfo.getProfileId()<>'00eo0000000K5iJAAS'){ 
-           Contact_TriggerHandler.updateContactType(Trigger.new);
        }
    }
 }

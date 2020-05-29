@@ -1,7 +1,7 @@
 /** 2016-01-06 Brian Hopkins
  *  test class for Contact_Trigger
  */
-@isTest
+@isTest(SEEALLDATA = True)
 public class Contact_TriggerTest2 {
 
     public static TestMethod void runTest(){
@@ -23,11 +23,14 @@ public class Contact_TriggerTest2 {
         Contact testContact6;
         Contact testContact7;        
         Contact testContact8;                
-        Contact testContact9;                
+        Contact testContact9;
+        Contact testInactiveContact1;
         List<Contact> insertList1 = new List<Contact>();
         List<Contact> insertList2 = new List<Contact>();
         List<Contact> insertList3 = new List<Contact>();                 
-        List<Contact> deleteList1 = new List<Contact>();                   
+        List<Contact> deleteList1 = new List<Contact>(); 
+        List<Contact> insertinactive = new List<Contact>();
+        //List<Contact> insertinactiveUpdate = new List<Contact>();
         System.runAs(testUser1){
             // insert test Account
             testAccount = new Account(Name='TestAccount', OwnerID=testUser1.id,
@@ -37,18 +40,37 @@ public class Contact_TriggerTest2 {
            // insert test Contact 4 with phone
             testContact4 = new Contact(LastName='SyngentaContact_04', FirstName='Joe', Email = 'test4@goodtest.com', Phone='5556895253', AccountId=testAccount.Id, Pardot_Opt_In_Email_Communications__c = 'No', Opt_in_ECom__c = 'No (Opted-out)');
             insertList2.add(testContact4);
-            insert(insertList2);
+            //insert(insertList2);
+/**			testInactiveContact1 = new Contact(LastName='InactiveContact1', FirstName='Test', Email = 'test1@inactivetest.com', Phone='5556895253', AccountId=testAccount.Id);
+            insertinactive.add(testInactiveContact1);
+            insert(insertinactive);
+            testInactiveContact1.Inactive__c = true;
+            insertinactiveUpdate.add(testinactiveContact1);
+            insert(insertinactiveUpdate);
+**/
+            
         }
 
         System.runAs(testUser1){      
             testContact3 = new Contact(LastName='SyngentaContact_03', FirstName='Joe', Email='test3@goodtest.com', AccountId=testAccount.Id, Pardot_Opt_In_Email_Communications__c = 'Yes (Express)', Opt_in_ECom__c = 'Yes (Opted-in)');
             insertList3.add(testContact3);
-            insert(insertList3);             
+            insert(insertList3); 
+			testInactiveContact1 = new Contact(LastName='InactiveContact1', FirstName='Test', Inactive__c = false, Email = 'test1@inactivetest.com', Phone='5556895253', AccountId=testAccount.Id);
+        //Contact testinactive = [Select id, Inactive__c, AccountId from Contact LIMIT 1];
+        	insertInactive.add(testInactiveContact1);
+            insert(insertInactive);
+        
+            
+            testInactiveContact1.Inactive__c = true;
+                        
         }
         System.runAs(testUser2){
             testContact3.Pardot_Opt_In_Email_Communications__c = 'No';
             update testContact3;
-        }            
+            testInactiveContact1.Inactive__c = true;
+            update testInactiveContact1;
+        } 
+        	
             
 
         System.assertEquals('No (Opted-out)', testContact4.Opt_in_ECom__c);
