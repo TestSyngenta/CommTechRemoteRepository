@@ -26,7 +26,7 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         Contact oldContact = new Contact();
         for(Contact con : Trigger.new){
             System.debug('old value is' +con);
-            if(Trigger.oldMap != null){
+            if(Trigger.oldMap.get(con.Id) != null){
             oldContact= Trigger.oldMap.get(con.ID);  
             System.debug('old value is' +oldContact);
             if(con.Inactive__c != oldContact.Inactive__c){
