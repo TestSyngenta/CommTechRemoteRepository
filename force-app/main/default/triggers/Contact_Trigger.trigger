@@ -23,13 +23,7 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         }
         Contact_TriggerHandler.updateAccountContactDetails(Trigger.new, Trigger.old);
         Contact_TriggerHandler.updatePrimaryContact(Trigger.new, Trigger.old);
-        
-    }
-   if (Trigger.isBefore){   
-       if(UserInfo.getProfileId()<>'00eo0000000K5iJAAS'){ 
-           Contact_TriggerHandler.updateContactType(Trigger.new);
-       }
-       Contact oldContact = new Contact();
+        Contact oldContact = new Contact();
         for(Contact con : Trigger.new){
             System.debug('old value is' +con);
             if(Trigger.oldMap != null){
@@ -45,4 +39,12 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         }
        }
    }
+        
+    
+   if (Trigger.isBefore){   
+       if(UserInfo.getProfileId()<>'00eo0000000K5iJAAS'){ 
+           Contact_TriggerHandler.updateContactType(Trigger.new);
+       }
+      
+}
 }
