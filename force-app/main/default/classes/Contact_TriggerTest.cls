@@ -1,7 +1,7 @@
 /** 2016-01-06 Brian Hopkins
  *  test class for Contact_Trigger
  */
-@isTest
+@isTest(SEEALLDATA = true)
 public class Contact_TriggerTest {
 
     public static TestMethod void runTest(){
@@ -24,12 +24,12 @@ public class Contact_TriggerTest {
         Contact testContact7;        
         Contact testContact8;                
         Contact testContact9;  
-        //Contact testInactiveContact1;
+        Contact testInactiveContact1;
         List<Contact> insertList1 = new List<Contact>();
         List<Contact> insertList2 = new List<Contact>();
         List<Contact> insertList3 = new List<Contact>();                 
         List<Contact> deleteList1 = new List<Contact>();
-        //List<Contact> insertinactive = new List<Contact>();
+        List<Contact> insertinactive = new List<Contact>();
         System.runAs(testUser1){
             // insert test Account
             testAccount = new Account(Name='TestAccount', OwnerID=testUser1.id,
@@ -40,11 +40,11 @@ public class Contact_TriggerTest {
             insertList1.add(testContact1);
             // insert test Contact 2 with email
             testContact2 = new Contact(LastName='SyngentaContact_02', FirstName='Joe', Email='test2@goodtest.com', AccountId=testAccount.Id, Pardot_Opt_In_Email_Communications__c = 'No', Opt_in_ECom__c = 'No (Opted-out)');
-            //testInactiveContact1 = new Contact(LastName='InactiveContact1', FirstName='Test', Email = 'test1@inactivetest.com', Phone='5556895253', AccountId=testAccount.Id,Inactive__c = true);
+            testInactiveContact1 = new Contact(LastName='InactiveContact1', FirstName='Test', Email = 'test1@inactivetest.com', Phone='5556895253', AccountId=testAccount.Id,Inactive__c = false);
             insertList1.add(testContact2);
-            //insertinactive.add(testInactiveContact1);
+            insertinactive.add(testInactiveContact1);
             insert(insertList1);
-            //insert(insertinactive);
+            insert(insertinactive);
         }
     
         //check that Opt in Ecom is different for the two contacts (when 2 is inserted its changes were not replicated to 1)
@@ -53,22 +53,39 @@ public class Contact_TriggerTest {
         System.runAs(testUser1){   
             // check hasPhone & hasEmail
             testAccount = [Select Id, hasPhone__c, hasEmail__c from Account where Id = :testAccount.Id];
+            testInactiveContact1 = [Select Id, Inactive__c FROM Contact Where Id = :testInactiveContact1.Id];
+            
         }
         System.assertEquals(true, testAccount.hasPhone__c);
         System.assertEquals(true, testAccount.hasEmail__c);
-
+        
         System.runAs(testUser1){   
             // delete both contacts
             deleteList1.add(testContact1);
             deleteList1.add(testContact2);
             delete(deleteList1);
-                
+            testInactiveContact1.Inactive__c = false;       
             // check hasPhone & hasEmail
             testAccount = [Select Id, hasPhone__c, hasEmail__c from Account where Id = :testAccount.Id];
             System.assertEquals(false, testAccount.hasPhone__c);
         }
         System.assertEquals(false, testAccount.hasEmail__c);
-
+        
+        
+        /**Contact con = [Select id, Inactive__c FROM Contact LIMIT 1];
+        System.debug('Test Data is' +con);
+        con.Inactive__c = True;
+        test.startTest();
+        update con;
+        test.stopTest();
+			testInactiveContact1 = new Contact(LastName='InactiveContact1', FirstName='Test', Inactive__c = false, Email = 'test1@inactivetest.com', Phone='5556895253', AccountId=testAccount.Id);
+        //Contact testinactive = [Select id, Inactive__c, AccountId from Contact LIMIT 1];
+        	insertInactive.add(testInactiveContact1);
+            insert(insertInactive);
+        
+            
+            testInactiveContact1.Inactive__c = true;
+        **/
         
     }
 }
