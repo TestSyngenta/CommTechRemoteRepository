@@ -1,14 +1,14 @@
 /** 2016-01-06 Brian Hopkins
  *  test class for Contact_Trigger
  */
-@isTest(SEEALLDATA = True)
+@isTest
 public class Contact_TriggerTest2 {
 
     public static TestMethod void runTest(){
         Profile testProfile = [Select id from Profile where Name like '%Sales%' limit 1];
         Profile testProfile2 = [Select id from Profile where Name like '%Integration%' limit 1];
         UserRole testRole = [Select id from UserRole where Name like '%Syngenta%' limit 1];
-        User testUser1 = CLS_StaticUtils.createTestUser(testRole.id,testProfile.id,'Test','User1');
+        User testUser1 = CLS_StaticUtils.createTestUser(testRole.id,testProfile2.id,'Test','User1');
         User testUser2 = CLS_StaticUtils.createTestUser(testRole.id,testProfile2.id,'Pardot','User2');
         List<User> userList = new List<User>();
         userList.add(testUser1);

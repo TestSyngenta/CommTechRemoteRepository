@@ -6,8 +6,9 @@ public class Contact_Trigger_Primary_Contact_Test {
 
     public static TestMethod void runTest(){
         Profile testProfile = [Select id from Profile where Name like '%Sales%' limit 1];
+        Profile testProfile2 = [Select id from Profile where Name like '%Integration%' limit 1];
         UserRole testRole = [Select id from UserRole where Name like '%Syngenta%' limit 1];
-        User testUser1 = CLS_StaticUtils.createTestUser(testRole.id,testProfile.id,'Test','User1');
+        User testUser1 = CLS_StaticUtils.createTestUser(testRole.id,testProfile2.id,'Test','User1');
         User testUser2 = CLS_StaticUtils.createTestUser(testRole.id,testProfile.id,'Test','User2');
         insert testUser1;
         insert testUser2;

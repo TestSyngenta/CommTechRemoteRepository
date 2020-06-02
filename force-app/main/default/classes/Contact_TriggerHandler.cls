@@ -221,7 +221,7 @@ public class Contact_TriggerHandler {
         } 
         for(Contact con : changedContact){
             //oldCon = oldContactMap.get(con.Id);
-            if(con.Inactive__c  == true && con.AccountId != null){
+            if(con.Inactive__c  == true){
                 System.debug('Coming into the loop');
                 con.Original_Account__c = oldContactMap.get(con.Id).AccountId;
                 con.AccountId =  '001o0000010sviy';
@@ -498,7 +498,7 @@ public class Contact_TriggerHandler {
               
     }
     
-    public static void queueCreateInPardot(Contact[] newList){
+   /**  public static void queueCreateInPardot(Contact[] newList){
         
         Integer i = 0;
         for(Contact c: newList){
@@ -520,7 +520,7 @@ public class Contact_TriggerHandler {
     public static void sendToPardot(Id contactId, String email){
          String apiKey = loginToPardot();
          
-         /*System.Debug('API Key returned was ' + apiKey);*/
+         //System.Debug('API Key returned was ' + apiKey);
          
          String user_key = 'cd215fdd852b6c7e19038b14900d2f64';        
          HttpRequest req = new HttpRequest();
@@ -536,10 +536,10 @@ public class Contact_TriggerHandler {
              res = http.send(req);
          } 
          catch(System.CalloutException e){
-             /* Allow for CalloutExceptions for timeout on request send */
+             // Allow for CalloutExceptions for timeout on request send
          }
     }
-
+**/
     public static String loginToPardot(){ 
     
          String user_key = 'cd215fdd852b6c7e19038b14900d2f64';

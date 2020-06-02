@@ -24,13 +24,15 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         Contact_TriggerHandler.updateAccountContactDetails(Trigger.new, Trigger.old);
         Contact_TriggerHandler.updatePrimaryContact(Trigger.new, Trigger.old);
         Contact oldContact = new Contact();
+        
+        if(Trigger.isUpdate){
         for(Contact con : Trigger.new){
             System.debug('old value is' +con);
             
-            //if(Trigger.oldMap.get(con.Id) != null){
+            if(Trigger.isInsert || Trigger.oldMap.get(con.Id) != null){
             oldContact = Trigger.oldMap.get(con.ID); 
-            System.debug('old Contact Map value is' +oldContact);
-            if(oldContact != null){ 
+            
+            
             System.debug('old value is' +oldContact);
             if(con.Inactive__c != oldContact.Inactive__c){
                 
@@ -39,9 +41,10 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
 
             }
 
-        }
-       //}
+        
+       }
    }
+}
 }
     
    if (Trigger.isBefore){   
