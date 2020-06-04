@@ -451,10 +451,7 @@ public class Contact_TriggerHandler {
                   
                   if(UpdateMade){
                       updateList.add(ce);                  
-                  }
-                  
-
-                                
+                  }                      
               }              
         }
         update(updateList);
@@ -510,12 +507,8 @@ public class Contact_TriggerHandler {
                 sendToPardot(c.Id, c.email);
                 i++;                  
             }
-        }
-    
-    }
-    
-    
-    
+        }   
+    }  
     @future (callout=true)
     public static void sendToPardot(Id contactId, String email){
          String apiKey = loginToPardot();
