@@ -40,13 +40,14 @@ public class Contact_TriggerTest {
             insertList1.add(testContact1);
             // insert test Contact 2 with email
             testContact2 = new Contact(LastName='SyngentaContact_02', FirstName='Joe', Email='test2@goodtest.com', AccountId=testAccount.Id, Pardot_Opt_In_Email_Communications__c = 'No', Opt_in_ECom__c = 'No (Opted-out)');
+           
             testInactiveContact1 = new Contact(LastName='InactiveContact1', FirstName='Test', Email = 'test1@inactivetest.com', Phone='5556895253', AccountId = testAccount.Id, Inactive__c = false);
-            insertList1.add(testContact2);
-        
+            insertList1.add(testContact2);       
             insert testInactiveContact1;
-            
-            
-            
+
+            testInactiveContact1.Inactive__c = true;
+            //update testInactiveContact1;
+                       
         }
     
         //check that Opt in Ecom is different for the two contacts (when 2 is inserted its changes were not replicated to 1)
@@ -55,13 +56,6 @@ public class Contact_TriggerTest {
         System.runAs(testUser1){   
             // check hasPhone & hasEmail
             testAccount = [Select Id, hasPhone__c, hasEmail__c from Account where Id = :testAccount.Id];
-            
-            testInactiveContact1 = [Select Id, Inactive__c FROM Contact Where Id =: testInactiveContact1.id];
-            testInactiveContact1.Inactive__c = true;
-            //update testInactiveContact1;
-            System.assertEquals(true, testInactiveContact1.Inactive__c);
-            
-
             
         }
         System.assertEquals(true, testAccount.hasPhone__c);
@@ -72,7 +66,7 @@ public class Contact_TriggerTest {
             deleteList1.add(testContact1);
             deleteList1.add(testContact2);
             //delete(deleteList1);
-            //testInactiveContact1.Inactive__c = false;       
+                  
             // check hasPhone & hasEmail
             testAccount = [Select Id, hasPhone__c, hasEmail__c from Account where Id = :testAccount.Id];
             System.assertEquals(true, testAccount.hasPhone__c);
@@ -83,14 +77,12 @@ public class Contact_TriggerTest {
 
         System.runAs(testUser2){   
             // check hasPhone & hasEmail
-            
-            
+          
             //testInactiveContact1 = [Select Id, Inactive__c FROM Contact Where Id =: testInactiveContact1.id];
-            //System.assertEquals(false, testInactiveContact1.Inactive__c);
-
-            
-        }
-        
-        
+            //testInactiveContact1.Inactive__c = true;
+            //update testInactiveContact1;
+            //System.assertEquals(true, testInactiveContact1.Inactive__c);
+           
+        }       
     }
 }
