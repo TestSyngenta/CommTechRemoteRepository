@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-01T17:09:18-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="4" failures="1"  errors="0"  time="22.34">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="4"/>
+            <property name="passing" value="3"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="75%"/>
+            <property name="failRate" value="25%"/>
+            <property name="testStartTime" value="Jun 1, 2020 5:09 PM"/>
+            <property name="testExecutionTime" value="22.34 s"/>
+            <property name="testTotalTime" value="22.34 s"/>
+            <property name="commandTime" value="15.36 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D2g0000008aPPEAY"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7072g00000GAB7l"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="77%"/>
+            <property name="orgWideCoverage" value="64%"/>
+        </properties>
+        <testcase name="testMethod1" classname="CommTech_ProjectsTriggerTest" time="1.39">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="5.24">
+            <failure message="System.DmlException: Update failed. First exception on row 0 with id 0032g00000AuKLwAAN; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, Contact_Trigger: execution of AfterUpdate
+
+caused by: System.DmlException: Update failed. First exception on row 0 with id 0032g00000AuKLwAAN; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, Contact_Trigger: execution of BeforeUpdate
+
+caused by: System.NullPointerException: Attempt to de-reference a null object
+
+Class.Contact_TriggerHandler.updateContactType: line 206, column 1
+Trigger.Contact_Trigger: line 52, column 1: []
+
+Class.Contact_TriggerHandler.updateContactDetailsonInactive: line 239, column 1
+Trigger.Contact_Trigger: line 40, column 1: []"><![CDATA[Class.Contact_TriggerTest.runTest: line 49, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="7.16">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="8.55">
+        </testcase>
+    </testsuite>
+</testsuites>

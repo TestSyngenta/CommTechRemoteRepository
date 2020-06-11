@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-05-28T14:27:20-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="1" failures="1"  errors="0"  time="6.29">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="1"/>
+            <property name="passing" value="0"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="0%"/>
+            <property name="failRate" value="100%"/>
+            <property name="testStartTime" value="May 28, 2020 2:27 PM"/>
+            <property name="testExecutionTime" value="6.29 s"/>
+            <property name="testTotalTime" value="6.29 s"/>
+            <property name="commandTime" value="26.34 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D2g0000008aPPEAY"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7072g00000G8aqw"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="77%"/>
+            <property name="orgWideCoverage" value="75%"/>
+        </properties>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="6.29">
+            <failure message="System.DmlException: Update failed. First exception on row 0 with id 0032g00000AszVbAAJ; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, Contact_Trigger: execution of AfterUpdate
+
+caused by: System.DmlException: Update failed. First exception on row 0 with id 0032g00000AszVbAAJ; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION, Contacts cannot be transferred to different accounts except by Salesforce Administrators.  Please contact your Salesforce Admin if you need to move a Contact to a new Account.: []
+
+Class.Contact_TriggerHandler.updateContactDetailsonInactive: line 239, column 1
+Trigger.Contact_Trigger: line 35, column 1: []"><![CDATA[Class.Contact_TriggerTest2.runTest: line 71, column 1]]></failure>
+        </testcase>
+    </testsuite>
+</testsuites>

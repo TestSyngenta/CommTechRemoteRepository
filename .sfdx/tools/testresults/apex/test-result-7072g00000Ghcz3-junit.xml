@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-09T13:50:59-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="5" failures="1"  errors="0"  time="68.3">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="5"/>
+            <property name="passing" value="4"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="80%"/>
+            <property name="failRate" value="20%"/>
+            <property name="testStartTime" value="Jun 9, 2020 1:50 PM"/>
+            <property name="testExecutionTime" value="68.3 s"/>
+            <property name="testTotalTime" value="68.3 s"/>
+            <property name="commandTime" value="39.39 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D2g0000008aPPEAY"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7072g00000Ghcz3"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="78%"/>
+            <property name="orgWideCoverage" value="72%"/>
+        </properties>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="15.19">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="17.14">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="20.77">
+        </testcase>
+        <testcase name="testCommercialExperience" classname="TestFileCountCommercialExperience" time="3.73">
+        </testcase>
+        <testcase name="testFileCountPreCommercialTrials" classname="TestFileCountPreCommercialTrials" time="11.48">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: UNABLE_TO_LOCK_ROW, unable to obtain exclusive access to this record: []"><![CDATA[Class.TestFileCountPreCommercialTrials.testFileCountPreCommercialTrials: line 12, column 1]]></failure>
+        </testcase>
+    </testsuite>
+</testsuites>

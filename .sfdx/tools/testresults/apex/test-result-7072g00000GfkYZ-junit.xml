@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-05T10:24:59-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="3" failures="1"  errors="0"  time="22.75">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="3"/>
+            <property name="passing" value="2"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="67%"/>
+            <property name="failRate" value="33%"/>
+            <property name="testStartTime" value="Jun 5, 2020 10:24 AM"/>
+            <property name="testExecutionTime" value="22.75 s"/>
+            <property name="testTotalTime" value="22.75 s"/>
+            <property name="commandTime" value="32.14 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D2g0000008aPPEAY"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7072g00000GfkYZ"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="77%"/>
+            <property name="orgWideCoverage" value="64%"/>
+        </properties>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="7.32">
+            <failure message="System.AssertException: Assertion Failed: Expected: true, Actual: false"><![CDATA[Class.Contact_TriggerTest.runTest: line 59, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="9.6">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="5.82">
+        </testcase>
+    </testsuite>
+</testsuites>

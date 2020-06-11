@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-01T16:56:38-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="4" failures="3"  errors="0"  time="7.29">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="4"/>
+            <property name="passing" value="1"/>
+            <property name="failing" value="3"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="25%"/>
+            <property name="failRate" value="75%"/>
+            <property name="testStartTime" value="Jun 1, 2020 4:56 PM"/>
+            <property name="testExecutionTime" value="7.29 s"/>
+            <property name="testTotalTime" value="7.29 s"/>
+            <property name="commandTime" value="10.11 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D2g0000008aPPEAY"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7072g00000GAAt5"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="75%"/>
+            <property name="orgWideCoverage" value="62%"/>
+        </properties>
+        <testcase name="testMethod1" classname="CommTech_ProjectsTriggerTest" time="0.67">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="4.49">
+            <failure message="System.DmlException: Update failed. First exception on row 0 with id 0032g00000AuKHbAAN; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, Contact_Trigger: execution of AfterUpdate
+
+caused by: System.DmlException: Update failed. First exception on row 0 with id 0032g00000AuKHbAAN; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, Contact_Trigger: execution of BeforeUpdate
+
+caused by: System.NullPointerException: Attempt to de-reference a null object
+
+Class.Contact_TriggerHandler.updateContactType: line 206, column 1
+Trigger.Contact_Trigger: line 52, column 1: []
+
+Class.Contact_TriggerHandler.updateContactDetailsonInactive: line 239, column 1
+Trigger.Contact_Trigger: line 40, column 1: []"><![CDATA[Class.Contact_TriggerTest.runTest: line 49, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="1.13">
+            <failure message="System.TypeException: DML operation INSERT not allowed on Account"><![CDATA[Class.Contact_TriggerTest2.runTest: line 38, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="1">
+            <failure message="System.TypeException: DML operation INSERT not allowed on Account"><![CDATA[Class.Contact_Trigger_Primary_Contact_Test.runTest: line 33, column 1]]></failure>
+        </testcase>
+    </testsuite>
+</testsuites>
