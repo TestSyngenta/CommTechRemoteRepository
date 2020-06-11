@@ -211,17 +211,37 @@ public class Contact_TriggerHandler {
     
     /* Move any inactive contacts to a master inactive account and populate their original account field*/
     Public static void updateContactDetailsonInactive(Contact[] newList, Contact[] oldList){
-        List<Contact> changedContact = [SELECT Inactive__c, AccountId, Original_Account__c FROM Contact WHERE ID in :newList]; 
+       // If(Trigger.isBefore){
+        List<Contact> changedContact = [SELECT id, Inactive__c, AccountId, Original_Account__c FROM Contact WHERE ID in :newList]; 
+        List<Id> AccountIds = new List<Id>();
+        List<Account> relatedAccountList = new List <Account>();
         Map<Id, Contact> oldContactMap = new Map<Id, Contact>();
+        Map<Id,Account> relatedAccountMap = new Map<Id,Account>();
+        relatedAccountList = [SELECT Id, Inactive__c FROM Account where Id in :AccountIds];
         if(oldList <> null){
             for(Contact c : oldList)
             {
                 oldContactMap.put(c.Id, c);
+                AccountIds.Add(c.AccountId);
+
             }
         } 
+        /**if (newList <> null){
+            for (Contact c : newList){
+                AccountIds.Add(c.AccountId);
+            }
+        }
+        **/
+        for(Account a: relatedAccountList){
+            if (RelatedAccountMap.get(a.Id) == null){
+                RelatedAccountMap.put(a.Id, a);
+            }
+        }
+        //If(Trigger.isBefore){
         for(Contact con : changedContact){
-            //oldCon = oldContactMap.get(con.Id);
-            if(con.Inactive__c  == true){
+            
+                if(con.Inactive__c  == true && relatedAccountMap.get(con.AccountId).Inactive__c <> null ){
+                //if(con.Inactive__c  == true){
                 System.debug('Coming into the loop');
                 con.Original_Account__c = oldContactMap.get(con.Id).AccountId;
                 con.AccountId =  '001o0000010sviy';
@@ -236,9 +256,12 @@ public class Contact_TriggerHandler {
                 con.Inactivated_By__c = null;  
                 con.Inactive_Reason__c = null;        
             }
+        
         }update changedContact;
+    //}
+        //}
     }
-
+    
     /* Function for updating the Account with details from all related Contacts */
     public static void updateAccountContactDetails(Contact[] newList, Contact[] oldList){
         // get all the affected accounts
