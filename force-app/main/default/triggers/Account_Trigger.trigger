@@ -1,5 +1,6 @@
-trigger Account_Trigger on Account (before insert, before update, after insert, after update) {    
+trigger Account_Trigger on Account (before insert, before update, after insert, after update, after Delete) {    
     if (Trigger.isAfter){
+     
         List<Id> accountIds = new List<Id>();
         
         if (Trigger.isInsert || Trigger.isUpdate){
@@ -33,6 +34,8 @@ trigger Account_Trigger on Account (before insert, before update, after insert, 
             Account_TriggerHandler.createAccountSnapshotOnAccountFieldChanges(setofChangedAccounts,mapofoldIdandTouchpoint);
             //Account_TriggerHandler.createAccountSnapshotOnAccountFieldChanges(mapofChangedAccounts,mapofoldIdandTouchpoint);
         }
+
+       
         
     }
     

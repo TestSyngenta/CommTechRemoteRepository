@@ -38,19 +38,21 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
                 
                 System.debug('Inactive Field is updated');
                 Contact_TriggerHandler.updateContactDetailsonInactive(Trigger.new, Trigger.old);
-
+ 
             }
-
+ 
         
        }
    }
-}
+ }
+       
 }
     
    if (Trigger.isBefore){   
        if(UserInfo.getProfileId()<>'00eo0000000K5iJAAS'){ 
            Contact_TriggerHandler.updateContactType(Trigger.new);
        }
+     
       
 }
 }
