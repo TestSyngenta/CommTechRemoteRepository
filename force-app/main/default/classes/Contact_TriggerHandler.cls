@@ -211,37 +211,37 @@ public class Contact_TriggerHandler {
     
     /* Move any inactive contacts to a master inactive account and populate their original account field*/
     Public static void updateContactDetailsonInactive(Contact[] newList, Contact[] oldList){
-       // If(Trigger.isBefore){
+        //get all the affected Contacts
         List<Contact> changedContact = [SELECT id, Inactive__c, AccountId, Original_Account__c FROM Contact WHERE ID in :newList]; 
+        //get the affected Account Id
         List<Id> AccountIds = new List<Id>();
+        //get the Account of an affected Contact
         List<Account> relatedAccountList = new List <Account>();
         Map<Id, Contact> oldContactMap = new Map<Id, Contact>();
         Map<Id,Account> relatedAccountMap = new Map<Id,Account>();
-        relatedAccountList = [SELECT Id, Inactive__c FROM Account where Id in :AccountIds];
+
+    //Check if there is an update to the Contact
         if(oldList <> null){
             for(Contact c : oldList)
             {
                 oldContactMap.put(c.Id, c);
-                AccountIds.Add(c.AccountId);
-
             }
         } 
-        /**if (newList <> null){
+    //Add the Accountids of the updated Contact    
+        if (newList <> null){
             for (Contact c : newList){
                 AccountIds.Add(c.AccountId);
             }
         }
-        **/
+        //get the required fields of the affected Account
+        relatedAccountList = [SELECT Id, Inactive__c FROM Account where Id in :AccountIds];
         for(Account a: relatedAccountList){
-            if (RelatedAccountMap.get(a.Id) == null){
+            if (RelatedAccountMap.get(a.Id) == null){    
                 RelatedAccountMap.put(a.Id, a);
             }
         }
-        //If(Trigger.isBefore){
         for(Contact con : changedContact){
-            
-                if(con.Inactive__c  == true && relatedAccountMap.get(con.AccountId).Inactive__c <> null ){
-                //if(con.Inactive__c  == true){
+                if(con.Inactive__c  == true && relatedAccountMap.get(con.AccountId).Inactive__c == false ){
                 System.debug('Coming into the loop');
                 con.Original_Account__c = oldContactMap.get(con.Id).AccountId;
                 con.AccountId =  '001o0000010sviy';
@@ -250,16 +250,21 @@ public class Contact_TriggerHandler {
                 con.Primary_Contact__c = false;
             }           
             else if (con.Inactive__c == false) {
-                con.AccountId = oldContactMap.get(con.Id).Original_Account__c;
-                con.Original_Account__c = null;
+                if(oldContactMap.get(con.Id).Original_Account__c <> null){
+                    con.AccountId = oldContactMap.get(con.Id).Original_Account__c;
+                    con.Original_Account__c = null;
+                    con.Date_Inactivated__c = null;
+                    con.Inactivated_By__c = null;  
+                    con.Inactive_Reason__c = null;        
+                }
+                else {
+                    con.Original_Account__c = null;
                 con.Date_Inactivated__c = null;
                 con.Inactivated_By__c = null;  
-                con.Inactive_Reason__c = null;        
+                con.Inactive_Reason__c = null;
+                }
             }
-        
         }update changedContact;
-    //}
-        //}
     }
     
     /* Function for updating the Account with details from all related Contacts */
