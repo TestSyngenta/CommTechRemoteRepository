@@ -1,5 +1,5 @@
 trigger FileCountCommercialExperience on ContentDocumentLink (after insert, after update, after delete, after undelete) {
-  Map<Id,List<ContentDocumentLink>> parent = new Map<Id,List<ContentDocumentLink>>();
+/**  Map<Id,List<ContentDocumentLink>> parent = new Map<Id,List<ContentDocumentLink>>();
   set<id> attids = new set<id>();
      
    if(Trigger.new<>null){
@@ -49,4 +49,5 @@ trigger FileCountCommercialExperience on ContentDocumentLink (after insert, afte
        }catch(Exception e){}
     }
 
+**/
 }
