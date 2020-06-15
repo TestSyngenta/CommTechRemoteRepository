@@ -266,7 +266,7 @@ public class Contact_TriggerHandler {
             }
         }update changedContact;
     }
-    
+   
     /* Function for updating the Account with details from all related Contacts */
     public static void updateAccountContactDetails(Contact[] newList, Contact[] oldList){
         // get all the affected accounts
