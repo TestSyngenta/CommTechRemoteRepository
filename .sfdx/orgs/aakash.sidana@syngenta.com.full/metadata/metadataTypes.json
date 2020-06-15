@@ -526,12 +526,6 @@
         "xmlName": "AuthProvider"
       },
       {
-        "directoryName": "waveTemplates",
-        "inFolder": false,
-        "metaFile": false,
-        "xmlName": "WaveTemplateBundle"
-      },
-      {
         "directoryName": "wave",
         "inFolder": false,
         "metaFile": false,
@@ -625,13 +619,6 @@
         "metaFile": false,
         "suffix": "sharingSet",
         "xmlName": "SharingSet"
-      },
-      {
-        "directoryName": "iframeWhiteListUrlSettings",
-        "inFolder": false,
-        "metaFile": false,
-        "suffix": "iframeWhiteListUrlSettings",
-        "xmlName": "IframeWhiteListUrlSettings"
       },
       {
         "directoryName": "communities",
