@@ -68,8 +68,6 @@ public class Contact_TriggerHandler {
             }
     
         }
-        
-
         /* Insert transaction where Primary is checked.  Add to the list of Primary Contacts so that the 
         Account Main Contact relationship gets created 
         */
@@ -138,7 +136,7 @@ public class Contact_TriggerHandler {
                }
            }
        }    
-      
+           
        
        /* Primary Contacts to Uncheck */
        if (primaryContactsToUncheck.size() > 0){
@@ -208,65 +206,7 @@ public class Contact_TriggerHandler {
             }    
         }
     }
-    
-    /* Move any inactive contacts to a master inactive account and populate their original account field*/
-    Public static void updateContactDetailsonInactive(Contact[] newList, Contact[] oldList){
-        //get all the affected Contacts
-        List<Contact> changedContact = [SELECT id, Inactive__c, AccountId, Original_Account__c FROM Contact WHERE ID in :newList]; 
-        //get the affected Account Id
-        List<Id> AccountIds = new List<Id>();
-        //get the Account of an affected Contact
-        List<Account> relatedAccountList = new List <Account>();
-        Map<Id, Contact> oldContactMap = new Map<Id, Contact>();
-        Map<Id,Account> relatedAccountMap = new Map<Id,Account>();
 
-    //Check if there is an update to the Contact
-        if(oldList <> null){
-            for(Contact c : oldList)
-            {
-                oldContactMap.put(c.Id, c);
-            }
-        } 
-    //Add the Accountids of the updated Contact    
-        if (newList <> null){
-            for (Contact c : newList){
-                AccountIds.Add(c.AccountId);
-            }
-        }
-        //get the required fields of the affected Account
-        relatedAccountList = [SELECT Id, Inactive__c FROM Account where Id in :AccountIds];
-        for(Account a: relatedAccountList){
-            if (RelatedAccountMap.get(a.Id) == null){    
-                RelatedAccountMap.put(a.Id, a);
-            }
-        }
-        for(Contact con : changedContact){
-                if(con.Inactive__c  == true && relatedAccountMap.get(con.AccountId).Inactive__c == false ){
-                System.debug('Coming into the loop');
-                con.Original_Account__c = oldContactMap.get(con.Id).AccountId;
-                con.AccountId =  '001o0000010sviy';
-                con.Date_Inactivated__c = Date.today();
-                con.Inactivated_By__c = UserInfo.getUserId();
-                con.Primary_Contact__c = false;
-            }           
-            else if (con.Inactive__c == false) {
-                if(oldContactMap.get(con.Id).Original_Account__c <> null){
-                    con.AccountId = oldContactMap.get(con.Id).Original_Account__c;
-                    con.Original_Account__c = null;
-                    con.Date_Inactivated__c = null;
-                    con.Inactivated_By__c = null;  
-                    con.Inactive_Reason__c = null;        
-                }
-                else {
-                    con.Original_Account__c = null;
-                con.Date_Inactivated__c = null;
-                con.Inactivated_By__c = null;  
-                con.Inactive_Reason__c = null;
-                }
-            }
-        }update changedContact;
-    }
-    
     /* Function for updating the Account with details from all related Contacts */
     public static void updateAccountContactDetails(Contact[] newList, Contact[] oldList){
         // get all the affected accounts
@@ -280,7 +220,8 @@ public class Contact_TriggerHandler {
                 oldContactMap.put(c.Id, c);
             }
         }    
-
+    
+        
         /* Update - For an update transaction, check to see if any of the fields that would affect the fields aggregated 
         at the account level, and if so add the current account to the list of accounts to be passed to the class that will update the
         Account fields.
@@ -479,7 +420,10 @@ public class Contact_TriggerHandler {
                   
                   if(UpdateMade){
                       updateList.add(ce);                  
-                  }                      
+                  }
+                  
+
+                                
               }              
         }
         update(updateList);
@@ -523,44 +467,6 @@ public class Contact_TriggerHandler {
               
     }
     
-   /**  public static void queueCreateInPardot(Contact[] newList){
-        
-        Integer i = 0;
-        for(Contact c: newList){
-            if(i > 50){
-                break;
-            }
-            
-            if(c.email <> null && c.pi__url__c == null && !System.IsBatch() && !System.IsQueueable() && !Test.isRunningTest()){
-                sendToPardot(c.Id, c.email);
-                i++;                  
-            }
-        }   
-    }  
-    @future (callout=true)
-    public static void sendToPardot(Id contactId, String email){
-         String apiKey = loginToPardot();
-         
-         //System.Debug('API Key returned was ' + apiKey);
-         
-         String user_key = 'cd215fdd852b6c7e19038b14900d2f64';        
-         HttpRequest req = new HttpRequest();
-         HttpResponse res = new HttpResponse();
-         Http http = new Http();
-         
-         
-         req.setEndPoint('https://pi.pardot.com/api/prospect/version/4/do/create/email/' + email);
-         req.setBody('fid=' + contactId + '&api_key=' + apiKey + '&user_key=' + user_key);
-         req.setMethod('POST');
-         req.setTimeout(20000);
-         try{
-             res = http.send(req);
-         } 
-         catch(System.CalloutException e){
-             // Allow for CalloutExceptions for timeout on request send
-         }
-    }
-**/
     public static String loginToPardot(){ 
     
          String user_key = 'cd215fdd852b6c7e19038b14900d2f64';
