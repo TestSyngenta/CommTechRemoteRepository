@@ -101,7 +101,7 @@ private class CTR_Product_Drill_Down_CA_Test {
     Product2 pro2 = new Product2(Product_Line__c='DIE',Name='BXCD',Product_ID__c='23654', isActive=true,Variety__c='XYZ');
     insert pro2;
 
-    PricebookEntry pbe2 =new PricebookEntry(unitprice=0.01,Product2Id=pro2.Id,Pricebook2Id=pb22.Id,
+    PricebookEntry pbe2 =new PricebookEntry(unitprice=0.01,Product2Id=pro2.Id,Pricebook2Id=Test.getStandardPricebookId(),
                                          isActive=true,UseStandardPrice = false);
     insert pbe2;
         

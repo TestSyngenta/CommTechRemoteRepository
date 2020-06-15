@@ -328,15 +328,6 @@ public class SalesPlanCreationHandler{
         objOppProd.OpportunityID = Opp.id;
         objOppProd.PriceBookEntryId = Product_PricebookMap.get(spa.Product__c).Id;
         objOppProd.Related_Business_Plan_Locked__c = Opp.Related_Business_Plan_Locked__c;
-        
-        if(Product_PricebookMap.get(spa.Product__c).Product2.Brand__c != null){
-            objOppProd.Brand__c = Product_PricebookMap.get(spa.Product__c).Product2.Brand__c;
-        }
-        if(Product_PricebookMap.get(spa.Product__c).Product2.Product_Line__c!= null){
-            objOppProd.Brand__c = Product_PricebookMap.get(spa.Product__c).Product2.Product_Line__c;
-        }
-        
-        objOppProd.OLIallocationmatchingkey__c = Opp.AccountId+'|'+ Opp.Year__c +'|' + Product_PricebookMap.get(spa.Product__c).Product2.Variety__c;
         return objOppProd;
     }
     
@@ -345,14 +336,6 @@ public class SalesPlanCreationHandler{
         objOppProd.OpportunityID = Opp.id;
         objOppProd.Related_Business_Plan_Locked__c = Opp.Related_Business_Plan_Locked__c;
         objOppProd.PriceBookEntryId = Product_PricebookMap.get(oli.Product2id).Id;
-        if(Product_PricebookMap.get(oli.Product2id).Product2.Brand__c != null){
-            objOppProd.Brand__c = Product_PricebookMap.get(oli.Product2id).Product2.Brand__c;
-        }
-        if(Product_PricebookMap.get(oli.Product2id).Product2.Product_Line__c!= null){
-            objOppProd.Brand__c = Product_PricebookMap.get(oli.Product2id).Product2.Product_Line__c;
-        }
-        
-        objOppProd.OLIallocationmatchingkey__c = Opp.AccountId+'|'+ Opp.Year__c +'|' + Product_PricebookMap.get(oli.Product2id).Product2.Variety__c;
         return objOppProd;
     }
     
@@ -361,13 +344,6 @@ public class SalesPlanCreationHandler{
         objOppProd.OpportunityID = Opp.id;
         objOppProd.Related_Business_Plan_Locked__c = Opp.Related_Business_Plan_Locked__c;
         objOppProd.PriceBookEntryId = Product_PricebookMap.get(synprod.Products__c).Id;
-        if(Product_PricebookMap.get(synprod.Products__c).Product2.Brand__c != null){
-            objOppProd.Brand__c = Product_PricebookMap.get(synprod.Products__c).Product2.Brand__c;
-        }
-        if(Product_PricebookMap.get(synprod.Products__c).Product2.Product_Line__c!= null){
-            objOppProd.Brand__c = Product_PricebookMap.get(synprod.Products__c).Product2.Product_Line__c;
-        }
-        objOppProd.OLIallocationmatchingkey__c = Opp.AccountId+'|'+ Opp.Year__c +'|' + Product_PricebookMap.get(synprod.Products__c).Product2.Variety__c;
         return objOppProd;
     }
     
@@ -380,7 +356,7 @@ public class SalesPlanCreationHandler{
         Map<Id,PricebookEntry> Prd_PbEntryMap = new Map<Id,PricebookEntry>();
         
         if(priceBookId != null && priceBookId != '' && ProductIds != null && !ProductIds.isEmpty()){
-            for(PricebookEntry pricebk : [select id , Pricebook2Id,Product2Id,UnitPrice, Product2.Brand__c, Product2.Product_Line__c, Product2.Variety__c
+            for(PricebookEntry pricebk : [select id , Pricebook2Id,Product2Id,UnitPrice
                                           from PricebookEntry where Pricebook2Id = :priceBookId and Product2Id in :ProductIds and isActive = true]){
                                               Prd_PbEntryMap.put(pricebk.Product2Id,pricebk);
                                           }

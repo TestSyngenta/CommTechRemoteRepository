@@ -49,7 +49,9 @@ public class DistributortoCUPlanNoBatch{
                 System.debug('Exception'+ e+' '+e.getCause()+' '+e.getLineNumber());
                 exceptionList.add(ExceptionLogHelperClass.createExceptionLogRecord('OpportunityLineItem','NA','DistributortoCUPlan','DistributortoCUPlan Constructor','Technical exception',UserInfo.getUserId(),e.getStackTraceString(),'',e.getMessage()));        
             }
-        commercialunit=parentopp.CommercialUnit__c;
+        if(parentopp.CommercialUnit__c != null){
+            commercialunit=parentopp.CommercialUnit__c;
+        }    
         currentYear = parentopp.Year__c;
         previousYear = String.Valueof(Integer.valueof(currentYear) -1);
         P_previousYear = String.Valueof(Integer.valueof(currentYear) -2);
@@ -138,7 +140,7 @@ public class DistributortoCUPlanNoBatch{
         
         if(parentopp.RecordType.DeveloperName == Label.Region_OTG_LE){
             DistributortoCUPlanNoBatch cubatch=new DistributortoCUPlanNoBatch(parentopp.RelatedCUPlan__c,childprodids);
-            cubatch.Start();
+                cubatch.Start();
         }       
     }
       

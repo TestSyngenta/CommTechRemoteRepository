@@ -3,14 +3,14 @@ public class OpportunityLineItemSPATest {
     static TestMethod void updateOpportunityLineItemspa(){
         //Creating Account
         Id accRt = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Retailer').getRecordTypeId();
-        Account a1 = new Account(Name ='Test Account1',RecordTypeid = accRt, AllowSeedsplanning__c =TRUE);
+	    Account a1 = new Account(Name ='Test Account1',RecordTypeid = accRt, AllowSeedsplanning__c =TRUE);
         insert a1 ;
         
         //Creating Opportunities
         Id oppRt = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('District Seeds Allocation').getRecordTypeId();
         Id oppRt2 = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Account Seeds Allocations').getRecordTypeId();
         Id oppRt3 = Schema.SObjectType.Opportunity.getRecordTypeInfosByName().get('Territory Seeds Allocation').getRecordTypeId();
-        Date dt = Date.Today();
+		Date dt = Date.Today();
         opportunity opp = new opportunity();
         opp.Name='Test Account1';
         opp.AccountId= a1.Id;
@@ -43,10 +43,10 @@ public class OpportunityLineItemSPATest {
        //creating Product
         Id prodRt = Schema.SObjectType.Product2.getRecordTypeInfosByName().get('Seeds Product').getRecordTypeId();
         Product2 p1 = new Product2(Product_ID__c='3467',Volume_L__c=47,Variety__c='SY ROWYN',Product_Line__c='Seed',Product_Country__c='CA',Package_UOM__c='BG',Name='SYN SEED Test',Min_Saleable_UoM__c='BG',Min_Saleable_UoM_Conversion__c=1.5,Brand__c='SYN CEREAL SEED',Base_UOM__c='KG',RecordTypeid = prodRt,AvailableforPlanning__c = True,isactive=true);
-        insert p1;
+	    insert p1;
         
         //creating pricebook and pricebook entires
-        PriceBook_for_SalesPlan__mdt custommetadata = [select id,Seeds_Price_BookID__c from PriceBook_for_SalesPlan__mdt where SeedsPriceBook__c = 'Seeds Price Book'];
+	    PriceBook_for_SalesPlan__mdt custommetadata = [select id,Seeds_Price_BookID__c from PriceBook_for_SalesPlan__mdt where SeedsPriceBook__c = 'Seeds Price Book'];
         Pricebook2 seedpricebook = new Pricebook2(id=custommetadata.seeds_price_bookId__c,name='Seeds Price Book',IsActive = true);
         upsert seedpricebook;
         id stdpricebook = Test.getStandardPricebookId();

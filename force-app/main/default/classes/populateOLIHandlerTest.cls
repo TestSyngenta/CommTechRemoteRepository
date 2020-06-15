@@ -7,7 +7,7 @@ public class populateOLIHandlerTest {
         {
              
             Territory__c L1 = new Territory__c(TerritoryLevel__c='L1:Commercial unit',Sales_Org__c='1000',name='A633',Assigned_Rep__c=RunningUser.Id); //,Sales_Org_Description__c='Crop Protection and Seed'
-            Territory__c L2 = new Territory__c(TerritoryLevel__c='L2:District',Sales_Org__c='1000',name='A6334',Assigned_Rep__c=RunningUser.Id,CommercialUnit__c=L1.Id);
+            Territory__c L2 = new Territory__c(TerritoryLevel__c='L2:District',Sales_Org__c='1000',name='NA34 (US E Dealer)',Assigned_Rep__c=RunningUser.Id,CommercialUnit__c=L1.Id);
             Territory__c L3 = new Territory__c(TerritoryLevel__c='L3:Territory',Sales_Org__c='3000',name='NA34 (US A Dealer)',Assigned_Rep__c=RunningUser.Id,CommercialUnit__c=L1.Id);
             List<Territory__c> Terr = new List<Territory__c>();
             /*Terr.add(L1);*/
@@ -968,132 +968,6 @@ insert productlist;*/
     
     }
 
-    static TestMethod void populateOLIHandlerTest6(){      
-        
-        System.runAs(RunningUser)
-        {
-             
-            Territory__c L1 = new Territory__c(TerritoryLevel__c='L1:Commercial unit',Sales_Org__c='1000',name='A633',Assigned_Rep__c=RunningUser.Id); //,Sales_Org_Description__c='Crop Protection and Seed'
-            Territory__c L2 = new Territory__c(TerritoryLevel__c='L2:District',Sales_Org__c='1000',name='NA34 (US E Dealer)',Assigned_Rep__c=RunningUser.Id,CommercialUnit__c=L1.Id);
-            Territory__c L3 = new Territory__c(TerritoryLevel__c='L3:Territory',Sales_Org__c='3000',name='NA34 (US A Dealer)',Assigned_Rep__c=RunningUser.Id,CommercialUnit__c=L1.Id);
-            List<Territory__c> Terr = new List<Territory__c>();
-            /*Terr.add(L1);*/
-            Terr.add(L2);
-            Terr.add(L3);
-            insert Terr;
-            
-            Id rt = Schema.SObjectType.Product2.getRecordTypeInfosByName().get('Seeds Product').getRecordTypeId();
-            
-            Crop_Group__c cg = new Crop_Group__c();
-            cg.Name= 'Corn';
-            cg.Description__c = 'Grouped with Acorn, Almond, Beech, Brazil nut, Candlenut';
-            insert cg;
-            
-            Crop_Return_Provision__c crp = new Crop_Return_Provision__c();
-            crp.CropGroup__c = cg.Id ;
-            crp.ECUReturnProvision__c = 0.06;
-            crp.WCUReturnProvision__c = 0.02;
-            insert crp;
-            
-            Product2 p1 = new Product2(Product_ID__c='456',Volume_L__c=22.7,Variety__c='SY ROWYN',Product_Line__c='Seed',Product_Country__c='CA',Package_UOM__c='BG',Name='SYN CEREAL SEED',Min_Saleable_UoM__c='BG',Min_Saleable_UoM_Conversion__c=22.7,Quantity_Acres_Conversion_A633__c=14,Quantity_Acres_Conversion_A623__c=14,Brand__c='SYN CEREAL SEED',Base_UOM__c='kg',RecordTypeid = rt,AvailableforPlanning__c = True,isactive=true, PrimaryECUCrop__c = cg.id, PrimaryWCUCrop__c = cg.id);
-            Product2 p2 = new Product2(Product_ID__c='123',Volume_L__c=22.7,Variety__c='SY087',Product_Line__c='Seed',Product_Country__c='CA',Package_UOM__c='BG',Name='SYN CEREAL SEED',Min_Saleable_UoM__c='BG',Min_Saleable_UoM_Conversion__c=22.7,Quantity_Acres_Conversion_A633__c=14,Quantity_Acres_Conversion_A623__c=14,Brand__c='SYN CEREAL SEED',Base_UOM__c='kg',RecordTypeid = rt,AvailableforPlanning__c = True,isactive=true, PrimaryECUCrop__c = cg.id, PrimaryWCUCrop__c = cg.id);
-            List<Product2> prod = new List<Product2>();
-            prod.add(p1);
-            prod.add(p2);
-            insert prod;
-            
-            List<Product2> productlist = new List<Product2>();
-            for (Integer i=0; i<102; i++){
-                Product2 p = new Product2(Product_ID__c='123'+i,Volume_L__c=22.7,Variety__c='SY ROWYN',Product_Line__c='Seed',Product_Country__c='CA',Package_UOM__c='BG',Name='SYN CEREAL SEED',Min_Saleable_UoM__c='BG',Min_Saleable_UoM_Conversion__c=22.7,Quantity_Acres_Conversion_A633__c=14,Quantity_Acres_Conversion_A623__c=14,Brand__c='SYN CEREAL SEED',Base_UOM__c='kg',RecordTypeid = rt,AvailableforPlanning__c = True,isactive=true);
-                productlist.add(p);                
-            }
-            insert productlist;
-            system.debug('productlist'+productlist);
-            PriceBook_for_SalesPlan__mdt custommetadata = [select id,Seeds_Price_BookID__c from PriceBook_for_SalesPlan__mdt where SeedsPriceBook__c = 'CP Price Book'];
-            
-            Pricebook2 seedpricebook = new Pricebook2(id=custommetadata.seeds_price_bookId__c,name='CP Price Book',IsActive = true);
-            upsert seedpricebook;
-            
-            id stdpricebook = Test.getStandardPricebookId();
-            
-            PricebookEntry pbe1=new PricebookEntry(UnitPrice=1,Product2Id=p1.id,Pricebook2Id=seedpricebook.id,IsActive=true);
-            PricebookEntry pbe2=new PricebookEntry(UnitPrice=1,Product2Id=p2.id,Pricebook2Id=seedpricebook.id,IsActive=true);
-            PricebookEntry pbe3=new PricebookEntry(UnitPrice=1,Product2Id=p1.id,Pricebook2Id=stdpricebook,IsActive=true);
-            PricebookEntry pbe4=new PricebookEntry(UnitPrice=1,Product2Id=p2.id,Pricebook2Id=stdpricebook,IsActive=true);    
-            insert pbe3;
-            insert pbe4;
-            insert pbe2;
-            insert pbe1;
-            
-            
-            List<PricebookEntry> pbeList1 = new List<PricebookEntry>();
-            For(Product2 Pr: productlist){
-                PricebookEntry pricebook=new PricebookEntry(UnitPrice=1,Product2Id=pr.id,Pricebook2Id=stdpricebook,IsActive=true); 
-                pbeList1.add(pricebook);  
-            }
-            insert pbeList1;
-            
-            
-            Date closeDt = Date.Today();
-            
-            RecordType rct5 = [Select Id, Name, DeveloperName From RecordType Where DeveloperName = 'PlanningAccount'];
-            Account a1 = new Account(Name ='testing account', RecordTypeId = rct5.Id );
-            insert a1;            
-            RecordType rct6 = [Select Id, Name, DeveloperName From RecordType Where DeveloperName = 'PlanningAccount'];
-            Account a2 = new Account(Name ='testing acc', RecordTypeId = rct6.Id );
-            insert a2;
-            
-            
-            Account_Territory__c acctrr=new Account_Territory__c();
-            acctrr.Account__c=a1.id;
-            acctrr.Territory__c=l1.Id;
-            insert acctrr;
-            
-            Account_Territory__c acctrr1=new Account_Territory__c();
-            acctrr.Account__c=a2.id;
-            acctrr.Territory__c=l2.Id;
-            insert acctrr1; 
-            
-            
-            
-            RecordType rct = [Select Id, Name, DeveloperName From RecordType Where DeveloperName = 'District_Business_Plan'];
-            Business_Plan__c bp2 = new Business_Plan__c(name = 'TestBP5' ,Year__c = '2018', Account__c = a1.id, RecordTypeId = rct.id, Country__c = 'CA');  
-            Insert bp2;
-            RecordType rct1 = [Select Id,Name,DeveloperName From RecordType Where DeveloperName = 'District_OTG_LE'];
-            opportunity oppr = new opportunity();
-            oppr.Name='testing opp4';
-            oppr.AccountId= a1.Id;
-            oppr.StageName = 'Acquire';
-            oppr.AccountBusinessPlan__c = bp2.id;
-            oppr.CloseDate = closeDt;
-            oppr.Product_Type__c = 'Seeds';
-            oppr.RecordTypeId =rct1.id;
-            oppr.Year__c='2018'; 
-            oppr.Territory__c=L2.id;
-            oppr.PriceBook2Id = seedpricebook.id;
-            insert oppr;
-            
-            
-            PageReference pageRef = Page.PopulateOli;
-            Test.setCurrentPage(pageRef);
-            ApexPages.StandardController sc = new ApexPages.StandardController(oppr);
-            ApexPages.currentPage().getParameters().put('Id',oppr.Id);
-            ApexPages.currentPage().getParameters().put('RecordType',oppr.RecordTypeId);
-            ApexPages.currentPage().getParameters().put('ProdType',oppr.Product_Type__c); 
-            
-            
-            
-            Test.startTest();
-            PopulateOLIHandler spc = new PopulateOLIHandler(sc);     
-            ApexPages.currentPage().getParameters().put('RecTypeDeveloperName',oppr.RecordType.DeveloperName);
-            ApexPages.currentPage().getParameters().put('BPId',bp2.Id);
-            spc.createOlis();
-            spc.createOlisFromPastData();
-            Test.stopTest();
-        }
-        
-        
-    }
     
     
 }

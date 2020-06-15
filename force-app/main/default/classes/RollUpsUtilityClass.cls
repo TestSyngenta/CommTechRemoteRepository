@@ -88,26 +88,7 @@ public class RollUpsUtilityClass {
                                               sum(Rolled_Up_Ending_Inventory_CY_1__c)rueic, 
                                               sum(Rtlr_CY_Alctd__c)rucad,
                                               sum(Rtlr_Plnd_CY_Q4_Ship__c)rupcqs,
-                                              sum(OTG_CY_2__c)otg2,
-                                              sum(OTG_CY_1__c)otg1,
-                                              sum(OTG_SDP_CY_1__c)otgsdp,
-                                              sum(LE_March_SDP__c)lemarsdp,
-                                              sum(LE_April_SDP__c)leaprsdp,
-                                              sum(LE_May_SDP__c)lemaysdp,
-                                              sum(LE_June_SDP__c)lejunsdp,
-                                              sum(LE_July_SDP__c)lejulsdp,
-                                              sum(LE_August_SDP__c)leaugsdp,
-                                              sum(LE_September_SDP__c)lesepsdp,
-                                              sum(Next_Year_LE_SDP__c)lenysdp,
-                                              sum(LE_March_SDP_Rollup__c)rulemarsdp,
-                                              sum(LE_April_SDP_Rollup__c)ruleaprsdp,
-                                              sum(LE_May_SDP_Rollup__c)rulemaysdp,
-                                              sum(LE_June_SDP_Rollup__c)rulejunsdp,
-                                              sum(LE_July_SDP_Rollup__c)rulejulsdp,
-                                              sum(LE_August_SDP_Rollup__c)ruleaugsdp,
-                                              sum(LE_September_SDP_Rollup__c)rulesepsdp,
-                                              sum(LE_Next_Year_SDP_Rollup__c)rulenysdp,
-                                              sum(Rolled_Up_CY_1_OTG_SDP_NF__c)ruotgsdp,
+                                              sum(OTG_CY_2__c)otg2,sum(OTG_CY_1__c)otg1,
                                               sum(ProjectedEndingInventoryCY__c)peic,
                                               sum(CY_1_Inventory_OTG__c)cyio,
                                               sum(OTG_FRCST_CY__c)ofcy,
@@ -133,11 +114,7 @@ public class RollUpsUtilityClass {
                                         Rolled_Up_MY_FY_Planned_Ship_Bulk__c,Rolled_Up_MY_FY_Planned_Ship_Totes__c,
                                         Rolled_Up_MY_Q4_Planned_Ship_Totes__c, Rolled_Up_MY_Planned_FNS__c,
                                         Rolled_Up_CY_Order_Quantity__c, Rolled_Up_CY_Shipped_Quantity__c,
-                                        CY_Baseline_Sell_In_Plan__c, CY_Current_Sell_In_Plan__c,
-                                        Rolled_Up_CY_1_OTG_SDP_NF__c, LE_March_SDP_Rollup__c,
-                                        LE_April_SDP_Rollup__c, LE_May_SDP_Rollup__c, LE_June_SDP_Rollup__c,
-                                        LE_July_SDP_Rollup__c, LE_August_SDP_Rollup__c, LE_September_SDP_Rollup__c,
-                                        LE_Next_Year_SDP_Rollup__c
+                                        CY_Baseline_Sell_In_Plan__c, CY_Current_Sell_In_Plan__c
                                         from OpportunityLineItem where opportunityid=:globalOppId])
          {
           existingprods.put(oli.Product2Id,oli);
@@ -178,29 +155,7 @@ public class RollUpsUtilityClass {
                 /*opplnitm.RolledupCYOTGForecastLitres__c=(Decimal)ar.get('ofl');*/
                 opplnitm.Rolled_Up_MY_Planned_FNS__c = (Decimal)ar.get('fcsum');
                 opplnitm.Rolled_Up_CY_Order_Quantity__c = (Decimal)ar.get('cycporder');
-                opplnitm.Rolled_Up_CY_Shipped_Quantity__c = (Decimal)ar.get('cycpshipped');            
-                if(parntopp.RecordType.Developername==Label.Region_OTG_LE){
-                    opplnitm.Rolled_Up_CY_1_OTG_SDP_NF__c= (Decimal)ar.get('otgsdp');    
-                    opplnitm.LE_March_SDP_Rollup__c = (Decimal)ar.get('lemarsdp'); 
-                    opplnitm.LE_April_SDP_Rollup__c = (Decimal)ar.get('leaprsdp'); 
-                    opplnitm.LE_May_SDP_Rollup__c = (Decimal)ar.get('lemaysdp'); 
-                    opplnitm.LE_June_SDP_Rollup__c = (Decimal)ar.get('lejunsdp'); 
-                    opplnitm.LE_July_SDP_Rollup__c = (Decimal)ar.get('lejulsdp'); 
-                    opplnitm.LE_August_SDP_Rollup__c = (Decimal)ar.get('leaugsdp'); 
-                    opplnitm.LE_September_SDP_Rollup__c = (Decimal)ar.get('lesepsdp'); 
-                    opplnitm.LE_Next_Year_SDP_Rollup__c = (Decimal)ar.get('lenysdp'); 
-                }
-                if(parntopp.RecordType.Developername==Label.National_OTG_LE){
-                    opplnitm.Rolled_Up_CY_1_OTG_SDP_NF__c= (Decimal)ar.get('ruotgsdp');   
-                    opplnitm.LE_March_SDP_Rollup__c = (Decimal)ar.get('rulemarsdp'); 
-                    opplnitm.LE_April_SDP_Rollup__c = (Decimal)ar.get('ruleaprsdp'); 
-                    opplnitm.LE_May_SDP_Rollup__c = (Decimal)ar.get('rulemaysdp'); 
-                    opplnitm.LE_June_SDP_Rollup__c = (Decimal)ar.get('rulejunsdp'); 
-                    opplnitm.LE_July_SDP_Rollup__c = (Decimal)ar.get('rulejulsdp'); 
-                    opplnitm.LE_August_SDP_Rollup__c = (Decimal)ar.get('ruleaugsdp'); 
-                    opplnitm.LE_September_SDP_Rollup__c = (Decimal)ar.get('rulesepsdp'); 
-                    opplnitm.LE_Next_Year_SDP_Rollup__c = (Decimal)ar.get('rulenysdp'); 
-                }
+                opplnitm.Rolled_Up_CY_Shipped_Quantity__c = (Decimal)ar.get('cycpshipped');                
                 if(parntopp.RecordType.Developername==Label.CP_CU_Sales_Plan_Record_Type_Name || parntopp.RecordType.developername == Label.Seeds_CU_Sales_Plan_Record_Type_Name)
                 {
                    opplnitm.Rolled_up_CY_1_Forecast_Sales__c = (Decimal)ar.get('rucfs');
@@ -314,9 +269,7 @@ public class RollUpsUtilityClass {
                                               sum(Rolled_Up_Ending_Inventory_CY_1__c)rueic, 
                                               sum(Rtlr_CY_Alctd__c)rucad,
                                               sum(Rtlr_Plnd_CY_Q4_Ship__c)rupcqs,
-                                              sum(OTG_CY_2__c)otg2,
-                                              sum(OTG_CY_1__c)otg1,
-                                              sum(OTG_SDP_CY_1__c)otgsdp,
+                                              sum(OTG_CY_2__c)otg2,sum(OTG_CY_1__c)otg1,
                                               sum(ProjectedEndingInventoryCY__c)peic,
                                               sum(CY_1_Inventory_OTG__c)cyio,
                                               sum(OTG_FRCST_CY__c)ofcy,
@@ -377,8 +330,7 @@ public class RollUpsUtilityClass {
                 opplnitm.Rolled_Up_MY_Q4_Planned_Ship_Totes__c = (Decimal)ar.get('qpst');
                 opplnitm.Rolled_Up_MY_Planned_FNS__c = (Decimal)ar.get('fcsum');                
                 opplnitm.Rolled_Up_CY_Order_Quantity__c = (Decimal)ar.get('cycporder');
-                opplnitm.Rolled_Up_CY_Shipped_Quantity__c = (Decimal)ar.get('cycpshipped');  
-                opplnitm.Rolled_Up_CY_1_OTG_SDP_NF__c = (Decimal)ar.get('otgsdp');   
+                opplnitm.Rolled_Up_CY_Shipped_Quantity__c = (Decimal)ar.get('cycpshipped');     
                 if(parntopp.RecordType.Developername==Label.CP_CU_Sales_Plan_Record_Type_Name || parntopp.RecordType.developername == Label.Seeds_CU_Sales_Plan_Record_Type_Name)
                 {
                    opplnitm.Rolled_up_CY_1_Forecast_Sales__c = (Decimal)ar.get('rucfs');

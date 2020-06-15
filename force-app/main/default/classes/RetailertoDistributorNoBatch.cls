@@ -138,10 +138,10 @@ public class RetailertoDistributorNoBatch {
             if(cuoppid!=null){
                 DistributortoCUPlanNoBatch batch=new DistributortoCUPlanNoBatch(cuoppid,childprodids);
                 batch.Start();
-                
-                /*DistributortoCUPlan batch=new DistributortoCUPlan(cuoppid,childprodids);
-                Database.executeBatch(batch);*/
-                
+                /*
+                DistributortoCUPlan batch=new DistributortoCUPlan(cuoppid,childprodids);
+                Database.executeBatch(batch);
+                */
             }
         }
         if(exceptionList!=null)
