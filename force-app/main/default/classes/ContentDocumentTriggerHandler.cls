@@ -10,6 +10,9 @@
 *   @Updates:   11/26/2019
 *               Jim Buchan
 *               Modified code to file count for Stewardship Agreements 
+*   @Updates:   06/13/2020
+*               Jim Buchan
+*               Modified code to file count for Commercial Trials and Commercial Experience
 */
 
 public without sharing class ContentDocumentTriggerHandler 
@@ -35,6 +38,8 @@ public without sharing class ContentDocumentTriggerHandler
         List<Case> casesToUpdate = new List<Case>();
         List<Stewardship_Agreements__c> StewardshipsToUpdate = new List<Stewardship_Agreements__c>();
         List<Settlement__c> settlementsToUpdate = new List<Settlement__c>();
+        List<Commercial_Experience_Demos__c> CommercialExperienceToUpdate = new List<Commercial_Experience_Demos__c>();
+        List<Customer_Experience_Trials__c> CommercialTrialsToUpdate = new List<Customer_Experience_Trials__c>();
 
         // Get Both objects Prefix
         String programPrefix = Programs__c.SObjecttype.getDescribe().getKeyPrefix();
@@ -42,6 +47,8 @@ public without sharing class ContentDocumentTriggerHandler
         String casePrefix = Case.SObjecttype.getDescribe().getKeyPrefix();
         String StewardshipPrefix = Stewardship_Agreements__c.SObjecttype.getDescribe().getKeyPrefix();
         String settlementPrefix = Settlement__c.SObjecttype.getDescribe().getKeyPrefix();
+        String CommercialExperiencePrefix = Commercial_Experience_Demos__c.SObjecttype.getDescribe().getKeyPrefix();
+        String CommercialTrialsPrefix = Customer_Experience_Trials__c.SObjecttype.getDescribe().getKeyPrefix();
 
         // Get Deletd Content Document Ids 
         for( ContentDocument cd : documents )
@@ -57,7 +64,7 @@ public without sharing class ContentDocumentTriggerHandler
             String parentId = String.valueOf(cdl.LinkedEntityId);
             
             // Check that if record is deleted from Program or SeedBooking 
-            if(parentId != null && (parentId.startsWith(programPrefix) || parentId.startsWith(seedBookingPrefix) || parentId.startsWith(casePrefix) ||  parentId.startsWith(StewardshipPrefix) || parentId.startsWith(settlementPrefix) ) )
+            if(parentId != null && (parentId.startsWith(programPrefix) || parentId.startsWith(seedBookingPrefix) || parentId.startsWith(casePrefix) ||  parentId.startsWith(StewardshipPrefix) || parentId.startsWith(settlementPrefix) || parentId.startsWith(CommercialExperiencePrefix) || parentId.startsWith(CommercialTrialsPrefix) ) )
             {
                 deletedDocLinksParentIds.add(parentId);
                 parentCountMap.put(parentId, 0);
@@ -86,6 +93,8 @@ public without sharing class ContentDocumentTriggerHandler
             if( parentId.startsWith(casePrefix)) casesToUpdate.add(new Case(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
             if( parentId.startsWith(StewardshipPrefix)) StewardshipsToUpdate.add(new Stewardship_Agreements__c(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
             if( parentId.startsWith(settlementPrefix)) settlementsToUpdate.add(new Settlement__c(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
+            if( parentId.startsWith(CommercialExperiencePrefix)) CommercialExperienceToUpdate.add(new Commercial_Experience_Demos__c(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
+            if( parentId.startsWith(CommercialTrialsPrefix)) CommercialTrialsToUpdate.add(new Customer_Experience_Trials__c(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
         }
         
         // Update records 
@@ -94,6 +103,8 @@ public without sharing class ContentDocumentTriggerHandler
         if(casesToUpdate.size() > 0 ) update casesToUpdate;
         if(StewardshipsToUpdate.size() > 0 ) update StewardshipsToUpdate;
         if(settlementsToUpdate.size() > 0 ) update settlementsToUpdate;
+        if(CommercialExperienceToUpdate.size() > 0 ) update CommercialExperienceToUpdate;
+        if(CommercialTrialsToUpdate.size() > 0 ) update CommercialTrialsToUpdate;
 
     }
 }

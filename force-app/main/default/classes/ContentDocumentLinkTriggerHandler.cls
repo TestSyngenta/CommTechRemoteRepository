@@ -10,6 +10,9 @@
 *   @Updates:   11/26/2019
 *               Jim Buchan
 *               Modified code to file count for Stewardship Agreement
+*   @Updates:   06/13/2020
+*               Jim Buchan
+*               Modified code to file count for Commercial Trials and Commercial Experience
 */
 
 public without sharing class ContentDocumentLinkTriggerHandler 
@@ -33,6 +36,8 @@ public without sharing class ContentDocumentLinkTriggerHandler
         List<Case> casesToUpdate = new List<Case>();
         List<Settlement__c> settlementsToUpdate = new List<Settlement__c>();
         List<Stewardship_Agreements__c> StewardshipToUpdate  = new List<Stewardship_Agreements__c>();
+        List<Commercial_Experience_Demos__c> CommercialExperienceToUpdate  = new List<Commercial_Experience_Demos__c>();
+        List<Customer_Experience_Trials__c> CommercialTrialsToUpdate  = new List<Customer_Experience_Trials__c>();
 
         // Get Both objects Prefix
         String programPrefix = Programs__c.SObjecttype.getDescribe().getKeyPrefix();
@@ -40,6 +45,8 @@ public without sharing class ContentDocumentLinkTriggerHandler
         String casePrefix = Case.SObjecttype.getDescribe().getKeyPrefix();
         String settlementPrefix = Settlement__c.SObjecttype.getDescribe().getKeyPrefix();
         String StewardshipPrefix = Stewardship_Agreements__c.SObjecttype.getDescribe().getKeyPrefix();
+        String CommercialExperiencePrefix = Commercial_Experience_Demos__c.SObjecttype.getDescribe().getKeyPrefix();
+        String CommercialTrialsPrefix = Customer_Experience_Trials__c.SObjecttype.getDescribe().getKeyPrefix();
 
         // Check that if record in inserted under Program or SeedBooking 
         for(ContentDocumentLink cdl : links )    
@@ -47,7 +54,7 @@ public without sharing class ContentDocumentLinkTriggerHandler
             String parentId = String.valueOf(cdl.LinkedEntityId);
 
             // Put Ids into list and in map with default value as zero
-            if(parentId != null && (parentId.startsWith(programPrefix) || parentId.startsWith(seedBookingPrefix) || parentId.startsWith(casePrefix) || parentId.startsWith(StewardshipPrefix) || parentId.startsWith(settlementPrefix) ) )
+            if(parentId != null && (parentId.startsWith(programPrefix) || parentId.startsWith(seedBookingPrefix) || parentId.startsWith(casePrefix) || parentId.startsWith(StewardshipPrefix) || parentId.startsWith(settlementPrefix) || parentId.startsWith(CommercialExperiencePrefix) || parentId.startsWith(CommercialTrialsPrefix) ) )
             {
                 parentIds.add(cdl.LinkedEntityId);
                 parentCountMap.put(cdl.LinkedEntityId, 0);
@@ -74,6 +81,8 @@ public without sharing class ContentDocumentLinkTriggerHandler
             if( parentId.startsWith(casePrefix)) casesToUpdate.add(new Case(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
             if( parentId.startsWith(StewardshipPrefix)) StewardshipToUpdate.add(new Stewardship_Agreements__c(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
             if( parentId.startsWith(settlementPrefix)) settlementsToUpdate.add(new Settlement__c(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
+            if( parentId.startsWith(CommercialExperiencePrefix)) CommercialExperienceToUpdate.add(new Commercial_Experience_Demos__c(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
+            if( parentId.startsWith(CommercialTrialsPrefix)) CommercialTrialsToUpdate.add(new Customer_Experience_Trials__c(Id=parentId, File_Count__c = parentCountMap.get(parentId)));
         }
         
         // Update records 
@@ -82,5 +91,7 @@ public without sharing class ContentDocumentLinkTriggerHandler
         if(casesToUpdate.size() > 0 ) update casesToUpdate;
         if(StewardshipToUpdate.size() > 0 ) update StewardshipToUpdate;
         if(settlementsToUpdate.size() > 0 ) update settlementsToUpdate;
+        if(CommercialExperienceToUpdate.size() > 0 ) update CommercialExperienceToUpdate;
+        if(CommercialTrialsToUpdate.size() > 0 ) update CommercialTrialsToUpdate;
     }
 }
