@@ -522,8 +522,30 @@ public class Contact_TriggerHandler {
          }*/
               
     }
+    Public static HttpResponse httpCallout(String url, String body){
+
+            
+        HttpRequest req = new HttpRequest();
+        HttpResponse res = new HttpResponse();
+        Http http = new Http();
+        
+        
+        //req.setEndPoint('https://pi.pardot.com/api/prospect/version/4/do/create/email/' + email);
+        req.setEndPoint(url);
+        req.setBody(body);
+        req.setMethod('POST');
+        req.setTimeout(20000);
+        try{
+            res = http.send(req);
+            return res;
+        } 
+        catch(System.CalloutException e){
+            // Allow for CalloutExceptions for timeout on request send
+            return null;
+        }
+   }
     
-   /**  public static void queueCreateInPardot(Contact[] newList){
+    public static void queueCreateInPardot(Contact[] newList){
         
         Integer i = 0;
         for(Contact c: newList){
@@ -532,35 +554,25 @@ public class Contact_TriggerHandler {
             }
             
             if(c.email <> null && c.pi__url__c == null && !System.IsBatch() && !System.IsQueueable() && !Test.isRunningTest()){
-                sendToPardot(c.Id, c.email);
+                sendToPardot('https://pi.pardot.com/api/prospect/version/3/do/create', 
+                'email='+c.Email );
                 i++;                  
             }
         }   
     }  
     @future (callout=true)
-    public static void sendToPardot(Id contactId, String email){
-         String apiKey = loginToPardot();
-         
-         //System.Debug('API Key returned was ' + apiKey);
-         
-         String user_key = 'cd215fdd852b6c7e19038b14900d2f64';        
-         HttpRequest req = new HttpRequest();
-         HttpResponse res = new HttpResponse();
-         Http http = new Http();
-         
-         
-         req.setEndPoint('https://pi.pardot.com/api/prospect/version/4/do/create/email/' + email);
-         req.setBody('fid=' + contactId + '&api_key=' + apiKey + '&user_key=' + user_key);
-         req.setMethod('POST');
-         req.setTimeout(20000);
-         try{
-             res = http.send(req);
-         } 
-         catch(System.CalloutException e){
-             // Allow for CalloutExceptions for timeout on request send
-         }
+    public static void sendToPardot(String url, String body){
+        
+        String apiKey = loginToPardot();
+        
+        //System.Debug('API Key returned was ' + apiKey);
+        
+        String user_key = 'cd215fdd852b6c7e19038b14900d2f64';
+
+        HttpResponse res = httpCallout( url, 'user_key=' +user_key+ '&api_key='+ apiKey +'&'+ body );
     }
-**/
+ 
+
     public static String loginToPardot(){ 
     
          String user_key = 'cd215fdd852b6c7e19038b14900d2f64';
