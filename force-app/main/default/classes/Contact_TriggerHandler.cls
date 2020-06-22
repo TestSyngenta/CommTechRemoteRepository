@@ -549,7 +549,7 @@ public class Contact_TriggerHandler {
         
         Integer i = 0;
         for(Contact c: newList){
-            if(i > 50){
+            if(i > 2){
                 break;
             }
             
