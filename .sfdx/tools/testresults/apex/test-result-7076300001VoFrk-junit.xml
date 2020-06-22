@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-22T12:28:37-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="3" failures="1"  errors="0"  time="14.36">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="3"/>
+            <property name="passing" value="2"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="67%"/>
+            <property name="failRate" value="33%"/>
+            <property name="testStartTime" value="Jun 22, 2020 12:28 PM"/>
+            <property name="testExecutionTime" value="14.36 s"/>
+            <property name="testTotalTime" value="14.36 s"/>
+            <property name="commandTime" value="30.79 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001VoFrk"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="80%"/>
+            <property name="orgWideCoverage" value="80%"/>
+        </properties>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="2.78">
+            <failure message="System.DmlException: Update failed. First exception on row 0 with id 0036300000a4Dt9AAE; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, Contact_Trigger: execution of AfterUpdate
+
+caused by: System.DmlException: Update failed. First exception on row 0 with id 0036300000a4Dt9AAE; first error: CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY, Contact_Trigger: execution of BeforeUpdate
+
+caused by: System.NullPointerException: Attempt to de-reference a null object
+
+Class.Contact_TriggerHandler.updateContactType: line 206, column 1
+Trigger.Contact_Trigger: line 53, column 1: []
+
+Class.Contact_TriggerHandler.updateContactDetailsonInactive: line 267, column 1
+Trigger.Contact_Trigger: line 40, column 1: []"><![CDATA[Class.Contact_TriggerTest.runTest: line 48, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="3.92">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="7.66">
+        </testcase>
+    </testsuite>
+</testsuites>
