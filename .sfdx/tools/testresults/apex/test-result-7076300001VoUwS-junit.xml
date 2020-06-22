@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-22T16:40:42-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="4" failures="1"  errors="0"  time="19.74">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="4"/>
+            <property name="passing" value="3"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="75%"/>
+            <property name="failRate" value="25%"/>
+            <property name="testStartTime" value="Jun 22, 2020 4:40 PM"/>
+            <property name="testExecutionTime" value="19.74 s"/>
+            <property name="testTotalTime" value="19.74 s"/>
+            <property name="commandTime" value="41.24 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001VoUwS"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="80%"/>
+        </properties>
+        <testcase name="testMethod1" classname="CommTech_ProjectsTriggerTest" time="0.52">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="8.54">
+            <failure message="System.LimitException: Too many SOQL queries: 101"><![CDATA[Class.Account_TriggerHandler.updateContactInfoOnAccount: line 26, column 1
+Class.Contact_TriggerHandler.updateAccountContactDetails: line 317, column 1
+Trigger.Contact_Trigger: line 24, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="5.31">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="5.38">
+        </testcase>
+    </testsuite>
+</testsuites>

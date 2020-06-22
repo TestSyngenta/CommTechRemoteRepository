@@ -15,6 +15,7 @@ public class Contact_TriggerTest {
         userList.add(testUser2);
         insert userList;
         Account testAccount;
+        Account testAccount1;
         Contact testContact1;
         Contact testContact2;
         Contact testContact3;
@@ -25,6 +26,7 @@ public class Contact_TriggerTest {
         Contact testContact8;                
         Contact testContact9;  
         Contact testInactiveContact1;
+        Contact testInactiveContact2;
         List<Contact> insertList1 = new List<Contact>();
         List<Contact> insertList2 = new List<Contact>();
         List<Contact> insertList3 = new List<Contact>();                 
@@ -43,7 +45,7 @@ public class Contact_TriggerTest {
            
             testInactiveContact1 = new Contact(LastName='InactiveContact1', FirstName='Test', Email = 'test1@inactivetest.com', Phone='5556895253', AccountId = testAccount.Id, Inactive__c = false);
             insert testInactiveContact1;
-            testInactiveContact1 = [SELECT Id, AccountId, Inactive__c FROM Contact WHERE Id =: testInactiveContact1.Id];
+            testInactiveContact1 = [SELECT Id, AccountId, Inactive__c FROM Contact WHERE Id =: testInactiveContact1.Id LIMIT 1];
             testInactiveContact1.Inactive__c = true;
 
             System.assertEquals(true, testInactiveContact1.Inactive__c);
@@ -81,9 +83,28 @@ public class Contact_TriggerTest {
             // check hasPhone & hasEmail
             testAccount = [Select Id, hasPhone__c, hasEmail__c from Account where Id = :testAccount.Id];
             //System.assertEquals(false, testAccount.hasPhone__c);
-
-            
+                    
         }
+         System.runAs(testUser1){
+           test.startTest();
+            testAccount1 = new Account(Name='TestAccount2', OwnerID=testUser1.id,
+                              BillingStreet='123 TestStreet', BillingCity='TestCity', BillingState='ON', BillingPostalCode='N1H 6H9');
+            insert testAccount1;
+            testInactiveContact2 = new Contact(LastName='InactiveContact2', FirstName='Test', Email = 'test1@inactivetest.com', Phone='5556895253', AccountId = testAccount1.Id, Inactive__c = true);
+            insert testInactiveContact2;
+            testInactiveContact2 = [SELECT Id, AccountId, Inactive__c FROM Contact WHERE Id =: testInactiveContact2.Id LIMIT 1];
+            testInactiveContact2.Inactive__c = false;
+
+            System.assertEquals(false, testInactiveContact2.Inactive__c);
+           try {
+            update testInactiveContact2;   
+           } catch (Exception ee) {
+               
+           }
+           Contact_TriggerHandler.resetDoNotEmail(testInactiveContact2.id);
+           test.stopTest();
+        }
+        
         //System.assertEquals(false, testAccount.hasEmail__c);
        
     }

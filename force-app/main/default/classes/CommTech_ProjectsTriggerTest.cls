@@ -1,7 +1,7 @@
 @isTest
 
 public class CommTech_ProjectsTriggerTest {
-    public static testMethod void testMethod1() {
+   /** public static testMethod void testMethod1() {
         //List<Trello__c> insertTrello = new List<Trello__c>();
         Trello__c CommTech_Project = new Trello__c();
         CommTech_Project.Name = 'Testproject1';
@@ -14,4 +14,5 @@ try{
 Catch(Exception ee)
 {}
     }
+    **/
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-22T16:12:22-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="4" failures="1"  errors="0"  time="15.89">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="4"/>
+            <property name="passing" value="3"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="75%"/>
+            <property name="failRate" value="25%"/>
+            <property name="testStartTime" value="Jun 22, 2020 4:12 PM"/>
+            <property name="testExecutionTime" value="15.89 s"/>
+            <property name="testTotalTime" value="15.89 s"/>
+            <property name="commandTime" value="37.27 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001VoT7b"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="80%"/>
+        </properties>
+        <testcase name="testMethod1" classname="CommTech_ProjectsTriggerTest" time="1.61">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="5.31">
+            <failure message="System.ListException: Before Insert or Upsert list must not have two identically equal elements"><![CDATA[Class.Contact_TriggerTest.runTest: line 86, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="4.1">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="4.88">
+        </testcase>
+    </testsuite>
+</testsuites>
