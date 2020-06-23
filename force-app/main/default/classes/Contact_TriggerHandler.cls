@@ -584,6 +584,7 @@ public class Contact_TriggerHandler {
          Http http = new Http();
          String loginErrorMessage = '';
          String apiKey = '';
+         String result;
          //user_key is the 'API User Key' field on the 'Settings' page in Pardot // Ensure that the specified user account has at least "Marketing" access privileges. user_key = 'YourUserKey';
          //The 32 character hexadecimal user key for your user account password = 'YourPassword';
          //The password of your user account email = 'yourEmail@YourDomaincom';
@@ -593,6 +594,8 @@ public class Contact_TriggerHandler {
          req.setMethod('POST');
          req.setTimeout(20000);
          res = http.send(req);
+         result = res.getBody();
+         result = result.substring(1);
          XmlStreamReader xsr = res.getXmlStreamReader();
          
          while(xsr.hasNext())
