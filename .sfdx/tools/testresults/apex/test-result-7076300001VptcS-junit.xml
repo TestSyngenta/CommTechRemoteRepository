@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-23T15:15:17-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="4" failures="2"  errors="0"  time="23.55">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="4"/>
+            <property name="passing" value="2"/>
+            <property name="failing" value="2"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="50%"/>
+            <property name="failRate" value="50%"/>
+            <property name="testStartTime" value="Jun 23, 2020 3:15 PM"/>
+            <property name="testExecutionTime" value="23.55 s"/>
+            <property name="testTotalTime" value="23.55 s"/>
+            <property name="commandTime" value="45.82 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001VptcS"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="80%"/>
+        </properties>
+        <testcase name="testCallout" classname="CalloutClassTest" time="2.35">
+            <failure message="System.AssertException: Assertion Failed: Expected: http://example.com/example/test, Actual: https://pi.pardot.com/api/login/version/3"><![CDATA[Class.HttpCalloutMockTest.respond: line 7, column 1
+Class.Contact_TriggerHandler.loginToPardot: line 595, column 1
+Class.Contact_TriggerHandler.resetDoNotEmail: line 492, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="10.94">
+            <failure message="Methods defined as TestMethod do not support Web service callouts"></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="4.79">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="5.47">
+        </testcase>
+    </testsuite>
+</testsuites>
