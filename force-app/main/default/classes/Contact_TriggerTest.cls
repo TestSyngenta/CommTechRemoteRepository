@@ -101,7 +101,7 @@ public class Contact_TriggerTest {
            } catch (Exception ee) {
                
            }
-           Contact_TriggerHandler.resetDoNotEmail(testInactiveContact2.id);
+           //Contact_TriggerHandler.resetDoNotEmail(testInactiveContact2.id);
            test.stopTest();
         }
         
