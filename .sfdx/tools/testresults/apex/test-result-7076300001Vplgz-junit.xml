@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-23T13:25:20-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="1" failures="1"  errors="0"  time="0.08">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="1"/>
+            <property name="passing" value="0"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="0%"/>
+            <property name="failRate" value="100%"/>
+            <property name="testStartTime" value="Jun 23, 2020 1:25 PM"/>
+            <property name="testExecutionTime" value="0.08 s"/>
+            <property name="testTotalTime" value="0.08 s"/>
+            <property name="commandTime" value="10.92 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001Vplgz"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="77%"/>
+        </properties>
+        <testcase name="testCallout" classname="CalloutClassTest" time="0.08">
+            <failure message="System.AssertException: Assertion Failed: Expected: GET, Actual: POST"><![CDATA[Class.HttpCalloutMockTest.respond: line 8, column 1
+Class.Contact_TriggerHandler.httpCallout: line 538, column 1
+Class.CalloutClassTest.testCallout: line 13, column 1]]></failure>
+        </testcase>
+    </testsuite>
+</testsuites>

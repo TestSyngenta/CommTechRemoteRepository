@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-23T09:51:22-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="1" failures="0"  errors="0"  time="0.02">
+        <properties>
+            <property name="outcome" value="Passed"/>
+            <property name="testsRan" value="1"/>
+            <property name="passing" value="1"/>
+            <property name="failing" value="0"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="100%"/>
+            <property name="failRate" value="0%"/>
+            <property name="testStartTime" value="Jun 23, 2020 9:51 AM"/>
+            <property name="testExecutionTime" value="0.02 s"/>
+            <property name="testTotalTime" value="0.02 s"/>
+            <property name="commandTime" value="8.81 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001VpZ2X"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="80%"/>
+        </properties>
+        <testcase name="testCallout" classname="CalloutClassTest" time="0.02">
+        </testcase>
+    </testsuite>
+</testsuites>
