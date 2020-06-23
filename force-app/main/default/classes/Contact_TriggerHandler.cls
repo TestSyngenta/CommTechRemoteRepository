@@ -523,8 +523,7 @@ public class Contact_TriggerHandler {
               
     }
     Public static HttpResponse httpCallout(String url, String body){
-
-            
+          
         HttpRequest req = new HttpRequest();
         HttpResponse res = new HttpResponse();
         Http http = new Http();
@@ -543,6 +542,7 @@ public class Contact_TriggerHandler {
             // Allow for CalloutExceptions for timeout on request send
             return null;
         }
+        
    }
     
     public static void queueCreateInPardot(Contact[] newList){
