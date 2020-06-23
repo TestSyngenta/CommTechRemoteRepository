@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-23T17:00:21-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="4" failures="0"  errors="0"  time="23.39">
+        <properties>
+            <property name="outcome" value="Passed"/>
+            <property name="testsRan" value="4"/>
+            <property name="passing" value="4"/>
+            <property name="failing" value="0"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="100%"/>
+            <property name="failRate" value="0%"/>
+            <property name="testStartTime" value="Jun 23, 2020 5:00 PM"/>
+            <property name="testExecutionTime" value="23.39 s"/>
+            <property name="testTotalTime" value="23.39 s"/>
+            <property name="commandTime" value="54.83 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001Vq22Q"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="80%"/>
+        </properties>
+        <testcase name="testCallout" classname="CalloutClassTest" time="1.74">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="7.95">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="8.2">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="5.5">
+        </testcase>
+    </testsuite>
+</testsuites>

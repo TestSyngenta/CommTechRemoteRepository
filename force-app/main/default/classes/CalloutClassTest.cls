@@ -6,6 +6,7 @@ private class CalloutClassTest {
         String user_key = 'cd215fdd852b6c7e19038b14900d2f64';
         String password = 'r919_B4I';
         String email = 'trevor.cornfield@syngenta.com';
+        List<Contact> insertList1 = new List<Contact>();
         
         
         // Call method to test.
@@ -17,7 +18,7 @@ private class CalloutClassTest {
         String contentType = res.getHeader('Content-Type');
         System.assert(contentType == 'application/json');
         String actualValue = res.getBody();
-        String expectedValue = '{"example":"test"}';
+        String expectedValue = 'email=trevor.cornfield@syngenta.com&password=r919_B4I&user_key=cd215fdd852b6c7e19038b14900d2f64';
         System.assertEquals(actualValue, expectedValue);
         System.assertEquals(200, res.getStatusCode());
         Account testAccount;
@@ -28,10 +29,18 @@ private class CalloutClassTest {
         testContact = new Contact(LastName='SyngentaContact_02', FirstName='Joe', Email='test2@goodtest.com', AccountId=testAccount.Id);
       
         Insert testContact;
+        insertList1.add(testContact);
+        insert(insertList1);
         testContact = [SELECT Id FROM Contact WHERE Id =: testContact.Id LIMIT 1];
 
         Test.startTest();
-        Contact_TriggerHandler.resetDoNotEmail(testContact.Id);
+        Contact_TriggerHandler.queueCreateInPardot(insertList1);
+        
+        
+        
+        
+        //Contact_TriggerHandler.resetDoNotEmail(testContact.Id);
         Test.stopTest();
+    
     }
 }
