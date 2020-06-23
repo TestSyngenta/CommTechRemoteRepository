@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-23T16:25:34-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="1" failures="1"  errors="0"  time="9.96">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="1"/>
+            <property name="passing" value="0"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="0%"/>
+            <property name="failRate" value="100%"/>
+            <property name="testStartTime" value="Jun 23, 2020 4:25 PM"/>
+            <property name="testExecutionTime" value="9.96 s"/>
+            <property name="testTotalTime" value="9.96 s"/>
+            <property name="commandTime" value="21.83 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001Vpzx1"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="79%"/>
+        </properties>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="9.96">
+            <failure message="Methods defined as TestMethod do not support Web service callouts"></failure>
+        </testcase>
+    </testsuite>
+</testsuites>

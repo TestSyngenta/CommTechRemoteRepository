@@ -3,8 +3,8 @@ FORMAT  FILE
 ──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
-junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vpu6t-junit.xml
-json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vpu6t.json
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vpzwc-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vpzwc.json
 json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
 
 === Apex Code Coverage
@@ -62,8 +62,6 @@ ID                  NAME                                    % COVERED           
 01q3m000001HvLXAA0  Forecast_Kickstart_Trigger              100%
 01p3m00000EAZIfAAP  FarmWrapper                             100%
 01q3m000001E3PTAA0  WebsiteAccount                          100%
-01qo0000000kvS1AAI  Contact_Trigger                         100%
-01po0000004dvDyAAI  Contact_TriggerHandler                  73%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,496,497,498,499,501,502,503,504,505,506,507,541,543,548,550,551,552,553,556,557,558,559,564,566,570,572,606,607,613
 01po0000003FHksAAG  StageChannelAccountNSAPBatch            94.44444444444444%  22
 01po0000003FHmUAAW  StageChannelAccountSFDCBatch            94.44444444444444%  22
 01po0000003FIG5AAO  StageNSAPOrderBatch                     94.44444444444444%  22
@@ -83,49 +81,37 @@ ID                  NAME                                    % COVERED           
 01po0000003ysKRAAY  Case_NewRecordType_Controller           95.16129032258065%  63,64,80
 01qo0000000pCjCAAU  Programs_Trigger                        100%
 01po0000004NqdXAAS  Programs_TriggerHandler                 93%                 65,66,67
+01po0000004dvDyAAI  Contact_TriggerHandler                  67%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,207,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,496,497,498,499,501,502,503,504,505,506,507,525,527,528,529,533,534,535,536,537,538,539,541,543,548,550,551,552,553,556,557,558,559,564,566,570,572,597,598,599,601,602,607,609,610,612,616
+01qo0000000kvS1AAI  Contact_Trigger                         100%
 01qo0000000lrPNAAY  FoundationCustomer_Trigger              100%
 01po0000005eKUlAAM  FoundationCustomer_TriggerHandler       86%                 128,129,130,131,132,133,134,136,137,138,139,140,141,143,144,162,163,164,165
 01po0000005eJx0AAE  ContentDocumentTriggerHandler           100%
 01qo0000000lrLgAAI  ContentDocumentTrigger                  100%
 
 === Test Results
-TEST NAME                                     OUTCOME  MESSAGE                                                            RUNTIME (MS)
-────────────────────────────────────────────  ───────  ─────────────────────────────────────────────────────────────────  ────────────
-CalloutClassTest.testCallout                  Fail     System.XmlException: ParseError at [row,col]:[1,1]                 1858
-                                                       Message: Content is not allowed in prolog.
-                                                       Class.Contact_TriggerHandler.loginToPardot: line 609, column 1
-                                                       Class.Contact_TriggerHandler.resetDoNotEmail: line 492, column 1
-Contact_TriggerTest.runTest                   Fail     Methods defined as TestMethod do not support Web service callouts  10897
-Contact_TriggerTest2.runTest                  Pass                                                                        5713
-Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                        6202
-
-=== Failures
-FULLNAME                      MESSAGE
-────────────────────────────  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-CalloutClassTest.testCallout  System.XmlException: ParseError at [row,col]:[1,1]
-                              Message: Content is not allowed in prolog.
-                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:609:1
-                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:492:1
+TEST NAME                    OUTCOME  MESSAGE                                                            RUNTIME (MS)
+───────────────────────────  ───────  ─────────────────────────────────────────────────────────────────  ────────────
+Contact_TriggerTest.runTest  Fail     Methods defined as TestMethod do not support Web service callouts  10146
 
 === Test Summary
 NAME                 VALUE
 ───────────────────  ───────────────────────────────────────────────
 Outcome              Failed
-Tests Ran            4
-Passing              2
-Failing              2
+Tests Ran            1
+Passing              0
+Failing              1
 Skipped              0
-Pass Rate            50%
-Fail Rate            50%
-Test Start Time      Jun 23, 2020 3:21 PM
-Test Execution Time  24670 ms
-Test Total Time      24670 ms
-Command Time         52011 ms
+Pass Rate            0%
+Fail Rate            100%
+Test Start Time      Jun 23, 2020 4:29 PM
+Test Execution Time  10146 ms
+Test Total Time      10146 ms
+Command Time         21280 ms
 Hostname             https://syngentacanada--full.my.salesforce.com
 Org Id               00D6300000024c2EAA
 Username             aakash.sidana@syngenta.com.full
-Test Run Id          7076300001Vpu6t
+Test Run Id          7076300001Vpzwc
 User Id              0053m00000AlyrWAAR
 Test Run Coverage    81%
-Org Wide Coverage    80%
+Org Wide Coverage    79%
 
