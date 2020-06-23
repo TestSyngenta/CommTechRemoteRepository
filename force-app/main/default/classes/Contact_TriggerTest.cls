@@ -42,6 +42,8 @@ public class Contact_TriggerTest {
             insertList1.add(testContact1);
             // insert test Contact 2 with email
             testContact2 = new Contact(LastName='SyngentaContact_02', FirstName='Joe', Email='test2@goodtest.com', AccountId=testAccount.Id, Pardot_Opt_In_Email_Communications__c = 'No', Opt_in_ECom__c = 'No (Opted-out)');
+            testContact3 = new Contact(LastName='SyngentaContact_03', FirstName='Joe', Email='test3@goodtest.com', AccountId=testAccount.Id);
+            Insert testContact3;
            
             testInactiveContact1 = new Contact(LastName='InactiveContact1', FirstName='Test', Email = 'test1@inactivetest.com', Phone='5556895253', AccountId = testAccount.Id, Inactive__c = false);
             insert testInactiveContact1;
@@ -101,8 +103,10 @@ public class Contact_TriggerTest {
            } catch (Exception ee) {
                
            }
-           //Contact_TriggerHandler.resetDoNotEmail(testInactiveContact2.id);
+           
            test.stopTest();
+           
+           
         }
         
         //System.assertEquals(false, testAccount.hasEmail__c);
