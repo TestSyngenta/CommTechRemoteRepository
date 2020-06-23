@@ -4,7 +4,7 @@ global class HttpCalloutMockTest implements HttpCalloutMock {
     global HTTPResponse respond(HTTPRequest req) {
         // Optionally, only send a mock response for a specific endpoint
         // and method.
-        System.assertEquals('http://example.com/example/test', req.getEndpoint());
+        System.assertEquals('https://pi.pardot.com/api/login/version/3', req.getEndpoint());
         System.assertEquals('POST', req.getMethod());
         
         // Create a fake response
