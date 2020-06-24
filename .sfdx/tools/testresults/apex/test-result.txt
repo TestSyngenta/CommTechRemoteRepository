@@ -1,0 +1,131 @@
+=== Test Reports
+FORMAT  FILE
+──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
+txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vq3by-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vq3by.json
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
+
+=== Apex Code Coverage
+ID                  NAME                                    % COVERED           UNCOVERED LINES
+──────────────────  ──────────────────────────────────────  ──────────────────  ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+01p1N000005CF7kQAG  GenericUtils                            100%
+01p1N000005CF8HQAW  populateOLIHandler                      77%                 13,16,20,21,52,56,70,71,72,96,97,98,99,127,130,133,134,136,139,140,205,206,207,272,279,291,292,298,304,305,310,318,319,320,328,332,337,338,339,346,359,360,361,436,437,438
+01p1N000005CF7cQAG  BusinessPlanTriggerHandler              78%                 40,41,42,58,62,63,64,158,164,165,166
+01p3m00000EAbLRAA1  DistributortoCUPlanNoBatch              81%                 96,97,98,113,114,121,125,126,136,142,143
+01q1N0000011yblQAA  OpportunityLineItemTrigger              91%                 98,99,100
+01qo0000000xqQ5AAI  Account_Trigger                         100%
+01p1N000005CF7yQAG  RollUpsUtilityClass                     68%                 150,317,372,374,375,377,392,393,394,395,397,398,399,403,404,405,406,407,408,409,410,411,412,413,414,415,416,418,419,420,421,422,424,425,426,427,428,429,430,433,444,446,447,462,463,465,466,467,468,469,470,471,472,473,474,475,476,477,478,479,480,482,484,489,491,493,494,495,496,497,498,499,500,501,502,503,504,505,506,507,508,510,515
+01p1N000005CF7pQAG  OLILookupsutility                       76%                 53,57,66,67,69,70,71,74,75,113,114,115,116,123,124,125,128
+01q1N0000011ybnQAA  SalesPlanActualsTrigger                 100%
+01p1N000005CF7qQAG  OpportunityLineItemSPA                  91%                 32,33,34
+01po000000556DzAAI  Account_TriggerHandler                  80%                 9,10,118,119,120,128,130,131,137,138,139,146,147,148,154,155,156,163,164,165,167,177
+01p1N000005CF7hQAG  ExceptionLogHelperClass                 100%
+01p1N000005CF8CQAW  ToUpdateRelatedPlan                     75%                 40,60,61,62,63,65,66,68,69,71,75,76,85,102,103,104,105,107,108,110,111,113,114,118,119,126,127,130,132,134,135,138,139,142,143,144,148,149,151,152,153,154,155,157,158,160,161,163,167,168,176,183,191,202,203,204,205,207,208,210,211,212,216,217,221,222,223,258,288,323,372,459,460,461,497
+01p1N000005CF82QAG  SalesPlanCreationHandler                83%                 49,50,61,62,63,64,66,67,68,69,119,120,121,129,130,138,243,257,258,261,262,263,264,265,266,267,269,270,314,315,316,326,327,328,329,330,331,334,335,336,337,338,339,409,410,416,417,423,424,459,460,481,482,495,496,520,621,622,654,730,731,737,740
+01q1N0000011ybiQAA  BusinessPlanTrigger                     100%
+01q1N0000011ybmQAA  OpportunityTrigger                      100%
+01p1N000005CF7QQAW  BatchDistributortoCUPlan                84%                 92,93,95,99,123,125,136,138,158
+01p1N000005CF7PQAW  AvoidRecursion                          58%                 17,18,19,20,22,25,26,27,28,30
+01p1N000005CF7zQAG  RollUpsUtilityClassWithoutBatch         52%                 162,163,164,165,166,167,168,169,171,172,173,175,176,177,179,180,181,182,183,184,185,186,187,188,190,191,192,193,194,195,196,197,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,220,221,222,223,224,225,226,227,228,229,230,231,234,236,237,238,239,240,241,242,243,244,245,246,247,248,250,252,253,255,257,264,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,288,289,290,291,292,293,294,295,297,298,425,453,454,455,456,457,458,459,460,461,464,465,466,467,468,469,470,471,472,473,474,492,493,562,624,641,642,643,644,645,646,647,648,649,650,651,652,653,654,655,656,658
+01p1N000005CF7SQAW  BatchInsertOlis                         84.0909090909091%   37,38,39,40,41,44,45
+01p1N000005CF7YQAW  BatchRetailtoTerritory                  82%                 91,92,96,120,122,133,135,154,155,161,162,171
+01p1N000005CF7aQAG  BatchTerritorytoDistrict                84%                 93,94,95,99,123,125,136,138,157
+01p1N000005CF7eQAG  CTR_Product_Drill_Down_CA               85.71428571428571%  40,41,42,44,143,144,145,147
+01p1N000005CF7oQAG  GridbuddyVisibilityTriggerHandler       83%                 41,42
+01p1N000005CF7iQAG  GB_Helper                               83.73983739837398%  115,196,199,210,213,226,234,236,249,257,259,272,280,282,295,303,305,318,326,328,341,349,351,363,371,373,386,394,396,409,418,420,433,441,443,456,464,466,479,487,489,501,510,512,525,534,536,549,555,556,557,558,560,561,563,565,566,578,580,581
+01q1N0000011ybjQAA  Gridbuddy_Visibility_Trigger            92%                 10
+01p1N000005CF7mQAG  GridAjaxDelegator                       91.22807017543859%  18,19,50,79,105
+01p1N000005CF7uQAG  PriceListTriggerhandler                 80%                 27,28,29,44
+01q3m000001E3YpAAK  PriceList_Trigger                       100%
+01p1N000005CF80QAG  SalesPlanController                     69%                 13,37,38,39,40,48,49,50,51,54,57,70,71,95,98,102,103,104
+01p1N000005CF7sQAG  OpportunitySeedsAllocation              78%                 53,56,81,82,121,122,123,150,151,152,173,174,175,193,210,211,212,230,231,232,277,278,279,306,307,308,310,311,312,314,315,319,320,321,367,371,381,382,383,397,399,401,402,403,404
+01p1N000005CF7OQAW  Allocatesalesplanctr                    90.26128266033254%  40,41,42,113,114,115,153,154,155,191,192,193,194,221,233,234,235,236,258,259,260,263,273,274,275,276,367,377,419,504,505,506,598,599,600,647,659,693,758,759,760
+01q1N0000011yboQAA  SeedsAllocationValidationAndSPCreation  100%
+01p1N000005CF84QAG  SeedsAllocationValidation               77.77777777777779%  47,50,51,52,74,75,77,91,94,95,96,131
+01p1N000005CF8FQAW  ValidateDistributorSelectionForSP       81%                 58,59,60,102,105,106,107,146,147,148,169,180,184,189,190,192,194,196
+01p3m00000EAbLSAA1  RetailertoDistributorNoBatch            80%                 58,91,92,93,108,109,121,122,132,139,140,153
+01p3m00000EAbLTAA1  RetailertoHeadOfficeNoBatch             79%                 91,92,93,102,106,107,119,120,131,132,138,139,158
+01p1N000005CLDIQA4  ConsolidatedOLIHandler                  90%                 32,33,34
+01p1N000005CLDLQA4  GB_BPHelper                             83.51351351351352%  117,122,178,181,192,195,208,216,218,231,239,241,254,262,264,277,285,287,300,308,310,323,331,333,345,353,355,368,376,378,391,400,402,415,423,425,438,446,448,461,469,471,483,492,494,507,516,518,531,537,538,539,540,542,543,545,547,548,560,562,563
+01p1N000005CLDKQA4  DynamicLinkController                   86.28571428571429%  79,89,91,92,115,148,149,150,151,226,227,228,229,230,231,233,234,235,244,245,252,259,281,282
+01p3m000005qP1PAAU  Lead_TriggerHandler                     80%                 119,120,122,123,128,129,130,131,132,136,137,138,139,143,144,145,149
+01p1N00000ENaFEQA1  campaignCheckInController               84%                 85,86,87,88,89,90,91,92,122,123,124,125,127,128,130
+01q3m000001HvPtAAK  Lead_Trigger                            100%
+01qo0000000lrLfAAI  ContentDocumentLinkTrigger              100%
+01po0000005eJwyAAE  ContentDocumentLinkTriggerHandler       100%
+01po0000003cIopAAE  CLS_StaticUtils                         96%                 27
+01q3m000001Hv3XAAS  Territory_Trigger                       100%
+01p3m000005qL1oAAE  Territory_TriggerHandler                93.93939393939394%  55,64
+01p3m000005qOApAAM  Forecast_Kickstart_TriggerHandler       75%                 24,25,30,31,41,61,75,76,84,85,86,87,92,93,94
+01q3m000001HvLXAA0  Forecast_Kickstart_Trigger              100%
+01p3m00000EAZIfAAP  FarmWrapper                             100%
+01q3m000001E3PTAA0  WebsiteAccount                          100%
+01po0000004dvDyAAI  Contact_TriggerHandler                  74%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,491,492,496,497,498,499,501,502,503,504,505,506,507,541,543,553,557,558,559,564,566,570,572,609,610,616
+01qo0000000kvS1AAI  Contact_Trigger                         100%
+01po0000003FHksAAG  StageChannelAccountNSAPBatch            94.44444444444444%  22
+01po0000003FHmUAAW  StageChannelAccountSFDCBatch            94.44444444444444%  22
+01po0000003FIG5AAO  StageNSAPOrderBatch                     94.44444444444444%  22
+01qo0000000KpHZAA0  CropAcreage_Trigger                     100%
+01po0000003vQLwAAM  CropAcreage_TriggerHandler              100%
+01po0000003vQM6AAM  AccountDetails_Acreage_Controller       100%
+01po0000003vQM8AAM  AccountDetails_PurchHist_Controller     100%
+01qo0000000KpHjAAK  Settlement_Trigger                      100%
+01po0000003vQMQAA2  Settlement_TriggerHandler               98%                 23
+01po0000003wf8TAAQ  ChequeRun_TriggerHandler                94%                 46,47
+01qo0000000oNcNAAU  ChequeRun_Trigger                       75%                 4
+01qo0000000pbOAAAY  Settlement_Payment_Trigger              100%
+01po0000003wf8RAAQ  ChequeRun_ControllerExt                 89.36170212765957%  35,37,38,39,40,43,61,62,64,85,160,226,228,230,231
+01po0000004hzwmAAA  Settlement_Payment_TriggerHandler       100%
+01po0000003xw1wAAA  Settlement_NewRecordType_Controller     100%
+01po0000003y7MjAAI  CaseCommentConverter                    94.87179487179486%  17,30
+01po0000003ysKRAAY  Case_NewRecordType_Controller           95.16129032258065%  63,64,80
+01qo0000000pCjCAAU  Programs_Trigger                        100%
+01po0000004NqdXAAS  Programs_TriggerHandler                 93%                 65,66,67
+01qo0000000lrPNAAY  FoundationCustomer_Trigger              100%
+01po0000005eKUlAAM  FoundationCustomer_TriggerHandler       86%                 128,129,130,131,132,133,134,136,137,138,139,140,141,143,144,162,163,164,165
+01po0000005eJx0AAE  ContentDocumentTriggerHandler           100%
+01qo0000000lrLgAAI  ContentDocumentTrigger                  100%
+
+=== Test Results
+TEST NAME                                     OUTCOME  MESSAGE                                                         RUNTIME (MS)
+────────────────────────────────────────────  ───────  ──────────────────────────────────────────────────────────────  ────────────
+CalloutClassTest.testCallout                  Fail     System.XmlException: ParseError at [row,col]:[1,2]              3915
+                                                       Message: Reference is not allowed in prolog.
+                                                       Class.Contact_TriggerHandler.loginToPardot: line 612, column 1
+                                                       Class.CalloutClassTest.testCallout: line 42, column 1
+Contact_TriggerTest.runTest                   Pass                                                                     6280
+Contact_TriggerTest2.runTest                  Pass                                                                     4426
+Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                     4504
+
+=== Failures
+FULLNAME                      MESSAGE
+────────────────────────────  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+CalloutClassTest.testCallout  System.XmlException: ParseError at [row,col]:[1,2]
+                              Message: Reference is not allowed in prolog.
+                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:612:1
+                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/CalloutClassTest.cls:42:1
+
+=== Test Summary
+NAME                 VALUE
+───────────────────  ───────────────────────────────────────────────
+Outcome              Failed
+Tests Ran            4
+Passing              3
+Failing              1
+Skipped              0
+Pass Rate            75%
+Fail Rate            25%
+Test Start Time      Jun 23, 2020 5:27 PM
+Test Execution Time  19125 ms
+Test Total Time      19125 ms
+Command Time         37022 ms
+Hostname             https://syngentacanada--full.my.salesforce.com
+Org Id               00D6300000024c2EAA
+Username             aakash.sidana@syngenta.com.full
+Test Run Id          7076300001Vq3by
+User Id              0053m00000AlyrWAAR
+Test Run Coverage    81%
+Org Wide Coverage    80%
+
