@@ -1,0 +1,542 @@
+[
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416671,
+            "changeTime": 1589994416671,
+            "contentHash": "b28b7af69320201d1cf206ebf28373980add1451",
+            "isWorkspace": false,
+            "isArtifactRoot": true
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416672,
+            "changeTime": 1589994416672,
+            "contentHash": "7505d64a54e061b7acd54ccd58b49dc43500b635",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1592340243756,
+            "changeTime": 1592340243756,
+            "contentHash": "134fb9100108b9aaba9aee713cf235d514fd8f88",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\applications",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\applications",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416674,
+            "changeTime": 1589994416674,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\aura",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\aura",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416677,
+            "changeTime": 1589994416677,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1592934571011,
+            "changeTime": 1592934571011,
+            "contentHash": "0ec3721c1181edadcd06399630661ae3aa9238eb",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\CalloutClassTest.cls",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\CalloutClassTest.cls",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 2001,
+            "modifiedTime": 1592947592325,
+            "changeTime": 1592947592325,
+            "contentHash": "64c8d52368ae7da752eb3b162b2abd7423ef9fb4",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\CalloutClassTest.cls-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\CalloutClassTest.cls-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 174,
+            "modifiedTime": 1592918025053,
+            "changeTime": 1592918025053,
+            "contentHash": "b14927db8433719a949fb732f84be0e1c5bd19cd",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\CommTech_ProjectsTriggerTest.cls",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\CommTech_ProjectsTriggerTest.cls",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 496,
+            "modifiedTime": 1592861177399,
+            "changeTime": 1592861177399,
+            "contentHash": "ad01c0b60cb63738100cccfea4672f2256807958",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\CommTech_ProjectsTriggerTest.cls-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\CommTech_ProjectsTriggerTest.cls-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 174,
+            "modifiedTime": 1592861155974,
+            "changeTime": 1592861155974,
+            "contentHash": "b14927db8433719a949fb732f84be0e1c5bd19cd",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerHandler.cls",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerHandler.cls",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 28928,
+            "modifiedTime": 1592947440541,
+            "changeTime": 1592947440541,
+            "contentHash": "29fc54df91f55325cf7c7210325f563ce6a2565d",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerHandler.cls-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerHandler.cls-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 179,
+            "modifiedTime": 1592340243729,
+            "changeTime": 1592340243729,
+            "contentHash": "0d221f8a056acfcadca290ea2b5d1d6f91eb8ad2",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerTest.cls",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerTest.cls",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 5646,
+            "modifiedTime": 1592944177870,
+            "changeTime": 1592944177870,
+            "contentHash": "d619c502e531bf3702fb8e0099dbb5f4661abdb9",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerTest.cls-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerTest.cls-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 179,
+            "modifiedTime": 1592340243739,
+            "changeTime": 1592340243739,
+            "contentHash": "0d221f8a056acfcadca290ea2b5d1d6f91eb8ad2",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerTest2.cls",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerTest2.cls",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 2973,
+            "modifiedTime": 1592340243743,
+            "changeTime": 1592340243743,
+            "contentHash": "ce0e5fe574fe57536b745a01804ed61d0bc13f14",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerTest2.cls-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_TriggerTest2.cls-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 179,
+            "modifiedTime": 1592340243746,
+            "changeTime": 1592340243746,
+            "contentHash": "36653e7488879c0ed6d7bd08805295fa678ca822",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_Trigger_Primary_Contact_Test.cls",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_Trigger_Primary_Contact_Test.cls",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 3959,
+            "modifiedTime": 1592340243749,
+            "changeTime": 1592340243749,
+            "contentHash": "61399d96354cd5e951b40ab4607a94de4dbac10d",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_Trigger_Primary_Contact_Test.cls-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\Contact_Trigger_Primary_Contact_Test.cls-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 179,
+            "modifiedTime": 1592340243752,
+            "changeTime": 1592340243752,
+            "contentHash": "36653e7488879c0ed6d7bd08805295fa678ca822",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\HttpCalloutMockTest.cls",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\HttpCalloutMockTest.cls",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 910,
+            "modifiedTime": 1592947432378,
+            "changeTime": 1592947432378,
+            "contentHash": "57d61d0c6c342bc50b680af7cde1885e76874d9a",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\HttpCalloutMockTest.cls-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\classes\\HttpCalloutMockTest.cls-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 174,
+            "modifiedTime": 1592859949796,
+            "changeTime": 1592859949796,
+            "contentHash": "b14927db8433719a949fb732f84be0e1c5bd19cd",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\contentassets",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\contentassets",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416681,
+            "changeTime": 1589994416681,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\flexipages",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\flexipages",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416683,
+            "changeTime": 1589994416683,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\layouts",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\layouts",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416685,
+            "changeTime": 1589994416685,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\lwc",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\lwc",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1592340243754,
+            "changeTime": 1592340243754,
+            "contentHash": "a973ac1b5be0e216b2a2db1b82ae5ba97f4086f4",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\objects",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\objects",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416687,
+            "changeTime": 1589994416687,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\permissionsets",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\permissionsets",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416689,
+            "changeTime": 1589994416689,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\staticresources",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\staticresources",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416690,
+            "changeTime": 1589994416690,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\tabs",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\tabs",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1589994416692,
+            "changeTime": 1589994416692,
+            "contentHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1593006930467,
+            "changeTime": 1593006930467,
+            "contentHash": "a7e955bb2dd11d550ae7d47a603063276ce7ebac",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\Account_Trigger.trigger",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\Account_Trigger.trigger",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 1939,
+            "modifiedTime": 1592340243760,
+            "changeTime": 1592340243760,
+            "contentHash": "4bc76788571721bc5766676cdc70890d43950a63",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\Account_Trigger.trigger-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\Account_Trigger.trigger-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 183,
+            "modifiedTime": 1592340243763,
+            "changeTime": 1592340243763,
+            "contentHash": "00af34e5c7abd2e7168700b82fa16ba6d83d62bc",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\CommTech_Projects.trigger",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\CommTech_Projects.trigger",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 709,
+            "modifiedTime": 1593007457426,
+            "changeTime": 1593007457426,
+            "contentHash": "a5d7743a899a1a821d494919d4daea881f06adef",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\CommTech_Projects.trigger-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\CommTech_Projects.trigger-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 184,
+            "modifiedTime": 1593007891724,
+            "changeTime": 1593007891724,
+            "contentHash": "2d791ff54c3b38bc79cfebff571011fb849de1fd",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\Contact_Trigger.trigger",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\Contact_Trigger.trigger",
+            "isDirectory": false,
+            "isMetadataFile": false,
+            "size": 2076,
+            "modifiedTime": 1592340243767,
+            "changeTime": 1592340243767,
+            "contentHash": "acab20fc8a769d98c9ef11a7e579ded420176f00",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\Contact_Trigger.trigger-meta.xml",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management\\force-app\\main\\default\\triggers\\Contact_Trigger.trigger-meta.xml",
+            "isDirectory": false,
+            "isMetadataFile": true,
+            "size": 183,
+            "modifiedTime": 1592855121301,
+            "changeTime": 1592855121301,
+            "contentHash": "0f2374178dc7d3164ea5c064f0f91093c76d5d0b",
+            "isWorkspace": false,
+            "isArtifactRoot": false
+        }
+    ],
+    [
+        "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management",
+        {
+            "state": "n",
+            "sourcePath": "C:\\Users\\s996790\\Desktop\\Projects\\Contact Data Management\\Contact Data Management",
+            "isDirectory": true,
+            "isMetadataFile": false,
+            "size": 0,
+            "modifiedTime": 1592340241567,
+            "changeTime": 1592340241567,
+            "contentHash": "c79b7f11b7e4819b15591411595834d20debc7ce",
+            "isWorkspace": true,
+            "isArtifactRoot": false
+        }
+    ]
+]
