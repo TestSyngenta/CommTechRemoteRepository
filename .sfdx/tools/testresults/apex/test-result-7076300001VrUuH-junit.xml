@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-24T17:03:27-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="4" failures="1"  errors="0"  time="21.79">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="4"/>
+            <property name="passing" value="3"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="75%"/>
+            <property name="failRate" value="25%"/>
+            <property name="testStartTime" value="Jun 24, 2020 5:03 PM"/>
+            <property name="testExecutionTime" value="21.79 s"/>
+            <property name="testTotalTime" value="21.79 s"/>
+            <property name="commandTime" value="45.18 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001VrUuH"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="74%"/>
+        </properties>
+        <testcase name="testCallout" classname="CalloutClassTest" time="1.53">
+            <failure message="System.XmlException: ParseError at [row,col]:[1,1]
+Message: Content is not allowed in prolog."><![CDATA[Class.Contact_TriggerHandler.loginToPardot: line 612, column 1
+Class.CalloutClassTest.testCallout: line 44, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="6.63">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="7.62">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="6.01">
+        </testcase>
+    </testsuite>
+</testsuites>
