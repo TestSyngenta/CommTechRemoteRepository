@@ -3,8 +3,8 @@ FORMAT  FILE
 ──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
-junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrQPm-junit.xml
-json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrQPm.json
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrQOT-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrQOT.json
 json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
 
 === Apex Code Coverage
@@ -62,7 +62,8 @@ ID                  NAME                                    % COVERED           
 01q3m000001HvLXAA0  Forecast_Kickstart_Trigger              100%
 01p3m00000EAZIfAAP  FarmWrapper                             100%
 01q3m000001E3PTAA0  WebsiteAccount                          100%
-01po0000004dvDyAAI  Contact_TriggerHandler                  65%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,207,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,491,492,496,497,498,499,501,502,503,504,505,506,507,539,541,543,548,550,551,552,553,556,557,558,559,564,566,570,572,576,578,579,580,581,582,583,584,585,586,587,592,593,594,595,596,597,598,599,601,602,607,609,610,612,616
+01po0000004dvDyAAI  Contact_TriggerHandler                  67%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,491,492,496,497,498,499,501,502,503,504,505,506,507,541,543,553,557,558,559,564,566,570,572,576,578,579,580,581,582,583,584,585,586,587,592,593,594,595,596,597,598,599,601,602,607,609,610,612,616
+01qo0000000kvS1AAI  Contact_Trigger                         100%
 01po0000003FHksAAG  StageChannelAccountNSAPBatch            94.44444444444444%  22
 01po0000003FHmUAAW  StageChannelAccountSFDCBatch            94.44444444444444%  22
 01po0000003FIG5AAO  StageNSAPOrderBatch                     94.44444444444444%  22
@@ -82,48 +83,37 @@ ID                  NAME                                    % COVERED           
 01po0000003ysKRAAY  Case_NewRecordType_Controller           95.16129032258065%  63,64,80
 01qo0000000pCjCAAU  Programs_Trigger                        100%
 01po0000004NqdXAAS  Programs_TriggerHandler                 93%                 65,66,67
-01qo0000000kvS1AAI  Contact_Trigger                         100%
 01qo0000000lrPNAAY  FoundationCustomer_Trigger              100%
 01po0000005eKUlAAM  FoundationCustomer_TriggerHandler       86%                 128,129,130,131,132,133,134,136,137,138,139,140,141,143,144,162,163,164,165
 01po0000005eJx0AAE  ContentDocumentTriggerHandler           100%
 01qo0000000lrLgAAI  ContentDocumentTrigger                  100%
 
 === Test Results
-TEST NAME                                                           OUTCOME  MESSAGE                                                                                      RUNTIME (MS)
-──────────────────────────────────────────────────────────────────  ───────  ───────────────────────────────────────────────────────────────────────────────────────────  ────────────
-CalloutMultiStaticClassTest.testCalloutWithMultipleStaticResources  Fail     System.NullPointerException: Static Resource not found: <null>                               19
-                                                                             Class.System.MultiStaticResourceCalloutMock.respond: line 30, column 1
-                                                                             Class.Contact_TriggerHandler.httpCallout: line 538, column 1
-                                                                             Class.CalloutMultiStaticClassTest.testCalloutWithMultipleStaticResources: line 19, column 1
-Contact_TriggerTest.runTest                                         Pass                                                                                                  10680
-Contact_TriggerTest2.runTest                                        Pass                                                                                                  4798
-Contact_Trigger_Primary_Contact_Test.runTest                        Pass                                                                                                  5976
-
-=== Failures
-FULLNAME                                                            MESSAGE
-──────────────────────────────────────────────────────────────────  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-CalloutMultiStaticClassTest.testCalloutWithMultipleStaticResources  System.NullPointerException: Static Resource not found: <null>
-                                                                    c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:538:1
-
+TEST NAME                                     OUTCOME  MESSAGE  RUNTIME (MS)
+────────────────────────────────────────────  ───────  ───────  ────────────
+CalloutClassTest.testCallout                  Pass              1720
+Contact_TriggerTest.runTest                   Pass              6394
+Contact_TriggerTest2.runTest                  Pass              4309
+Contact_Trigger_Primary_Contact_Test.runTest  Pass              5097
 
 === Test Summary
 NAME                 VALUE
 ───────────────────  ───────────────────────────────────────────────
-Outcome              Failed
+Outcome              Passed
 Tests Ran            4
-Passing              3
-Failing              1
+Passing              4
+Failing              0
 Skipped              0
-Pass Rate            75%
-Fail Rate            25%
-Test Start Time      Jun 24, 2020 3:29 PM
-Test Execution Time  21473 ms
-Test Total Time      21473 ms
-Command Time         46951 ms
+Pass Rate            100%
+Fail Rate            0%
+Test Start Time      Jun 24, 2020 3:31 PM
+Test Execution Time  17520 ms
+Test Total Time      17520 ms
+Command Time         61154 ms
 Hostname             https://syngentacanada--full.my.salesforce.com
 Org Id               00D6300000024c2EAA
 Username             aakash.sidana@syngenta.com.full
-Test Run Id          7076300001VrQPm
+Test Run Id          7076300001VrQOT
 User Id              0053m00000AlyrWAAR
 Test Run Coverage    81%
 Org Wide Coverage    74%
