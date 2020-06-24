@@ -3,8 +3,8 @@ FORMAT  FILE
 ──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
-junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrPPa-junit.xml
-json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrPPa.json
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrQPm-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrQPm.json
 json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
 
 === Apex Code Coverage
@@ -91,20 +91,20 @@ ID                  NAME                                    % COVERED           
 === Test Results
 TEST NAME                                                           OUTCOME  MESSAGE                                                                                      RUNTIME (MS)
 ──────────────────────────────────────────────────────────────────  ───────  ───────────────────────────────────────────────────────────────────────────────────────────  ────────────
-CalloutMultiStaticClassTest.testCalloutWithMultipleStaticResources  Fail     System.NullPointerException: Static Resource not found: <null>                               13
+CalloutMultiStaticClassTest.testCalloutWithMultipleStaticResources  Fail     System.NullPointerException: Static Resource not found: <null>                               19
                                                                              Class.System.MultiStaticResourceCalloutMock.respond: line 30, column 1
                                                                              Class.Contact_TriggerHandler.httpCallout: line 538, column 1
                                                                              Class.CalloutMultiStaticClassTest.testCalloutWithMultipleStaticResources: line 19, column 1
-Contact_TriggerTest.runTest                                         Pass                                                                                                  11016
-Contact_TriggerTest2.runTest                                        Pass                                                                                                  4160
-Contact_Trigger_Primary_Contact_Test.runTest                        Pass                                                                                                  5130
+Contact_TriggerTest.runTest                                         Pass                                                                                                  10680
+Contact_TriggerTest2.runTest                                        Pass                                                                                                  4798
+Contact_Trigger_Primary_Contact_Test.runTest                        Pass                                                                                                  5976
 
 === Failures
 FULLNAME                                                            MESSAGE
-──────────────────────────────────────────────────────────────────  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────────────  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 CalloutMultiStaticClassTest.testCalloutWithMultipleStaticResources  System.NullPointerException: Static Resource not found: <null>
                                                                     c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:538:1
-                                                                    c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/CalloutMultiStaticClassTest.cls:19:1
+
 
 === Test Summary
 NAME                 VALUE
@@ -116,14 +116,14 @@ Failing              1
 Skipped              0
 Pass Rate            75%
 Fail Rate            25%
-Test Start Time      Jun 24, 2020 3:09 PM
-Test Execution Time  20319 ms
-Test Total Time      20319 ms
-Command Time         47718 ms
+Test Start Time      Jun 24, 2020 3:29 PM
+Test Execution Time  21473 ms
+Test Total Time      21473 ms
+Command Time         46951 ms
 Hostname             https://syngentacanada--full.my.salesforce.com
 Org Id               00D6300000024c2EAA
 Username             aakash.sidana@syngenta.com.full
-Test Run Id          7076300001VrPPa
+Test Run Id          7076300001VrQPm
 User Id              0053m00000AlyrWAAR
 Test Run Coverage    81%
 Org Wide Coverage    74%
