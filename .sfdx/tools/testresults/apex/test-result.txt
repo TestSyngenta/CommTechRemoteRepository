@@ -3,8 +3,8 @@ FORMAT  FILE
 ──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
-junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vq3by-junit.xml
-json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vq3by.json
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrBhz-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrBhz.json
 json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
 
 === Apex Code Coverage
@@ -40,11 +40,11 @@ ID                  NAME                                    % COVERED           
 01p1N000005CF7uQAG  PriceListTriggerhandler                 80%                 27,28,29,44
 01q3m000001E3YpAAK  PriceList_Trigger                       100%
 01p1N000005CF80QAG  SalesPlanController                     69%                 13,37,38,39,40,48,49,50,51,54,57,70,71,95,98,102,103,104
+01p1N000005CF8FQAW  ValidateDistributorSelectionForSP       81%                 58,59,60,102,105,106,107,146,147,148,169,180,184,189,190,192,194,196
 01p1N000005CF7sQAG  OpportunitySeedsAllocation              78%                 53,56,81,82,121,122,123,150,151,152,173,174,175,193,210,211,212,230,231,232,277,278,279,306,307,308,310,311,312,314,315,319,320,321,367,371,381,382,383,397,399,401,402,403,404
 01p1N000005CF7OQAW  Allocatesalesplanctr                    90.26128266033254%  40,41,42,113,114,115,153,154,155,191,192,193,194,221,233,234,235,236,258,259,260,263,273,274,275,276,367,377,419,504,505,506,598,599,600,647,659,693,758,759,760
 01q1N0000011yboQAA  SeedsAllocationValidationAndSPCreation  100%
 01p1N000005CF84QAG  SeedsAllocationValidation               77.77777777777779%  47,50,51,52,74,75,77,91,94,95,96,131
-01p1N000005CF8FQAW  ValidateDistributorSelectionForSP       81%                 58,59,60,102,105,106,107,146,147,148,169,180,184,189,190,192,194,196
 01p3m00000EAbLSAA1  RetailertoDistributorNoBatch            80%                 58,91,92,93,108,109,121,122,132,139,140,153
 01p3m00000EAbLTAA1  RetailertoHeadOfficeNoBatch             79%                 91,92,93,102,106,107,119,120,131,132,138,139,158
 01p1N000005CLDIQA4  ConsolidatedOLIHandler                  90%                 32,33,34
@@ -91,13 +91,13 @@ ID                  NAME                                    % COVERED           
 === Test Results
 TEST NAME                                     OUTCOME  MESSAGE                                                         RUNTIME (MS)
 ────────────────────────────────────────────  ───────  ──────────────────────────────────────────────────────────────  ────────────
-CalloutClassTest.testCallout                  Fail     System.XmlException: ParseError at [row,col]:[1,2]              3915
+CalloutClassTest.testCallout                  Fail     System.XmlException: ParseError at [row,col]:[1,2]              2223
                                                        Message: Reference is not allowed in prolog.
                                                        Class.Contact_TriggerHandler.loginToPardot: line 612, column 1
                                                        Class.CalloutClassTest.testCallout: line 42, column 1
-Contact_TriggerTest.runTest                   Pass                                                                     6280
-Contact_TriggerTest2.runTest                  Pass                                                                     4426
-Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                     4504
+Contact_TriggerTest.runTest                   Pass                                                                     13196
+Contact_TriggerTest2.runTest                  Pass                                                                     4739
+Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                     9234
 
 === Failures
 FULLNAME                      MESSAGE
@@ -117,15 +117,15 @@ Failing              1
 Skipped              0
 Pass Rate            75%
 Fail Rate            25%
-Test Start Time      Jun 23, 2020 5:27 PM
-Test Execution Time  19125 ms
-Test Total Time      19125 ms
-Command Time         37022 ms
+Test Start Time      Jun 24, 2020 11:05 AM
+Test Execution Time  29392 ms
+Test Total Time      29392 ms
+Command Time         49664 ms
 Hostname             https://syngentacanada--full.my.salesforce.com
 Org Id               00D6300000024c2EAA
 Username             aakash.sidana@syngenta.com.full
-Test Run Id          7076300001Vq3by
+Test Run Id          7076300001VrBhz
 User Id              0053m00000AlyrWAAR
 Test Run Coverage    81%
-Org Wide Coverage    80%
+Org Wide Coverage    81%
 
