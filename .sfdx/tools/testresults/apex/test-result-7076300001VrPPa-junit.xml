@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-24T15:09:19-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="4" failures="1"  errors="0"  time="20.32">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="4"/>
+            <property name="passing" value="3"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="75%"/>
+            <property name="failRate" value="25%"/>
+            <property name="testStartTime" value="Jun 24, 2020 3:09 PM"/>
+            <property name="testExecutionTime" value="20.32 s"/>
+            <property name="testTotalTime" value="20.32 s"/>
+            <property name="commandTime" value="47.72 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001VrPPa"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="74%"/>
+        </properties>
+        <testcase name="testCalloutWithMultipleStaticResources" classname="CalloutMultiStaticClassTest" time="0.01">
+            <failure message="System.NullPointerException: Static Resource not found: &lt;null&gt;"><![CDATA[Class.System.MultiStaticResourceCalloutMock.respond: line 30, column 1
+Class.Contact_TriggerHandler.httpCallout: line 538, column 1
+Class.CalloutMultiStaticClassTest.testCalloutWithMultipleStaticResources: line 19, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="11.02">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="4.16">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="5.13">
+        </testcase>
+    </testsuite>
+</testsuites>
