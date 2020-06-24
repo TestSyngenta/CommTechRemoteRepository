@@ -3,8 +3,8 @@ FORMAT  FILE
 ──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
-junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrCSR-junit.xml
-json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrCSR.json
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrJCs-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrJCs.json
 json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
 
 === Apex Code Coverage
@@ -23,7 +23,6 @@ ID                  NAME                                    % COVERED           
 01po000000556DzAAI  Account_TriggerHandler                  80%                 9,10,118,119,120,128,130,131,137,138,139,146,147,148,154,155,156,163,164,165,167,177
 01p1N000005CF7hQAG  ExceptionLogHelperClass                 100%
 01p1N000005CF8CQAW  ToUpdateRelatedPlan                     75%                 40,60,61,62,63,65,66,68,69,71,75,76,85,102,103,104,105,107,108,110,111,113,114,118,119,126,127,130,132,134,135,138,139,142,143,144,148,149,151,152,153,154,155,157,158,160,161,163,167,168,176,183,191,202,203,204,205,207,208,210,211,212,216,217,221,222,223,258,288,323,372,459,460,461,497
-01p1N000005CF82QAG  SalesPlanCreationHandler                88%                 49,50,61,62,63,64,66,67,68,69,119,120,121,129,130,138,243,314,315,316,334,335,336,337,338,339,409,410,416,417,423,424,459,460,481,482,495,496,520,621,622,654,730,731,737,740
 01q1N0000011ybiQAA  BusinessPlanTrigger                     100%
 01q1N0000011ybmQAA  OpportunityTrigger                      100%
 01p1N000005CF7QQAW  BatchDistributortoCUPlan                84%                 92,93,95,99,123,125,136,138,158
@@ -41,6 +40,7 @@ ID                  NAME                                    % COVERED           
 01q3m000001E3YpAAK  PriceList_Trigger                       100%
 01p1N000005CF80QAG  SalesPlanController                     69%                 13,37,38,39,40,48,49,50,51,54,57,70,71,95,98,102,103,104
 01p1N000005CF8FQAW  ValidateDistributorSelectionForSP       81%                 58,59,60,102,105,106,107,146,147,148,169,180,184,189,190,192,194,196
+01p1N000005CF82QAG  SalesPlanCreationHandler                80%                 49,50,57,61,62,63,64,66,67,68,69,91,92,119,120,121,129,130,138,157,158,159,160,243,247,283,299,305,306,307,315,316,317,335,336,337,338,339,340,343,344,345,346,347,348,378,410,411,417,418,424,425,460,461,465,466,482,483,496,497,521,524,553,622,623,627,628,651,655,731,732,738,741
 01p1N000005CF7sQAG  OpportunitySeedsAllocation              78%                 53,56,81,82,121,122,123,150,151,152,173,174,175,193,210,211,212,230,231,232,277,278,279,306,307,308,310,311,312,314,315,319,320,321,367,371,381,382,383,397,399,401,402,403,404
 01p1N000005CF7OQAW  Allocatesalesplanctr                    90.26128266033254%  40,41,42,113,114,115,153,154,155,191,192,193,194,221,233,234,235,236,258,259,260,263,273,274,275,276,367,377,419,504,505,506,598,599,600,647,659,693,758,759,760
 01q1N0000011yboQAA  SeedsAllocationValidationAndSPCreation  100%
@@ -63,7 +63,7 @@ ID                  NAME                                    % COVERED           
 01p3m00000EAZIfAAP  FarmWrapper                             100%
 01q3m000001E3PTAA0  WebsiteAccount                          100%
 01qo0000000kvS1AAI  Contact_Trigger                         100%
-01po0000004dvDyAAI  Contact_TriggerHandler                  67%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,491,492,496,497,498,499,501,502,503,504,505,506,507,541,543,553,557,558,559,564,566,570,572,576,578,579,580,581,582,583,584,585,586,587,592,593,594,595,596,597,598,599,601,602,607,609,610,612,616
+01po0000004dvDyAAI  Contact_TriggerHandler                  74%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,491,492,496,497,498,499,501,502,503,504,505,506,507,541,543,553,557,558,559,564,566,570,572,609,610,616
 01po0000003FHksAAG  StageChannelAccountNSAPBatch            94.44444444444444%  22
 01po0000003FHmUAAW  StageChannelAccountSFDCBatch            94.44444444444444%  22
 01po0000003FIG5AAO  StageNSAPOrderBatch                     94.44444444444444%  22
@@ -89,32 +89,43 @@ ID                  NAME                                    % COVERED           
 01qo0000000lrLgAAI  ContentDocumentTrigger                  100%
 
 === Test Results
-TEST NAME                                     OUTCOME  MESSAGE  RUNTIME (MS)
-────────────────────────────────────────────  ───────  ───────  ────────────
-CalloutClassTest.testCallout                  Pass              1344
-Contact_TriggerTest.runTest                   Pass              7355
-Contact_TriggerTest2.runTest                  Pass              3933
-Contact_Trigger_Primary_Contact_Test.runTest  Pass              9635
+TEST NAME                                     OUTCOME  MESSAGE                                                         RUNTIME (MS)
+────────────────────────────────────────────  ───────  ──────────────────────────────────────────────────────────────  ────────────
+CalloutClassTest.testCallout                  Fail     System.XmlException: ParseError at [row,col]:[1,1]              1877
+                                                       Message: Content is not allowed in prolog.
+                                                       Class.Contact_TriggerHandler.loginToPardot: line 612, column 1
+                                                       Class.CalloutClassTest.testCallout: line 42, column 1
+Contact_TriggerTest.runTest                   Pass                                                                     8919
+Contact_TriggerTest2.runTest                  Pass                                                                     7193
+Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                     5661
+
+=== Failures
+FULLNAME                      MESSAGE
+────────────────────────────  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+CalloutClassTest.testCallout  System.XmlException: ParseError at [row,col]:[1,1]
+                              Message: Content is not allowed in prolog.
+                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:612:1
+                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/CalloutClassTest.cls:42:1
 
 === Test Summary
 NAME                 VALUE
 ───────────────────  ───────────────────────────────────────────────
-Outcome              Passed
+Outcome              Failed
 Tests Ran            4
-Passing              4
-Failing              0
+Passing              3
+Failing              1
 Skipped              0
-Pass Rate            100%
-Fail Rate            0%
-Test Start Time      Jun 24, 2020 11:18 AM
-Test Execution Time  22267 ms
-Test Total Time      22267 ms
-Command Time         42592 ms
+Pass Rate            75%
+Fail Rate            25%
+Test Start Time      Jun 24, 2020 1:23 PM
+Test Execution Time  23650 ms
+Test Total Time      23650 ms
+Command Time         53629 ms
 Hostname             https://syngentacanada--full.my.salesforce.com
 Org Id               00D6300000024c2EAA
 Username             aakash.sidana@syngenta.com.full
-Test Run Id          7076300001VrCSR
+Test Run Id          7076300001VrJCs
 User Id              0053m00000AlyrWAAR
 Test Run Coverage    81%
-Org Wide Coverage    80%
+Org Wide Coverage    74%
 
