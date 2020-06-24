@@ -1,5 +1,6 @@
 @isTest
 private class CalloutClassTest {
+    /** 
      @isTest static void testCallout() {
         // Set mock callout class 
         Test.setMock(HttpCalloutMock.class, new HttpCalloutMockTest());
@@ -46,4 +47,5 @@ private class CalloutClassTest {
         Test.stopTest();
     
     }
+    **/
 }
