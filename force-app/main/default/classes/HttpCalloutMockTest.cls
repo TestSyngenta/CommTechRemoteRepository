@@ -15,7 +15,7 @@ global class HttpCalloutMockTest implements HttpCalloutMock {
         HttpResponse res = new HttpResponse();
         String result;
         res.setHeader('Content-Type', 'application/xml');
-        res.setBody('&email=' + email + '&password=' + password + '&user_key=' + user_key);
+        res.setBody('email=' + email + '&password=' + password + '&user_key=' + user_key);
         res.setStatusCode(200);
         return res;
     }

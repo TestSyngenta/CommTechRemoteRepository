@@ -590,7 +590,7 @@ public class Contact_TriggerHandler {
          //The password of your user account email = 'yourEmail@YourDomaincom';
          //The email address of your user account //http://developer.pardot.com/kb/api-version-3/authentication 
          req.setEndPoint('https://pi.pardot.com/api/login/version/3');
-         req.setBody('&email=' + email + '&password=' + password + '&user_key=' + user_key);
+         req.setBody('email=' + email + '&password=' + password + '&user_key=' + user_key);
          req.setMethod('POST');
          req.setTimeout(20000);
          res = http.send(req);
