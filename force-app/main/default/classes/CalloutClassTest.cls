@@ -13,6 +13,7 @@ private class CalloutClassTest {
         // This causes a fake response to be sent
         // from the class that implements HttpCalloutMock. 
         HttpResponse res = Contact_TriggerHandler.httpCallout('https://pi.pardot.com/api/login/version/3', 'body');
+        Contact_TriggerHandler.loginToPardot();
         
         // Verify response received contains fake values
         String contentType = res.getHeader('Content-Type');
@@ -34,16 +35,14 @@ private class CalloutClassTest {
         testContact = [SELECT Id FROM Contact WHERE Id =: testContact.Id LIMIT 1];
 
 
-        //Test.startTest();
+        Test.startTest();
         Contact_TriggerHandler.queueCreateInPardot(insertList1);
-        @isTest static void testlogintoPardot(){
-            
-        }
+        
 
         
         
         
-        Contact_TriggerHandler.loginToPardot();
+        
         Test.stopTest();
     
     }
