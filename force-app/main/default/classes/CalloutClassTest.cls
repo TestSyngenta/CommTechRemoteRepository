@@ -46,10 +46,7 @@ private class CalloutClassTest {
     
 
     }
-    @isTest static void runTest(){
-        Contact_TriggerHandler.Check();
-        Contact_TriggerHandler.Check1();
-    }
+   
     
 
         

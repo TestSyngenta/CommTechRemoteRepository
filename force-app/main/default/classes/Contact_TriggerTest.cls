@@ -112,4 +112,8 @@ public class Contact_TriggerTest {
         //System.assertEquals(false, testAccount.hasEmail__c);
        
     }
+    @isTest static void runTest1(){
+        Contact_TriggerHandler.Check();
+        Contact_TriggerHandler.Check1();
+    }
 }
