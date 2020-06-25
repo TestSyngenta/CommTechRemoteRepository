@@ -42,12 +42,6 @@ private class CalloutClassTest {
         Test.setMock(HttpCalloutMock.class, new HttpCalloutLoginMock());
         String Response = Contact_TriggerHandler.loginToPardot();
 
-        Test.setMock(HttpCalloutMock.class, new HttpCalloutLoginMock());
-
-        Contact_TriggerHandler.resetDoNotEmail(testContact.Id);
-
-     
-    
         Test.stopTest();
     
 

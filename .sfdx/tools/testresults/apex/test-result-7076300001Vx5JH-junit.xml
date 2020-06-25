@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-25T17:28:51-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="5" failures="1"  errors="0"  time="24.46">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="5"/>
+            <property name="passing" value="4"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="80%"/>
+            <property name="failRate" value="20%"/>
+            <property name="testStartTime" value="Jun 25, 2020 5:28 PM"/>
+            <property name="testExecutionTime" value="24.46 s"/>
+            <property name="testTotalTime" value="24.46 s"/>
+            <property name="commandTime" value="50.36 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001Vx5JH"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="74%"/>
+        </properties>
+        <testcase name="testCallout" classname="CalloutClassTest" time="1.92">
+            <failure message="System.AssertException: Assertion Failed: Expected: https://pi.pardot.com/api/prospect/version/4/do/update/fid/0036300000aFYYoAAO, Actual: https://pi.pardot.com/api/login/version/3"><![CDATA[Class.HttpCalloutLoginMock.respond: line 13, column 1
+Class.Contact_TriggerHandler.loginToPardot: line 596, column 1
+Class.CalloutClassTest.testCallout: line 43, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="8.22">
+        </testcase>
+        <testcase name="runTest1" classname="Contact_TriggerTest" time="0.01">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="9">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="5.32">
+        </testcase>
+    </testsuite>
+</testsuites>
