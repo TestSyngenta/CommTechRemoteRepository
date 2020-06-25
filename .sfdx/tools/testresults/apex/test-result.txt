@@ -3,8 +3,8 @@ FORMAT  FILE
 ──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
-junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vx3Jk-junit.xml
-json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vx3Jk.json
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vx58f-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vx58f.json
 json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
 
 === Apex Code Coverage
@@ -62,8 +62,8 @@ ID                  NAME                                    % COVERED           
 01q3m000001HvLXAA0  Forecast_Kickstart_Trigger              100%
 01p3m00000EAZIfAAP  FarmWrapper                             100%
 01q3m000001E3PTAA0  WebsiteAccount                          100%
+01po0000004dvDyAAI  Contact_TriggerHandler                  74%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,491,492,496,497,498,499,501,502,503,504,505,506,507,541,543,553,557,558,559,564,566,570,572,599,603,604,609,611,612,614,619
 01qo0000000kvS1AAI  Contact_Trigger                         100%
-01po0000004dvDyAAI  Contact_TriggerHandler                  76%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,491,492,496,497,498,499,501,502,503,504,505,506,507,541,543,553,557,558,559,564,566,570,572,611,612
 01po0000003FHksAAG  StageChannelAccountNSAPBatch            94.44444444444444%  22
 01po0000003FHmUAAW  StageChannelAccountSFDCBatch            94.44444444444444%  22
 01po0000003FIG5AAO  StageNSAPOrderBatch                     94.44444444444444%  22
@@ -89,33 +89,44 @@ ID                  NAME                                    % COVERED           
 01qo0000000lrLgAAI  ContentDocumentTrigger                  100%
 
 === Test Results
-TEST NAME                                     OUTCOME  MESSAGE  RUNTIME (MS)
-────────────────────────────────────────────  ───────  ───────  ────────────
-CalloutClassTest.testCallout                  Pass              1970
-Contact_TriggerTest.runTest                   Pass              7132
-Contact_TriggerTest.runTest1                  Pass              8
-Contact_TriggerTest2.runTest                  Pass              5361
-Contact_Trigger_Primary_Contact_Test.runTest  Pass              6673
+TEST NAME                                     OUTCOME  MESSAGE                                                                                                                                                                               RUNTIME (MS)
+────────────────────────────────────────────  ───────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────  ────────────
+CalloutClassTest.testCallout                  Fail     System.AssertException: Assertion Failed: Expected: https://pi.pardot.com/api/prospect/version/4/do/update/fid/0036300000aFYYoAAO, Actual: https://pi.pardot.com/api/login/version/3  1610
+                                                       Class.HttpCalloutLoginMock.respond: line 13, column 1
+                                                       Class.Contact_TriggerHandler.loginToPardot: line 596, column 1
+                                                       Class.CalloutClassTest.testCallout: line 43, column 1
+Contact_TriggerTest.runTest                   Pass                                                                                                                                                                                           9927
+Contact_TriggerTest.runTest1                  Pass                                                                                                                                                                                           7
+Contact_TriggerTest2.runTest                  Pass                                                                                                                                                                                           4485
+Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                                                                                                                                           5363
+
+=== Failures
+FULLNAME                      MESSAGE
+────────────────────────────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+CalloutClassTest.testCallout  System.AssertException: Assertion Failed: Expected: https://pi.pardot.com/api/prospect/version/4/do/update/fid/0036300000aFYYoAAO, Actual: https://pi.pardot.com/api/login/version/3
+                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/HttpCalloutLoginMock.cls:13:1
+                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:596:1
+                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/CalloutClassTest.cls:43:1
 
 === Test Summary
 NAME                 VALUE
 ───────────────────  ───────────────────────────────────────────────
-Outcome              Passed
+Outcome              Failed
 Tests Ran            5
-Passing              5
-Failing              0
+Passing              4
+Failing              1
 Skipped              0
-Pass Rate            100%
-Fail Rate            0%
-Test Start Time      Jun 25, 2020 4:56 PM
-Test Execution Time  21144 ms
-Test Total Time      21144 ms
-Command Time         40377 ms
+Pass Rate            80%
+Fail Rate            20%
+Test Start Time      Jun 25, 2020 5:22 PM
+Test Execution Time  21392 ms
+Test Total Time      21392 ms
+Command Time         50908 ms
 Hostname             https://syngentacanada--full.my.salesforce.com
 Org Id               00D6300000024c2EAA
 Username             aakash.sidana@syngenta.com.full
-Test Run Id          7076300001Vx3Jk
+Test Run Id          7076300001Vx58f
 User Id              0053m00000AlyrWAAR
 Test Run Coverage    81%
-Org Wide Coverage    74%
+Org Wide Coverage    75%
 
