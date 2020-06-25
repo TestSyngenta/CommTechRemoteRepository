@@ -3,8 +3,8 @@ FORMAT  FILE
 ──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
-junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vwcjc-junit.xml
-json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vwcjc.json
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VwfeJ-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VwfeJ.json
 json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
 
 === Apex Code Coverage
@@ -62,8 +62,8 @@ ID                  NAME                                    % COVERED           
 01q3m000001HvLXAA0  Forecast_Kickstart_Trigger              100%
 01p3m00000EAZIfAAP  FarmWrapper                             100%
 01q3m000001E3PTAA0  WebsiteAccount                          100%
-01qo0000000kvS1AAI  Contact_Trigger                         100%
 01po0000004dvDyAAI  Contact_TriggerHandler                  75%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,491,492,496,497,498,499,501,502,503,504,505,506,507,541,543,553,557,558,559,564,566,570,572,611,612,619
+01qo0000000kvS1AAI  Contact_Trigger                         100%
 01po0000003FHksAAG  StageChannelAccountNSAPBatch            94.44444444444444%  22
 01po0000003FHmUAAW  StageChannelAccountSFDCBatch            94.44444444444444%  22
 01po0000003FIG5AAO  StageNSAPOrderBatch                     94.44444444444444%  22
@@ -91,15 +91,15 @@ ID                  NAME                                    % COVERED           
 === Test Results
 TEST NAME                                     OUTCOME  MESSAGE                                                         RUNTIME (MS)
 ────────────────────────────────────────────  ───────  ──────────────────────────────────────────────────────────────  ────────────
-CalloutClassTest.runTest                      Pass                                                                     74
-CalloutClassTest.testCallout                  Pass                                                                     13711
-CalloutClassTest.testLogin                    Fail     System.XmlException: ParseError at [row,col]:[1,1]              32
+CalloutClassTest.runTest                      Pass                                                                     90
+CalloutClassTest.testCallout                  Pass                                                                     3374
+CalloutClassTest.testLogin                    Fail     System.XmlException: ParseError at [row,col]:[1,1]              50
                                                        Message: Content is not allowed in prolog.
                                                        Class.Contact_TriggerHandler.loginToPardot: line 614, column 1
                                                        Class.CalloutClassTest.testLogin: line 58, column 1
-Contact_TriggerTest.runTest                   Pass                                                                     13094
-Contact_TriggerTest2.runTest                  Pass                                                                     4947
-Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                     7326
+Contact_TriggerTest.runTest                   Pass                                                                     10360
+Contact_TriggerTest2.runTest                  Pass                                                                     5229
+Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                     8066
 
 === Failures
 FULLNAME                    MESSAGE
@@ -119,14 +119,14 @@ Failing              1
 Skipped              0
 Pass Rate            83%
 Fail Rate            17%
-Test Start Time      Jun 25, 2020 9:24 AM
-Test Execution Time  39184 ms
-Test Total Time      39184 ms
-Command Time         97452 ms
+Test Start Time      Jun 25, 2020 10:02 AM
+Test Execution Time  27169 ms
+Test Total Time      27169 ms
+Command Time         53209 ms
 Hostname             https://syngentacanada--full.my.salesforce.com
 Org Id               00D6300000024c2EAA
 Username             aakash.sidana@syngenta.com.full
-Test Run Id          7076300001Vwcjc
+Test Run Id          7076300001VwfeJ
 User Id              0053m00000AlyrWAAR
 Test Run Coverage    81%
 Org Wide Coverage    74%
