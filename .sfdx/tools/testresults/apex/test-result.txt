@@ -3,8 +3,8 @@ FORMAT  FILE
 ──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
-junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrWFj-junit.xml
-json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001VrWFj.json
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vwcjc-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7076300001Vwcjc.json
 json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
 
 === Apex Code Coverage
@@ -63,7 +63,7 @@ ID                  NAME                                    % COVERED           
 01p3m00000EAZIfAAP  FarmWrapper                             100%
 01q3m000001E3PTAA0  WebsiteAccount                          100%
 01qo0000000kvS1AAI  Contact_Trigger                         100%
-01po0000004dvDyAAI  Contact_TriggerHandler                  76%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,496,497,498,499,501,502,503,504,505,506,507,541,543,553,557,558,559,564,566,570,572,611,612,619
+01po0000004dvDyAAI  Contact_TriggerHandler                  75%                 49,51,52,60,61,62,64,134,135,136,145,147,148,149,150,151,165,166,167,180,254,255,256,257,258,376,377,378,379,380,386,387,388,389,390,391,392,394,395,451,452,454,455,460,461,462,463,464,468,469,470,471,475,476,477,481,491,492,496,497,498,499,501,502,503,504,505,506,507,541,543,553,557,558,559,564,566,570,572,611,612,619
 01po0000003FHksAAG  StageChannelAccountNSAPBatch            94.44444444444444%  22
 01po0000003FHmUAAW  StageChannelAccountSFDCBatch            94.44444444444444%  22
 01po0000003FIG5AAO  StageNSAPOrderBatch                     94.44444444444444%  22
@@ -89,43 +89,44 @@ ID                  NAME                                    % COVERED           
 01qo0000000lrLgAAI  ContentDocumentTrigger                  100%
 
 === Test Results
-TEST NAME                                     OUTCOME  MESSAGE                                                           RUNTIME (MS)
-────────────────────────────────────────────  ───────  ────────────────────────────────────────────────────────────────  ────────────
-CalloutClassTest.runTest                      Pass                                                                       6
-CalloutClassTest.testCallout                  Fail     System.XmlException: ParseError at [row,col]:[1,1]                1603
+TEST NAME                                     OUTCOME  MESSAGE                                                         RUNTIME (MS)
+────────────────────────────────────────────  ───────  ──────────────────────────────────────────────────────────────  ────────────
+CalloutClassTest.runTest                      Pass                                                                     74
+CalloutClassTest.testCallout                  Pass                                                                     13711
+CalloutClassTest.testLogin                    Fail     System.XmlException: ParseError at [row,col]:[1,1]              32
                                                        Message: Content is not allowed in prolog.
                                                        Class.Contact_TriggerHandler.loginToPardot: line 614, column 1
-                                                       Class.Contact_TriggerHandler.resetDoNotEmail: line 492, column 1
-Contact_TriggerTest.runTest                   Pass                                                                       6858
-Contact_TriggerTest2.runTest                  Pass                                                                       4040
-Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                       8794
+                                                       Class.CalloutClassTest.testLogin: line 58, column 1
+Contact_TriggerTest.runTest                   Pass                                                                     13094
+Contact_TriggerTest2.runTest                  Pass                                                                     4947
+Contact_Trigger_Primary_Contact_Test.runTest  Pass                                                                     7326
 
 === Failures
-FULLNAME                      MESSAGE
-────────────────────────────  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-CalloutClassTest.testCallout  System.XmlException: ParseError at [row,col]:[1,1]
-                              Message: Content is not allowed in prolog.
-                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:614:1
-                              c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:492:1
+FULLNAME                    MESSAGE
+──────────────────────────  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+CalloutClassTest.testLogin  System.XmlException: ParseError at [row,col]:[1,1]
+                            Message: Content is not allowed in prolog.
+                            c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/Contact_TriggerHandler.cls:614:1
+                            c:/Users/s996790/Desktop/Projects/Contact Data Management/Contact Data Management/force-app/main/default/classes/CalloutClassTest.cls:58:1
 
 === Test Summary
 NAME                 VALUE
 ───────────────────  ───────────────────────────────────────────────
 Outcome              Failed
-Tests Ran            5
-Passing              4
+Tests Ran            6
+Passing              5
 Failing              1
 Skipped              0
-Pass Rate            80%
-Fail Rate            20%
-Test Start Time      Jun 24, 2020 5:33 PM
-Test Execution Time  21301 ms
-Test Total Time      21301 ms
-Command Time         44362 ms
+Pass Rate            83%
+Fail Rate            17%
+Test Start Time      Jun 25, 2020 9:24 AM
+Test Execution Time  39184 ms
+Test Total Time      39184 ms
+Command Time         97452 ms
 Hostname             https://syngentacanada--full.my.salesforce.com
 Org Id               00D6300000024c2EAA
 Username             aakash.sidana@syngenta.com.full
-Test Run Id          7076300001VrWFj
+Test Run Id          7076300001Vwcjc
 User Id              0053m00000AlyrWAAR
 Test Run Coverage    81%
 Org Wide Coverage    74%
