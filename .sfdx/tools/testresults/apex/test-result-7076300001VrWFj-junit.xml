@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-06-24T17:33:37-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="5" failures="1"  errors="0"  time="21.3">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="5"/>
+            <property name="passing" value="4"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="80%"/>
+            <property name="failRate" value="20%"/>
+            <property name="testStartTime" value="Jun 24, 2020 5:33 PM"/>
+            <property name="testExecutionTime" value="21.3 s"/>
+            <property name="testTotalTime" value="21.3 s"/>
+            <property name="commandTime" value="44.36 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D6300000024c2EAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7076300001VrWFj"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="81%"/>
+            <property name="orgWideCoverage" value="74%"/>
+        </properties>
+        <testcase name="runTest" classname="CalloutClassTest" time="0.01">
+        </testcase>
+        <testcase name="testCallout" classname="CalloutClassTest" time="1.6">
+            <failure message="System.XmlException: ParseError at [row,col]:[1,1]
+Message: Content is not allowed in prolog."><![CDATA[Class.Contact_TriggerHandler.loginToPardot: line 614, column 1
+Class.Contact_TriggerHandler.resetDoNotEmail: line 492, column 1]]></failure>
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="6.86">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="4.04">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="8.79">
+        </testcase>
+    </testsuite>
+</testsuites>
