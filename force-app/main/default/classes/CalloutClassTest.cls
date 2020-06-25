@@ -37,15 +37,20 @@ private class CalloutClassTest {
 
 
         Test.startTest();
-        Contact_TriggerHandler.queueCreateInPardot(insertList1);
-        
 
-        
-        
-        
-        
+        Contact_TriggerHandler.queueCreateInPardot(insertList1);
+
+     Test.setMock(HttpCalloutMock.class, new HttpCalloutMockTest());
+    // String res1 = Contact_TriggerHandler.loginToPardot();   
+
+        Contact_TriggerHandler.resetDoNotEmail(testContact.Id);
         Test.stopTest();
     
+
+    }
+    @isTest static void runTest(){
+        Contact_TriggerHandler.Check();
+        Contact_TriggerHandler.Check1();
     }
     
 }

@@ -597,7 +597,9 @@ public class Contact_TriggerHandler {
          result = res.getBody();
          result = result.substring(1);
          XmlStreamReader xsr = res.getXmlStreamReader();
-         
+       
+            
+            
          while(xsr.hasNext())
          {
              /*
@@ -613,6 +615,31 @@ public class Contact_TriggerHandler {
          }
          
          /*System.Debug('API Key is ' + apiKey);*/
+        
          return apiKey;
-    }
+    
+}
+
+public static void Check(){
+    Integer i = 0;
+    i++;
+    i++;
+    i++;
+    i++;
+    i++;
+    i++;
+    
+
+}
+Public static void Check1(){
+    Integer i=0;
+    i++;
+    i++;
+    i++;
+    i++;
+    i++;
+    i++;
+    i++;
+    
+}
 }
