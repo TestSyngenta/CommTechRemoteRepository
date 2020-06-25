@@ -5057,6 +5057,33 @@
         "coveredPercent": 100
     },
     {
+        "id": "01qo0000000kvS1AAI",
+        "name": "Contact_Trigger",
+        "totalLines": 18,
+        "lines": {
+            "14": 1,
+            "16": 1,
+            "17": 1,
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "24": 1,
+            "25": 1,
+            "26": 1,
+            "28": 1,
+            "29": 1,
+            "32": 1,
+            "33": 1,
+            "37": 1,
+            "40": 1,
+            "51": 1,
+            "52": 1,
+            "53": 1
+        },
+        "totalCovered": 18,
+        "coveredPercent": 100
+    },
+    {
         "id": "01po0000004dvDyAAI",
         "name": "Contact_TriggerHandler",
         "totalLines": 332,
@@ -5396,33 +5423,6 @@
         },
         "totalCovered": 256,
         "coveredPercent": 77
-    },
-    {
-        "id": "01qo0000000kvS1AAI",
-        "name": "Contact_Trigger",
-        "totalLines": 18,
-        "lines": {
-            "14": 1,
-            "16": 1,
-            "17": 1,
-            "19": 1,
-            "20": 1,
-            "21": 1,
-            "24": 1,
-            "25": 1,
-            "26": 1,
-            "28": 1,
-            "29": 1,
-            "32": 1,
-            "33": 1,
-            "37": 1,
-            "40": 1,
-            "51": 1,
-            "52": 1,
-            "53": 1
-        },
-        "totalCovered": 18,
-        "coveredPercent": 100
     },
     {
         "id": "01po0000003FHksAAG",
