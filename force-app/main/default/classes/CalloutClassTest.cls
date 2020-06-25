@@ -33,7 +33,7 @@ private class CalloutClassTest {
         Insert testContact;
         insertList1.add(testContact);
         //insert(insertList1);
-        testContact = [SELECT Id FROM Contact WHERE Id =: testContact.Id LIMIT 1];
+        //testContact = [SELECT Id FROM Contact WHERE Id =: testContact.Id LIMIT 1];
 
 
         Test.startTest();
