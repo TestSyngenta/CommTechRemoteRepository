@@ -43,7 +43,7 @@ private class CalloutClassTest {
      Test.setMock(HttpCalloutMock.class, new HttpCalloutMockTest());
     // String res1 = Contact_TriggerHandler.loginToPardot();   
 
-        Contact_TriggerHandler.resetDoNotEmail(testContact.Id);
+        //Contact_TriggerHandler.resetDoNotEmail(testContact.Id);
         Test.stopTest();
     
 
@@ -51,6 +51,11 @@ private class CalloutClassTest {
     @isTest static void runTest(){
         Contact_TriggerHandler.Check();
         Contact_TriggerHandler.Check1();
+    }
+    @isTest static void testLogin(){
+        Test.setMock(HttpCalloutMock.class, new HttpMockLogintoPardot());
+
+        String apiKey = Contact_TriggerHandler.loginToPardot();
     }
     
 }

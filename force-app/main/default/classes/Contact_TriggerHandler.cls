@@ -594,8 +594,8 @@ public class Contact_TriggerHandler {
          req.setMethod('POST');
          req.setTimeout(20000);
          res = http.send(req);
-         result = res.getBody();
-         result = result.substring(1);
+        // result = res.getBody();
+         //result = result.substring(1);
          XmlStreamReader xsr = res.getXmlStreamReader();
        
             
@@ -640,6 +640,6 @@ Public static void Check1(){
     i++;
     i++;
     i++;
-    
+
 }
 }

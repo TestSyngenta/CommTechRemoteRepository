@@ -20,36 +20,7 @@ global class HttpCalloutMockTest implements HttpCalloutMock {
         res.setStatusCode(200);
         return res;
     }
-    global String fakeResponse(){
-        
-       
-        HttpRequest req1 = new HttpRequest();
-        HttpResponse res1 = new HttpResponse();
-        System.assertEquals('https://pi.pardot.com/api/login/version/3', req1.getEndpoint());
-        System.assertEquals('POST', req1.getMethod());
 
-        res1.setHeader('Content-Type', 'application/xml');
-        res1.setBody('email=' + email + '&password=' + password + '&user_key=' + user_key);
-        res1.setStatusCode(200);
-        /**
-         XmlStreamReader xsr = res1.getXmlStreamReader();
-         
-        while(xsr.hasNext())
-        {
-            
-            //System.Debug('Local Name is ' + xsr.getLocalName());
-            //System.Debug('Event Type is ' + xsr.getEventType());
-            
-            if (xsr.getEventType() == XmlTag.START_ELEMENT && xsr.GetLocalName() == 'api_key') 
-            {    
-                xsr.next();
-                apiKey=xsr.getText();
-            }    
-            xsr.next();
-        }
-        **/
-        /*System.Debug('API Key is ' + apiKey);*/
-        return apiKey;
-
+   
+  
     }
-}
