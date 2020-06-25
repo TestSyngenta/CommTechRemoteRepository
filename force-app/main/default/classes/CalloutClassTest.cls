@@ -55,7 +55,7 @@ private class CalloutClassTest {
     @isTest static void testLogin(){
         Test.setMock(HttpCalloutMock.class, new HttpMockLogintoPardot());
 
-        String apiKey = Contact_TriggerHandler.loginToPardot();
+        //String apiKey = Contact_TriggerHandler.loginToPardot();
     }
     
 }
