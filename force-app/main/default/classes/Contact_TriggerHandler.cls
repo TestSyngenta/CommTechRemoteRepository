@@ -536,7 +536,9 @@ public class Contact_TriggerHandler {
         req.setTimeout(20000);
         try{
             res = http.send(req);
+            System.debug('::RESPONSE::'+res.getBody());
             return res;
+            
         } 
         catch(System.CalloutException e){
             // Allow for CalloutExceptions for timeout on request send
@@ -544,20 +546,22 @@ public class Contact_TriggerHandler {
         }
         
    }
-    
+   
     public static void queueCreateInPardot(Contact[] newList){
         
         Integer i = 0;
         for(Contact c: newList){
-            if(i > 2){
+            if(i > 1){
                 break;
             }
             
-            if(c.email <> null && c.pi__url__c == null && !System.IsBatch() && !System.IsQueueable() && !Test.isRunningTest()){
-                sendToPardot('https://pi.pardot.com/api/prospect/version/3/do/create', 
-                'email='+c.Email );
+           // if(c.email <> null && c.pi__url__c == null && !System.IsBatch() && !System.IsQueueable() && !Test.isRunningTest()){
+            if(c.email <> null && c.pi__url__c == null && !Test.isRunningTest()){
+                //sendToPardot('https://pi.pardot.com/api/prospect/version/4/do/create','email='+c.Email + '?crm_contact_fid='+c.Id);
+                //sendToPardot('https://pi.pardot.com/api/prospect/version/4/do/create','email='+c.Email );
                 i++;                  
             }
+            System.debug('::PARDOT EMAIL::'+c.Email);
         }   
     }  
     @future (callout=true)
@@ -570,6 +574,7 @@ public class Contact_TriggerHandler {
         String user_key = 'cd215fdd852b6c7e19038b14900d2f64';
 
         HttpResponse res = httpCallout( url, 'user_key=' +user_key+ '&api_key='+ apiKey +'&'+ body );
+        System.debug('Response from Server in Salesforce: '+res);
     }
  
 
