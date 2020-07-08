@@ -558,7 +558,7 @@ public class Contact_TriggerHandler {
         }
         
    }
-   
+    @future (callout=true)
     public static void queueCreateInPardot(Contact[] newList){
         
         Integer i = 0;
