@@ -558,7 +558,7 @@ public class Contact_TriggerHandler {
         }
         
    }
-    @future (callout=true)
+    //@future (callout=true)
     public static void queueCreateInPardot(Contact[] newList){
         
         Integer i = 0;
@@ -569,7 +569,7 @@ public class Contact_TriggerHandler {
             
            // if(c.email <> null && c.pi__url__c == null && !System.IsBatch() && !System.IsQueueable() && !Test.isRunningTest()){
             if(c.email <> null && c.pi__url__c == null && !System.IsBatch() && !System.IsQueueable() && !Test.isRunningTest()){
-                sendToPardot('https://pi.pardot.com/api/prospect/version/4/do/upsert','email='+c.Email + '&fid='+c.Id);
+                sendToPardot('https://pi.pardot.com/api/prospect/version/4/do/create','email='+c.Email + '&fid='+c.Id);
                 //sendToPardot('https://pi.pardot.com/api/prospect/version/4/do/create','email='+c.Email );
                 i++;                  
             }
