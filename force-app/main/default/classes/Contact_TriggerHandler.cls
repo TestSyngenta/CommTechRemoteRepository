@@ -543,6 +543,7 @@ public class Contact_TriggerHandler {
         //req.setEndPoint('https://pi.pardot.com/api/prospect/version/4/do/create/email/' + email);
         req.setEndPoint(url);
         req.setBody(body);
+        System.debug('::REQUEST::'+req.getBody());
         req.setMethod('POST');
         req.setTimeout(20000);
         try{
@@ -562,13 +563,13 @@ public class Contact_TriggerHandler {
         
         Integer i = 0;
         for(Contact c: newList){
-            if(i > 1){
+            if(i > 50){
                 break;
             }
             
            // if(c.email <> null && c.pi__url__c == null && !System.IsBatch() && !System.IsQueueable() && !Test.isRunningTest()){
-            if(c.email <> null && c.pi__url__c == null && !Test.isRunningTest()){
-                //sendToPardot('https://pi.pardot.com/api/prospect/version/4/do/create','email='+c.Email + '?crm_contact_fid='+c.Id);
+            if(c.email <> null && c.pi__url__c == null && !System.IsBatch() && !System.IsQueueable() && !Test.isRunningTest()){
+                sendToPardot('https://pi.pardot.com/api/prospect/version/4/do/upsert','email='+c.Email + '&fid='+c.Id);
                 //sendToPardot('https://pi.pardot.com/api/prospect/version/4/do/create','email='+c.Email );
                 i++;                  
             }
