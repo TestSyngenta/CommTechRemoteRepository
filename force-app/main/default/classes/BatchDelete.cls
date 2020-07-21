@@ -1,4 +1,4 @@
-globa with sharing class BatchDelete {
+global with sharing class BatchDelete {
     public BatchDelete() {
 
     }
