@@ -10,5 +10,5 @@
       "options": { "parser": "html" }
     }
   ],
-  "printWidth": 120
+  "printWidth": 200
 }

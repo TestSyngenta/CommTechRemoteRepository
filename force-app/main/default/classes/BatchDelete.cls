@@ -14,6 +14,7 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
   ];
   global List<Contact> globallistofContacts = new List<Contact>();
   global List<Contact> contactstoCheck = new List<Contact>();
+  global List<Contact> contactstoDelete = new List<Contact>();
   global Id globalContactId;
   global Contact Cons;
   global Map<Id, List<Contact>> mapofAccountIdwithContacts = new Map<Id, List<Contact>>();
@@ -32,21 +33,28 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
     if (listofduplicateContacts != null) {
       for (Contact c : listofduplicateContacts) {
         if (mapofAccountIdwithContacts.containsKey(c.AccountId)) {
-          List<Contact> listofRelatedContacts = mapofAccountIdwithContacts.get(c.AccountId);
-          listofRelatedContacts.add(c);
-          mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
-          String lastFirstName = '';
-          String lastLastName = '';
-          for (Contact AccContact : listofRelatedContacts) {
-            if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName) {
-              contactstoCheck.add(AccContact);
-            }
-            lastFirstName = AccContact.firstName;
-            lastLastName = AccContact.lastName;
-
-            for (Contact contoDelete : contactstoCheck) {
-            }
+            List<Contact> listofRelatedContacts = mapofAccountIdwithContacts.get(c.AccountId);
+            listofRelatedContacts.add(c);
+            mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
+            
+            String lastFirstName = '';
+            String lastLastName = '';
+                for (Contact AccContact : listofRelatedContacts) {
+                    if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName) {
+                        contactstoCheck.add(AccContact);
+                    }
+                    lastFirstName = AccContact.firstName;
+                    lastLastName = AccContact.lastName;
+                    if(contactstoCheck.size()>1){
+                        for(Contact contoCheck : contactstoCheck){
+                            if(contoCheck.Primary_Contact__c <> true && contoCheck.Has_NPS__c <> true && contoCheck.Has_Related_Case__c <> true && contoCheck.Has_Email_Retention__c <> true){
+                                contactstoDelete.add(contoCheck);
+                            }
+                        }
+                    }
+                    
           }
+          
         }
 
         // AccountIds.Add(c.AccountId);
