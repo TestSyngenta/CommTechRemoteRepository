@@ -16,8 +16,8 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
   global List<Contact> contactstoCheck = new List<Contact>();
   global Id globalContactId;
   global Contact Cons;
-  Map<Id, List<Contact>> mapofAccountIdwithContacts = new Map<Id, List<Contact>>();
-  List<Id> AccountIds = new List<Id>();
+  global Map<Id, List<Contact>> mapofAccountIdwithContacts = new Map<Id, List<Contact>>();
+  global List<Id> AccountIds = new List<Id>();
   global BatchDelete(Id conId, List<Contact> listofContacts) {
   }
 
@@ -38,17 +38,13 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
           String lastFirstName = '';
           String lastLastName = '';
           for (Contact AccContact : listofRelatedContacts) {
-            if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName ) {
-                if (AccContact.prim) {
-                    
-                }
+            if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName) {
               contactstoCheck.add(AccContact);
             }
             lastFirstName = AccContact.firstName;
             lastLastName = AccContact.lastName;
 
-            for(Contact contoDelete : contactstoCheck){
-        
+            for (Contact contoDelete : contactstoCheck) {
             }
           }
         }
