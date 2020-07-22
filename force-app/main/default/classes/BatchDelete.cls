@@ -13,7 +13,7 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
     WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = ''
   ];
   global List<Contact> globallistofContacts = new List<Contact>();
-  global List<Contact> contactstoDelete = new List<Contact>();
+  global List<Contact> contactstoCheck = new List<Contact>();
   global Id globalContactId;
   global Contact Cons;
   Map<Id, List<Contact>> mapofAccountIdwithContacts = new Map<Id, List<Contact>>();
@@ -42,10 +42,14 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
                 if (AccContact.prim) {
                     
                 }
-              contactstoDelete.add(AccContact);
+              contactstoCheck.add(AccContact);
             }
             lastFirstName = AccContact.firstName;
             lastLastName = AccContact.lastName;
+
+            for(Contact contoDelete : contactstoCheck){
+        
+            }
           }
         }
 
