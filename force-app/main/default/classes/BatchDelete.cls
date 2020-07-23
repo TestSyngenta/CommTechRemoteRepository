@@ -39,22 +39,36 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
             
             String lastFirstName = '';
             String lastLastName = '';
-                for (Contact AccContact : listofRelatedContacts) {
+                //for (Contact AccContact : listofRelatedContacts) {
+                  for(integer i=0; i<listofRelatedContacts.size(); i++){
                     if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName) {
                         contactstoCheck.add(AccContact);
-                    }
+                        
+                    } 
                     lastFirstName = AccContact.firstName;
                     lastLastName = AccContact.lastName;
+
+                }   //if only one contact is there in the list, it means the other duplicate one with email is not there in the list  
+                    contactstoCheck.add(listofRelatedContacts[0]);   
+                    
+                    //if there are more than one contact in the list related to an account then it would check for related records and other conditions.
                     if(contactstoCheck.size()>1){
                         for(Contact contoCheck : contactstoCheck){
+                            //checks for related record and if there is no rela
                             if(contoCheck.Primary_Contact__c <> true && contoCheck.Has_NPS__c <> true && contoCheck.Has_Related_Case__c <> true && contoCheck.Has_Email_Retention__c <> true){
-                                contactstoDelete.add(contoCheck);
+                                contactstoDelete.add(contoCheck);  
+                            }
+
+                            else {
+                                break;
                             }
                         }
                     }
+                    else if(AccContact.Primary_Contact__c <> true){
+
+                    }
                     
-          }
-          
+          //}
         }
 
         // AccountIds.Add(c.AccountId);
