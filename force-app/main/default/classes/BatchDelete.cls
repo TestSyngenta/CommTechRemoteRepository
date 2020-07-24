@@ -20,6 +20,8 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
   global Id globalContactId;
   global Contact Cons;
   global Map<Id, List<Contact>> mapofAccountIdwithContacts = new Map<Id, List<Contact>>();
+  global List<Contact> listofRelatedContacts = new List<Contact>();
+
   global List<Id> AccountIds = new List<Id>();
  
 
@@ -29,7 +31,9 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
 
         }
 **/
+   
     //List<Contact> globallistofContacts = [Select Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = true AND Email = '' ORDER BY FirstName, LastName ];
+    System.debug('Test');
     listofduplicateContacts= [ SELECT
     Id,
     AccountId,
@@ -38,16 +42,34 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
     Primary_Contact__c,
     Has_NPS__c,
     Has_Related_Case__c,
-    Has_Email_Retention__c
+    Has_Email_Retention__c,phone
   FROM Contact
-  WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = ''];
+  WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = '' LIMIT 200];
 
     if (listofduplicateContacts != null) {
       for (Contact c : listofduplicateContacts) {
-        if (mapofAccountIdwithContacts.containsKey(c.AccountId)) {
-            List<Contact> listofRelatedContacts = mapofAccountIdwithContacts.get(c.AccountId);
+
+            /*if(mapofAccountIdwithContacts.containsKey(c.AccountId))
+            {
+            listofRelatedContacts = mapofAccountIdwithContacts.get(c.AccountId);
             listofRelatedContacts.add(c);
+            **/
+           
+            mapofAccountIdwithContacts.get(c.AccountId).add(c);
             mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
+            }
+            
+        
+        System.debug('Test first Contact in the loop' +listofRelatedContacts);
+            //mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
+            
+            
+            for(Contact con : listofRelatedContacts){
+        
+            //if (mapofAccountIdwithContacts.containsKey(c.AccountId)) {
+            //List<Contact> listofRelatedContacts = mapofAccountIdwithContacts.get(c.AccountId);
+            //listofRelatedContacts.add(c);
+            //mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
             
             String lastFirstName = '';
             String lastLastName = '';
@@ -56,7 +78,7 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
                       for(Contact AccContact : listofRelatedContacts){
                         if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName) {
                         contactstoCheck.add(AccContact);
-                        System.debug('Check Contacts to check' +AccContact);                        
+                        System.debug('Check Contacts to check' +AccContact.FirstName);                        
                      
                 }
                     lastFirstName = AccContact.firstName;
@@ -88,11 +110,11 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
                         }
                     }
                     
-          //}
-        }
+          }
+       // }
 
         // AccountIds.Add(c.AccountId);
-      }
+      
     }System.debug('Check Contacts to check' +contactstoDelete);
     return contactstoDelete;
    
