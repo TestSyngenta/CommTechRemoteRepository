@@ -49,22 +49,34 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
     if (listofduplicateContacts != null) {
       for (Contact c : listofduplicateContacts) {
 
-            /*if(mapofAccountIdwithContacts.containsKey(c.AccountId))
-            {
             listofRelatedContacts = mapofAccountIdwithContacts.get(c.AccountId);
-            listofRelatedContacts.add(c);
-            **/
-           
-            mapofAccountIdwithContacts.get(c.AccountId).add(c);
-            mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
-            }
+            //if(listofRelatedContacts == null){
+                listofRelatedContacts = new List<Contact>();
+                listofRelatedContacts.add(c);
+                mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
+            //}
+
+            //if(mapofAccountIdwithContacts.get(c.AccountId)!= null)
+            //{
+            //listofRelatedContacts = mapofAccountIdwithContacts.get(c.AccountId);
+            //mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
+            //mapofAccountIdwithContacts.get(c.AccountId).add(c);
             
+            //listofRelatedContacts = mapofAccountIdwithContacts.get(c.AccountId);
+            //listofRelatedContacts.add(c);
+                       //listofRelatedContacts.add(c);
+            
+           
+            //mapofAccountIdwithContacts.get(c.AccountId).add(c);
+            //mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
+            //}
+      //} 
         
         System.debug('Test first Contact in the loop' +listofRelatedContacts);
             //mapofAccountIdwithContacts.put(c.AccountId, listofRelatedContacts);
             
             
-            for(Contact con : listofRelatedContacts){
+            for(Contact con : mapofAccountIdwithContacts.get(c.AccountId)){
         
             //if (mapofAccountIdwithContacts.containsKey(c.AccountId)) {
             //List<Contact> listofRelatedContacts = mapofAccountIdwithContacts.get(c.AccountId);
@@ -111,7 +123,7 @@ global class BatchDelete implements Database.Batchable<Contact>, database.statef
                     }
                     
           }
-       // }
+        }
 
         // AccountIds.Add(c.AccountId);
       
