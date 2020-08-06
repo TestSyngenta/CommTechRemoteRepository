@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-08-06T15:26:01-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="1" failures="1"  errors="0"  time="1.84">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="1"/>
+            <property name="passing" value="0"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="0%"/>
+            <property name="failRate" value="100%"/>
+            <property name="testStartTime" value="Aug 6, 2020 3:26 PM"/>
+            <property name="testExecutionTime" value="1.84 s"/>
+            <property name="testTotalTime" value="1.84 s"/>
+            <property name="commandTime" value="19.84 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D2f0000000casEAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7072f00000PRsZp"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="80%"/>
+            <property name="orgWideCoverage" value="81%"/>
+        </properties>
+        <testcase name="testMethod1" classname="TestBatchDelete" time="1.84">
+            <failure message="System.DmlException: Insert failed. First exception on row 0; first error: MIXED_DML_OPERATION, DML operation on setup object is not permitted after you have updated a non-setup object (or vice versa): Account, original object: User: []"><![CDATA[Class.TestBatchDelete.testMethod1: line 16, column 1]]></failure>
+        </testcase>
+    </testsuite>
+</testsuites>
