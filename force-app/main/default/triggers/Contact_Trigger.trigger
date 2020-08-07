@@ -10,6 +10,7 @@
  *
  */ 
 trigger Contact_Trigger on Contact (before insert, before update, after insert, after update, after delete) {
+    if(!System.IsBatch()){
     
     if (Trigger.isAfter){
         //if(UserInfo.getFirstName() <> 'Global' ){
@@ -55,5 +56,6 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
        }
      
       
+}
 }
 }
