@@ -5,7 +5,7 @@ global class BatchUpdateContactstoActive implements Database.Batchable<sObject> 
   
     global Database.QueryLocator start(Database.BatchableContext bc) {
   
-      string query = ' SELECT Id, Inactive__c FROM Contact WHERE AccountId =: AccountIds and Inactive__c = false and Original_Account__c != null';
+      string query = ' SELECT Id, Inactive__c FROM Contact WHERE AccountId =: AccountIds and Inactive__c = true and Original_Account__c != null';
       return Database.getQueryLocator(query);
       
       }
@@ -15,7 +15,7 @@ global class BatchUpdateContactstoActive implements Database.Batchable<sObject> 
     global void execute(Database.BatchableContext BC, List<Contact> listofContacts) {
       if (listofContacts <> null) {
           for (Contact c : listofContacts) {
-                c.Inactive__c = true;
+                c.Inactive__c = false;
                 UpdatedList.add(c);
           }
         }update(UpdatedList);

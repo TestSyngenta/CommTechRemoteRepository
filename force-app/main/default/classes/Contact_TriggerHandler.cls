@@ -213,7 +213,7 @@ public class Contact_TriggerHandler {
     Public static void updateContactDetailsonInactive(Contact[] newList, Contact[] oldList){
         //get all the affected Contacts
         List<Contact> UpdatedList = new List<Contact>(); 
-        List<Contact> changedContact = [SELECT id, Inactive__c, AccountId, Original_Account__c FROM Contact WHERE ID in :newList]; 
+        List<Contact> changedContact = [SELECT id, Inactive__c, AccountId, Original_Account__c FROM Contact WHERE ID in :newList FOR UPDATE]; 
         //get the affected Account Id
         List<Id> AccountIds = new List<Id>();
         //get the Account of an affected Contact

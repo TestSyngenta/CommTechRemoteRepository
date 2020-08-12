@@ -46,10 +46,10 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         
        }
    }
-    Contact_TriggerHandler.queueCreateInPardot(Trigger.new);
+    //Contact_TriggerHandler.queueCreateInPardot(Trigger.new);
  }
-       
-}
+      
+ /**    }
     
    if (Trigger.isBefore){   
        if(UserInfo.getProfileId()<>'00eo0000000K5iJAAS'){ 
@@ -57,6 +57,7 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
        }
      
       
-}
+**/
+    } 
 //}
 }
