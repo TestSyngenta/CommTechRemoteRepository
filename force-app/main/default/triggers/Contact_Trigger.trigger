@@ -10,10 +10,10 @@
  *
  */ 
 trigger Contact_Trigger on Contact (before insert, before update, after insert, after update, after delete) {
-    if(!System.IsBatch()){
+    //if(!System.IsBatch()){
     
     if (Trigger.isAfter){
-        //if(UserInfo.getFirstName() <> 'Global' ){
+        /**if(UserInfo.getFirstName() <> 'Global' ){
         if(UserInfo.getFirstName()=='Pardot'){
                 Contact_TriggerHandler.updateEmailMarketingFieldsExpressConsent(Trigger.new, Trigger.old);        
         }
@@ -24,6 +24,7 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         }
         Contact_TriggerHandler.updateAccountContactDetails(Trigger.new, Trigger.old);
         Contact_TriggerHandler.updatePrimaryContact(Trigger.new, Trigger.old);
+        **/
         Contact oldContact = new Contact();
         
         if(Trigger.isUpdate){
@@ -34,10 +35,10 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
             oldContact = Trigger.oldMap.get(con.ID); 
             
             
-            System.debug('old value is' +oldContact);
+            //System.debug('old value is' +oldContact);
             if(con.Inactive__c != oldContact.Inactive__c){
                 
-                System.debug('Inactive Field is updated');
+                //System.debug('Inactive Field is updated');
                 Contact_TriggerHandler.updateContactDetailsonInactive(Trigger.new, Trigger.old);
  
             }
@@ -57,5 +58,5 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
      
       
 }
-}
+//}
 }
