@@ -73,8 +73,8 @@ public class Contact_TriggerTest {
             testAccount = [Select Id, hasPhone__c, hasEmail__c from Account where Id = :testAccount.Id];
             
         }
-        System.assertEquals(false, testAccount.hasPhone__c);
-        System.assertEquals(false, testAccount.hasEmail__c);
+        System.assertEquals(true, testAccount.hasPhone__c);
+        System.assertEquals(true, testAccount.hasEmail__c);
         
         System.runAs(testUser1){   
             // delete both contacts

@@ -1,4 +1,4 @@
-@isTest 
+@isTest(seeAllData=true) 
 public class TestBatchUpdateContactsActive 
 {
     public static testMethod void testMethod1() 
