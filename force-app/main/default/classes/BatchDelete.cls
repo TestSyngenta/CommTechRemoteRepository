@@ -13,7 +13,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
   global Set<Id> AccountIds = new Set<Id>();
 
   global Database.QueryLocator start(Database.BatchableContext bc) {
-    string query = ' SELECT Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null LIMIT 200';
+    string query = ' SELECT Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName,LastName LIMIT 100';
     return Database.getQueryLocator(query);
   }
 
@@ -24,38 +24,56 @@ global class BatchDelete implements Database.Batchable<sObject> {
       }
     }
     List<Duplicate_Records__c> dcList = new List<Duplicate_Records__c>();
+    List<Contact> UpdatedList = new List<Contact>(); 
     for (Id loopId : AccountIds) {
       List<Contact> listofRelatedContacts = [
         SELECT Id, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone
         FROM Contact
-        WHERE Duplicate_Contact_On_Same_Account__c = FALSE AND Email = NULL AND Has_NPS__c = FALSE AND Has_Related_Case__c = FALSE AND Has_Email_Retention__c  = FALSE AND Is_Campaign_Member__c = FALSE AND AccountId = :loopId
+        WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = NULL AND Has_NPS__c = FALSE AND Has_Related_Case__c = FALSE AND Has_Email_Retention__c  = FALSE AND Is_Campaign_Member__c = FALSE AND AccountId = :loopId ORDER BY FirstName, LastName,Primary_Contact__c ASC
       ];
 
       //System.debug('Test first Contact in the loop' + listofRelatedContacts);
 
       String lastFirstName = '';
       String lastLastName = '';
-
+      String tempPhone = '';
       for (Contact AccContact : listofRelatedContacts) {
-        if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName) {
+        
+        if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName && AccContact.Primary_Contact__c == true) {
           contactstoCheck.add(AccContact);
+          if(AccContact.Phone == null && tempPhone <> null){
+            AccContact.phone = tempPhone;
+            UpdatedList.add(AccContact);
+          }
+          
+          Duplicate_Records__c dr = new Duplicate_Records__c();
+            dr.Duplicate_Contacts__c = AccContact.Id;
+            
+            Database.insert (dr);
+
+
           System.debug('Check Contacts to check' + contactstoCheck);
 
           
         }
         lastFirstName = AccContact.FirstName;
         lastLastName = AccContact.LastName;
-        
-        }
-        if (contactstoCheck.Size()>0) {
-          contactstoCheck.add(listofRelatedContacts[0]);
-      } 
+        tempPhone = AccContact.Phone;
+        //if (contactstoCheck.Size() ==1) {
+          //contactstoCheck.add(listofRelatedContacts[0]);
+       //} 
+        }  Update(UpdatedList);
+        //if (contactstoCheck.Size() ==1) {
+          //contactstoCheck.add(listofRelatedContacts[0]);
+          
+
+      //} 
     
       //Update dcList;
   
       System.debug('Check Contacts to check' + contactstoCheck.size());
       }
-      if (contactstoCheck.size() == 2) {
+      /**if (contactstoCheck.size() == 2) {
         Boolean executed = false;
         for (Contact contoCheck : contactstoCheck) {
           String tempPhone = '';
@@ -83,7 +101,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
             insert (dr);
           }
         }
-      }
+      } **/
     //}
 
     //delete contactstoDelete;
