@@ -3,6 +3,8 @@ global class BatchDelete implements Database.Batchable<sObject> {
   global List<Contact> contactstoCheck = new List<Contact>();
   global List<Contact> contactstoDelete = new List<Contact>();
   global List<Contact> contactsToKeep = new List<Contact>();
+  global List<Contact> tempcontactsToKeep = new List<Contact>();
+  global List<Contact> tempcontactstoDelete = new List<Contact>();
   global Id globalContactId;
   global Contact Cons;
   //global List<Duplicate_Contacts__c> dcList  = new List<Duplicate_Contacts__c>();
@@ -56,6 +58,20 @@ global class BatchDelete implements Database.Batchable<sObject> {
 
           
         }
+        else if(AccContact.Primary_Contact__c == false){
+          contactstoDelete.add(AccContact);
+          tempcontactstoDelete.add(AccContact);
+          if(tempcontactstoDelete.size() ==1){
+          
+          Duplicate_Records__c dr = new Duplicate_Records__c();
+          dr.Duplicate_Contacts__c = AccContact.Id;
+          dr.toBeDeleted__c = true;            
+          Database.insert (dr);
+          }
+          else if(tempcontactstoDelete.size() >1){
+            tempcontactstoDelete.clear();
+          }
+      }
         lastFirstName = AccContact.FirstName;
         lastLastName = AccContact.LastName;
         tempPhone = AccContact.Phone;
