@@ -40,10 +40,55 @@ global class BatchDelete implements Database.Batchable<sObject> {
       String lastLastName = '';
       String tempPhone = '';
       for (Contact AccContact : listofRelatedContacts) {
+        //tempPhone = AccContact.Phone;
         
-        if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName && AccContact.Primary_Contact__c == true) {
+        if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName) {
           contactstoCheck.add(AccContact);
-          if(AccContact.Phone == null && tempPhone <> null){
+          //contactstoCheck.add(listofRelatedContacts[0]);
+          for(Contact loopOverSame : contactstoCheck){
+            if(ContactstoCheck.size() == 1 && loopOverSame.Primary_Contact__c == true){
+              if(loopOverSame.phone == null && tempPhone <> null){
+                loopOverSame.phone = tempPhone;
+
+              }
+
+              Duplicate_Records__c dr = new Duplicate_Records__c();
+              dr.Duplicate_Contacts__c = AccContact.Id;
+              Database.insert (dr);
+              
+
+            }
+          
+              //contactstoCheck.clear();
+              else if(ContactstoCheck.size() == 2 ){
+                    contactstoCheck.clear();
+                //Duplicate_Records__c dr = new Duplicate_Records__c();
+                //dr.Duplicate_Contacts__c = loopOverSame.Id;
+                //dr.toBeDeleted__c = true;            
+                //Database.insert (dr);
+
+              }
+
+            
+            }  contactstoCheck.clear();
+        } 
+          
+          /**else {
+            contactstoDelete.add(AccContact);
+            Duplicate_Records__c fr = new Duplicate_Records__c();
+            fr.Duplicate_Contacts__c = contactstodelete[0].Id;
+            fr.toBeDeleted__c = true;
+            Database.insert(fr);
+            contactstoDelete.clear();
+          }
+          **/
+        lastFirstName = AccContact.FirstName;
+        lastLastName = AccContact.LastName;
+        tempPhone = AccContact.Phone;
+        
+
+
+          /**if(AccContact.Phone == null && tempPhone <> null){
             AccContact.phone = tempPhone;
             UpdatedList.add(AccContact);
           }
@@ -78,14 +123,13 @@ global class BatchDelete implements Database.Batchable<sObject> {
         //if (contactstoCheck.Size() ==1) {
           //contactstoCheck.add(listofRelatedContacts[0]);
        //} 
-        }  Update(UpdatedList);
-        //if (contactstoCheck.Size() ==1) {
-          //contactstoCheck.add(listofRelatedContacts[0]);
-          
 
-      //} 
-    
-      //Update dcList;
+        
+
+       **/
+        } 
+        Update(UpdatedList);
+  
   
       System.debug('Check Contacts to check' + contactstoCheck.size());
       }
