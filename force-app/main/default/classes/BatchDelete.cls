@@ -1,4 +1,4 @@
-global class BatchDelete implements Database.Batchable<sObject> {
+global class BatchDelete implements Database.Batchable<sObject>, Database.stateful {
   global List<Contact> globallistofContacts = new List<Contact>();
   global List<Contact> contactstoCheck = new List<Contact>();
   global List<Contact> contactstoDelete = new List<Contact>();
@@ -40,16 +40,36 @@ global class BatchDelete implements Database.Batchable<sObject> {
       String lastLastName = '';
       String tempPhone = '';
       for (Contact AccContact : listofRelatedContacts) {
+        /**if(contactstoDelete.size() > 1){
+          contactstoDelete.clear();
+        }
+        **/
+        
         //tempPhone = AccContact.Phone;
         
         if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName) {
           contactstoCheck.add(AccContact);
+         
+          
+
+
+
+
           //contactstoCheck.add(listofRelatedContacts[0]);
           for(Contact loopOverSame : contactstoCheck){
             if(ContactstoCheck.size() == 1 && loopOverSame.Primary_Contact__c == true){
+              
               if(loopOverSame.phone == null && tempPhone <> null){
                 loopOverSame.phone = tempPhone;
 
+              }
+
+              if(ContactstoDelete.size() > 0 && contactstoDelete[0].FirstName ==loopOverSame.FirstName && contactstoDelete[0].LastName ==loopOverSame.LastName){
+                Duplicate_Records__c fr = new Duplicate_Records__c();
+                fr.Duplicate_Contacts__c = contactstodelete[0].Id;
+                fr.toBeDeleted__c = true;
+                Database.insert(fr);
+                //contactstoDelete.clear();
               }
 
               Duplicate_Records__c dr = new Duplicate_Records__c();
@@ -62,6 +82,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
               //contactstoCheck.clear();
               else if(ContactstoCheck.size() == 2 ){
                     contactstoCheck.clear();
+                    //contactstoDelete.clear();
                 //Duplicate_Records__c dr = new Duplicate_Records__c();
                 //dr.Duplicate_Contacts__c = loopOverSame.Id;
                 //dr.toBeDeleted__c = true;            
@@ -71,7 +92,13 @@ global class BatchDelete implements Database.Batchable<sObject> {
 
             
             }  contactstoCheck.clear();
-        } 
+        }
+        contactstoDelete.add(AccContact);
+        if(contactstoDelete.size() > 1){
+          contactstoDelete.clear();
+        }
+
+      
           
           /**else {
             contactstoDelete.add(AccContact);
