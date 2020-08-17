@@ -19,12 +19,14 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         }
         if(Trigger.isUpdate || Trigger.isInsert){
             if(UserInfo.getFirstName()<>'Pardot'){        
-                Contact_TriggerHandler.updateEmailMarketingFieldsImpliedConsent(Trigger.new, Trigger.old);        
+                Contact_TriggerHandler.updateEmailMarketingFieldsImpliedConsent(Trigger.new, Trigger.old); 
+                       
             }
+            Contact_TriggerHandler.queueCreateInPardot(Trigger.new);
         }
         Contact_TriggerHandler.updateAccountContactDetails(Trigger.new, Trigger.old);
         Contact_TriggerHandler.updatePrimaryContact(Trigger.new, Trigger.old);
-        Contact_TriggerHandler.queueCreateInPardot(Trigger.new);
+        
         
        /**  Contact oldContact = new Contact();
         

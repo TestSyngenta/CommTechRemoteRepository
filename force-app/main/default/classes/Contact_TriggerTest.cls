@@ -80,7 +80,7 @@ public class Contact_TriggerTest {
             // delete both contacts
             deleteList1.add(testContact1);
             deleteList1.add(testContact2);
-            //delete(deleteList1);
+            delete(deleteList1);
                   
             // check hasPhone & hasEmail
             testAccount = [Select Id, hasPhone__c, hasEmail__c from Account where Id = :testAccount.Id];
