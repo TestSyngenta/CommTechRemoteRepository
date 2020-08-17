@@ -58,14 +58,14 @@ global class BatchDelete implements Database.Batchable<sObject>, Database.statef
 
           //contactstoCheck.add(listofRelatedContacts[0]);
           for(Contact loopOverSame : contactstoCheck){
-            if(ContactstoCheck.size() == 1 && loopOverSame.Primary_Contact__c == true){
+            if(ContactstoCheck.size() == 1 && loopOverSame.Primary_Contact__c == true && contactstoDelete.size() == 1){
               
               if(loopOverSame.phone == null && tempPhone <> null){
                 loopOverSame.phone = tempPhone;
 
               }
 
-              if(ContactstoDelete.size() > 0 && contactstoDelete[0].FirstName ==loopOverSame.FirstName && contactstoDelete[0].LastName ==loopOverSame.LastName){
+              if(ContactstoDelete.size() >0 && contactstoDelete[0].FirstName ==loopOverSame.FirstName && contactstoDelete[0].LastName ==loopOverSame.LastName){
                 Duplicate_Records__c fr = new Duplicate_Records__c();
                 fr.Duplicate_Contacts__c = contactstodelete[0].Id;
                 fr.toBeDeleted__c = true;
