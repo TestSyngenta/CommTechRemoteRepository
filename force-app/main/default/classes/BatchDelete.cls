@@ -15,7 +15,7 @@ global class BatchDelete implements Database.Batchable<sObject>, Database.statef
   global Set<Id> AccountIds = new Set<Id>();
 
   global Database.QueryLocator start(Database.BatchableContext bc) {
-    string query = ' SELECT Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName,LastName, Primary_Contact__c ASC LIMIT 200';
+    string query = ' SELECT Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName, LastName, Primary_Contact__c ASC LIMIT 200';
     return Database.getQueryLocator(query);
   }
 
@@ -31,7 +31,7 @@ global class BatchDelete implements Database.Batchable<sObject>, Database.statef
       List<Contact> listofRelatedContacts = [
         SELECT Id, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone
         FROM Contact
-        WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = NULL AND Has_NPS__c = FALSE AND Has_Related_Case__c = FALSE AND Has_Email_Retention__c  = FALSE AND Is_Campaign_Member__c = FALSE AND AccountId = :loopId ORDER BY FirstName, LastName,Primary_Contact__c ASC
+        WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = NULL AND Has_NPS__c = FALSE AND Has_Related_Case__c = FALSE AND Has_Email_Retention__c  = FALSE AND Is_Campaign_Member__c = FALSE AND AccountId = :loopId ORDER BY LastName,FirstName,Primary_Contact__c ASC
       ];
 
       //System.debug('Test first Contact in the loop' + listofRelatedContacts);
@@ -39,6 +39,7 @@ global class BatchDelete implements Database.Batchable<sObject>, Database.statef
       String lastFirstName = '';
       String lastLastName = '';
       String tempPhone = '';
+      contactstoDelete.clear();
       for (Contact AccContact : listofRelatedContacts) {
         /**if(contactstoDelete.size() > 1){
           contactstoDelete.clear();
@@ -93,6 +94,7 @@ global class BatchDelete implements Database.Batchable<sObject>, Database.statef
 
             
             }  contactstoCheck.clear();
+            
         }
         contactstoDelete.add(AccContact);
         if(contactstoDelete.size() > 1){
