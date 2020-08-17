@@ -16,7 +16,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
   global Set<Id> AccountIds = new Set<Id>();
 
   global Database.QueryLocator start(Database.BatchableContext bc) {
-    string query = ' SELECT Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName, LastName, Primary_Contact__c ASC LIMIT 2000';
+    string query = ' SELECT Id, AccountId, Account.Name, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName, LastName, Primary_Contact__c ASC LIMIT 2000';
     return Database.getQueryLocator(query);
   }
 
@@ -31,7 +31,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
     List<Contact> UpdatedList = new List<Contact>(); 
     for (Id loopId : AccountIds) {
       List<Contact> listofRelatedContacts = [
-        SELECT Id, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone, MobilePhone
+        SELECT Id, AccountId, Account.Name, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone, MobilePhone
         FROM Contact
         WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = NULL AND Has_NPS__c = FALSE AND Has_Related_Case__c = FALSE AND Has_Email_Retention__c  = FALSE AND Is_Campaign_Member__c = FALSE AND AccountId = :loopId ORDER BY LastName,FirstName,Primary_Contact__c ASC
       ];
@@ -75,7 +75,19 @@ global class BatchDelete implements Database.Batchable<sObject> {
 
               if(ContactstoDelete.size() >0 && contactstoDelete[0].FirstName ==loopOverSame.FirstName && contactstoDelete[0].LastName ==loopOverSame.LastName){
                 Duplicate_Records__c fr = new Duplicate_Records__c();
-                fr.Duplicate_Contacts__c = contactstodelete[0].Id;
+                //fr.Duplicate_Contacts__c = contactstodelete[0].Id;
+                fr.Account_Id__c = contactstodelete[0].AccountId;
+                fr.Account_Name__c = contactstodelete[0].Account.Name;
+                fr.Contact_Id__c = contactstodelete[0].Id;
+                fr.Contact_First_Name__c = contactstoDelete[0].FirstName;
+                fr.Contact_Last_Name__c =contactstoDelete[0].LastName;
+                fr.Contact_is_Primary__c = false;
+                fr.Contact_Phone_Number__c = contactstoDelete[0].Phone;
+                fr.Contact_Mobile_Number__c = contactstoDelete[0].MobilePhone;
+                fr.Had_Campaign__c = false;
+                fr.Had_Email_Retention__c = false;	
+                fr.Had_NPS__c = false;
+                fr.Had_Related_Case__c = false;
                 fr.toBeDeleted__c = true;
                 setofToBeDeletedRecords.add(fr);
                 //Database.insert(fr);
@@ -83,7 +95,21 @@ global class BatchDelete implements Database.Batchable<sObject> {
               }
 
               Duplicate_Records__c dr = new Duplicate_Records__c();
-              dr.Duplicate_Contacts__c = AccContact.Id;
+              //dr.Duplicate_Contacts__c = AccContact.Id;
+                dr.Account_Id__c = AccContact.AccountId;
+                dr.Account_Name__c = AccContact.Account.Name;
+                dr.Contact_Id__c = AccContact.Id;
+                dr.Contact_First_Name__c = AccContact.FirstName;
+                dr.Contact_Last_Name__c =AccContact.LastName;
+                dr.Contact_is_Primary__c = true;
+                dr.Contact_Phone_Number__c = AccContact.Phone;
+                dr.Contact_Mobile_Number__c = AccContact.MobilePhone;
+                dr.Had_Campaign__c = false;
+                dr.Had_Email_Retention__c = false;	
+                dr.Had_NPS__c = false;
+                dr.Had_Related_Case__c = false;
+
+
               setofLeavingRecords.add(dr);
               //Database.insert (dr);
               //contactstoCheck.clear();
