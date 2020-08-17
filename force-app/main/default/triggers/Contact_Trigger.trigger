@@ -24,8 +24,9 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
         }
         Contact_TriggerHandler.updateAccountContactDetails(Trigger.new, Trigger.old);
         Contact_TriggerHandler.updatePrimaryContact(Trigger.new, Trigger.old);
+        Contact_TriggerHandler.queueCreateInPardot(Trigger.new);
         
-        Contact oldContact = new Contact();
+       /**  Contact oldContact = new Contact();
         
         if(Trigger.isUpdate){
         for(Contact con : Trigger.new){
@@ -45,9 +46,9 @@ trigger Contact_Trigger on Contact (before insert, before update, after insert, 
  
         
        }
-   }
-    Contact_TriggerHandler.queueCreateInPardot(Trigger.new);
- }
+   } */
+    
+// }
       
      }
     

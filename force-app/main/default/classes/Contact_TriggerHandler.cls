@@ -210,7 +210,7 @@ public class Contact_TriggerHandler {
     }
     
     /* Move any inactive contacts to a master inactive account and populate their original account field*/
-    Public static void updateContactDetailsonInactive(Contact[] newList, Contact[] oldList){
+    /**Public static void updateContactDetailsonInactive(Contact[] newList, Contact[] oldList){
         //get all the affected Contacts
         List<Contact> UpdatedList = new List<Contact>(); 
         List<Contact> changedContact = [SELECT id, Inactive__c, AccountId, Original_Account__c FROM Contact WHERE ID in :newList FOR UPDATE]; 
@@ -274,7 +274,7 @@ public class Contact_TriggerHandler {
                 }
             }
         }update(UpdatedList);
-    }
+    } **/
 
    
     /* Function for updating the Account with details from all related Contacts */
