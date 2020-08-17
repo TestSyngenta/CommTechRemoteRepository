@@ -15,7 +15,7 @@ global class BatchDelete implements Database.Batchable<sObject>, Database.statef
   global Set<Id> AccountIds = new Set<Id>();
 
   global Database.QueryLocator start(Database.BatchableContext bc) {
-    string query = ' SELECT Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName,LastName LIMIT 100';
+    string query = ' SELECT Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName,LastName, Primary_Contact__c ASC LIMIT 200';
     return Database.getQueryLocator(query);
   }
 
@@ -47,7 +47,7 @@ global class BatchDelete implements Database.Batchable<sObject>, Database.statef
         
         //tempPhone = AccContact.Phone;
         
-        if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName) {
+        if (AccContact.FirstName == lastFirstName && AccContact.LastName == lastLastName && AccContact.Primary_Contact__c == true) {
           contactstoCheck.add(AccContact);
          
           
@@ -75,12 +75,13 @@ global class BatchDelete implements Database.Batchable<sObject>, Database.statef
               Duplicate_Records__c dr = new Duplicate_Records__c();
               dr.Duplicate_Contacts__c = AccContact.Id;
               Database.insert (dr);
+              //contactstoCheck.clear();
               
 
             }
           
               //contactstoCheck.clear();
-              else if(ContactstoCheck.size() == 2 ){
+              if(ContactstoCheck.size() == 2 ){
                     contactstoCheck.clear();
                     //contactstoDelete.clear();
                 //Duplicate_Records__c dr = new Duplicate_Records__c();
