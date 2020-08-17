@@ -16,7 +16,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
   global Set<Id> AccountIds = new Set<Id>();
 
   global Database.QueryLocator start(Database.BatchableContext bc) {
-    string query = ' SELECT Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName, LastName, Primary_Contact__c ASC LIMIT 1000';
+    string query = ' SELECT Id, AccountId, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName, LastName, Primary_Contact__c ASC LIMIT 2000';
     return Database.getQueryLocator(query);
   }
 
