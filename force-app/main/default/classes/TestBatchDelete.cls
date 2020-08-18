@@ -3,7 +3,7 @@ public class TestBatchDelete
 {
     public static testMethod void testMethod1() 
 	{
-        Profile testProfile = [Select id from Profile where Name like '%Sales%' limit 1];
+        Profile testProfile = [Select id from Profile where Name like '%Integration%' limit 1];
         UserRole testRole = [Select id from UserRole where Name like '%Syngenta%' limit 1];
         User testUser1 = CLS_StaticUtils.createTestUser(testRole.id,testProfile.id,'Test','User1');
         List<User> userList = new List<User>();
@@ -11,6 +11,8 @@ public class TestBatchDelete
         insert userList;
         Account testAccount;
         Contact newContact;
+
+        System.runAs(testUser1){
         testAccount =  new Account(Name='TestAccount', OwnerID=testUser1.id,
         BillingStreet='123 TestStreet', BillingCity='TestCity', BillingState='ON', BillingPostalCode='N1H 6H9');
         insert testAccount;
@@ -26,4 +28,5 @@ public class TestBatchDelete
 		Test.stopTest();
 		
 	}
+}
 }
