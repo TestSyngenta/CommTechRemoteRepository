@@ -3,8 +3,8 @@ FORMAT  FILE
 ──────  ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result.txt
 txt     c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-run-id.txt
-junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7072f00000PvyzD-junit.xml
-json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7072f00000PvyzD.json
+junit   c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7072f00000PvzO8-junit.xml
+json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-7072f00000PvzO8.json
 json    c:\Users\s996790\Desktop\Projects\Contact Data Management\Contact Data Management\.sfdx\tools\testresults\apex\test-result-codecoverage.json
 
 === Apex Code Coverage
@@ -62,10 +62,10 @@ ID                  NAME                                    % COVERED           
 01q3m000001HvPtAAK  Lead_Trigger                            100%
 01qo0000000KpHjAAK  Settlement_Trigger                      100%
 01qo0000000pbOAAAY  Settlement_Payment_Trigger              100%
-01po0000004dvDyAAI  Contact_TriggerHandler                  28%                  40,41,43,44,49,51,52,60,61,62,64,80,81,82,83,93,94,95,96,97,106,107,108,109,110,112,116,117,118,119,120,121,128,130,131,132,133,134,135,136,145,147,148,149,150,151,161,163,164,165,166,167,176,180,185,187,188,189,191,192,193,197,199,200,201,205,206,207,305,306,320,321,322,332,337,338,340,341,342,343,347,348,349,355,356,357,358,375,376,377,380,381,382,383,384,386,387,388,389,390,391,396,397,398,399,400,401,402,403,405,406,407,408,409,410,411,412,413,416,417,421,462,463,465,466,471,472,473,474,475,479,480,481,482,486,487,488,492,502,503,507,508,509,510,512,513,514,515,516,517,518,536,538,539,540,544,545,547,548,549,550,552,555,557,567,572,574,580,582,586,588,593,595,596,597,598,599,600,601,602,603,604,609,610,611,612,613,616,620,621,626,628,629,631,636,640,641,642,643,644,645,646,647,651,652,653,654,655,656,657,658,659
 01po0000003cIopAAE  CLS_StaticUtils                         96%                  27
-01p2f000000NCaiAAG  BatchDelete                             14.285714285714285%  23,24,25,26,29,30,31,32,33,36,41,42,43,44,45,46,54,55,63,64,66,67,71,72,76,77,79,80,81,82,83,84,85,86,87,88,89,90,91,92,97,99,100,101,102,103,104,105,106,107,108,109,110,113,122,123,135,138,139,140,154,155,156,157,205,206
+01po0000004dvDyAAI  Contact_TriggerHandler                  28%                  40,41,43,44,49,51,52,60,61,62,64,80,81,82,83,93,94,95,96,97,106,107,108,109,110,112,116,117,118,119,120,121,128,130,131,132,133,134,135,136,145,147,148,149,150,151,161,163,164,165,166,167,176,180,185,187,188,189,191,192,193,197,199,200,201,205,206,207,305,306,320,321,322,332,337,338,340,341,342,343,347,348,349,355,356,357,358,375,376,377,380,381,382,383,384,386,387,388,389,390,391,396,397,398,399,400,401,402,403,405,406,407,408,409,410,411,412,413,416,417,421,462,463,465,466,471,472,473,474,475,479,480,481,482,486,487,488,492,502,503,507,508,509,510,512,513,514,515,516,517,518,536,538,539,540,544,545,547,548,549,550,552,555,557,567,572,574,580,582,586,588,593,595,596,597,598,599,600,601,602,603,604,609,610,611,612,613,616,620,621,626,628,629,631,636,640,641,642,643,644,645,646,647,651,652,653,654,655,656,657,658,659
 01qo0000000kvS1AAI  Contact_Trigger                         77%                  18,58,59
+01p2f000000NCaiAAG  BatchDelete                             14.285714285714285%  23,24,25,26,29,30,31,32,33,36,41,42,43,44,45,46,54,55,63,64,66,67,71,72,76,77,79,80,81,82,83,84,85,86,87,88,89,90,91,92,97,99,100,101,102,103,104,105,106,107,108,109,110,113,122,123,135,138,139,140,154,155,156,157,205,206
 01p2f000000NKWFAA4  BatchUpdateContactstoActive             41.66666666666667%   15,16,17,18,19,21,27
 01po0000005eJwyAAE  ContentDocumentLinkTriggerHandler       100%
 01p3m000005qL1oAAE  Territory_TriggerHandler                93.93939393939394%   55,64
@@ -91,7 +91,7 @@ ID                  NAME                                    % COVERED           
 === Test Results
 TEST NAME                    OUTCOME  MESSAGE  RUNTIME (MS)
 ───────────────────────────  ───────  ───────  ────────────
-TestBatchDelete.testMethod1  Pass              6314
+TestBatchDelete.testMethod1  Pass              3404
 
 === Test Summary
 NAME                 VALUE
@@ -103,14 +103,14 @@ Failing              0
 Skipped              0
 Pass Rate            100%
 Fail Rate            0%
-Test Start Time      Aug 18, 2020 1:30 PM
-Test Execution Time  6314 ms
-Test Total Time      6314 ms
-Command Time         18433 ms
+Test Start Time      Aug 18, 2020 1:46 PM
+Test Execution Time  3404 ms
+Test Total Time      3404 ms
+Command Time         37960 ms
 Hostname             https://syngentacanada--full.my.salesforce.com
 Org Id               00D2f0000000casEAA
 Username             aakash.sidana@syngenta.com.full
-Test Run Id          7072f00000PvyzD
+Test Run Id          7072f00000PvzO8
 User Id              0053m00000AlyrWAAR
 Test Run Coverage    77%
 Org Wide Coverage    75%
