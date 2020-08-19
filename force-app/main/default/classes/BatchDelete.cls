@@ -60,6 +60,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
                 //UpdatedList.add(loopOverSame);
               }
 
+              
               if (ContactstoDelete.size() > 0 && contactstoDelete[0].FirstName == loopOverSame.FirstName && contactstoDelete[0].LastName == loopOverSame.LastName) {
                 Duplicate_Records__c fr = new Duplicate_Records__c();
                 //fr.Duplicate_Contacts__c = contactstodelete[0].Id;
