@@ -4,14 +4,14 @@ global class BatchDelete implements Database.Batchable<sObject> {
   global List<Contact> contactstoDelete = new List<Contact>();
   global List<Contact> contactsToKeep = new List<Contact>();
   global List<Contact> tempcontactsToKeep = new List<Contact>();
-  global List<Contact> tempcontactstoDelete = new List<Contact>();
+  global List<Contact> finalcontactstoDelete = new List<Contact>();
 
   global Id globalContactId;
   global Contact Cons;
   global Set<Id> AccountIds = new Set<Id>();
 
   global Database.QueryLocator start(Database.BatchableContext bc) {
-    string query = ' SELECT Id, AccountId, Account.Name, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName, LastName, Primary_Contact__c ASC LIMIT 2000';
+    string query = ' SELECT Id, AccountId, Account.Name, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName, LastName, Primary_Contact__c ASC';
     return Database.getQueryLocator(query);
   }
 
@@ -60,6 +60,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
 
               if (ContactstoDelete.size() > 0 && contactstoDelete[0].FirstName == loopOverSame.FirstName && contactstoDelete[0].LastName == loopOverSame.LastName) {
                 Duplicate_Records__c fr = new Duplicate_Records__c();
+                finalcontactstoDelete.add(contactstoDelete[0]);
                 //fr.Duplicate_Contacts__c = contactstodelete[0].Id;
                 fr.Account_Id__c = contactstodelete[0].AccountId;
                 fr.Account_Name__c = contactstodelete[0].Account.Name;
@@ -127,7 +128,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
     }
     Database.insert(setofToBeDeletedRecords, false);
     Database.insert(setofLeavingRecords, false);
-    //delete contactstoDelete;
+    delete finalcontactstoDelete;
   }
 
   global void finish(Database.BatchableContext BC) {
