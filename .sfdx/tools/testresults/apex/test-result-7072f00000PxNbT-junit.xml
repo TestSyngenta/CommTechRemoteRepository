@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-08-20T10:14:21-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="7" failures="1"  errors="0"  time="53.63">
+        <properties>
+            <property name="outcome" value="Failed"/>
+            <property name="testsRan" value="7"/>
+            <property name="passing" value="6"/>
+            <property name="failing" value="1"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="86%"/>
+            <property name="failRate" value="14%"/>
+            <property name="testStartTime" value="Aug 20, 2020 10:14 AM"/>
+            <property name="testExecutionTime" value="53.63 s"/>
+            <property name="testTotalTime" value="53.63 s"/>
+            <property name="commandTime" value="151.32 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D2f0000000casEAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7072f00000PxNbT"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="79%"/>
+            <property name="orgWideCoverage" value="78%"/>
+        </properties>
+        <testcase name="BatchInsertOlisTest" classname="BatchInsertOlisTest" time="14.7">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="8.6">
+        </testcase>
+        <testcase name="runTest1" classname="Contact_TriggerTest" time="0.01">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="5.12">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="6.67">
+        </testcase>
+        <testcase name="testMethod1" classname="TestBatchDelete" time="15.83">
+        </testcase>
+        <testcase name="testMethod1" classname="TestBatchUpdateContactsActive" time="2.7">
+            <failure message="System.QueryException: Locking is implied for each batch execution and therefore FOR UPDATE should not be specified"><![CDATA[Class.BatchUpdateContactstoActive.start: line 9, column 1]]></failure>
+        </testcase>
+    </testsuite>
+</testsuites>

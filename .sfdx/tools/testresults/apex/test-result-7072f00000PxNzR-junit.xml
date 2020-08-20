@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="force.apex" timestamp="2020-08-20T10:31:13-04:00" hostname="https://syngentacanada--full.my.salesforce.com" tests="7" failures="0"  errors="0"  time="35.34">
+        <properties>
+            <property name="outcome" value="Passed"/>
+            <property name="testsRan" value="7"/>
+            <property name="passing" value="7"/>
+            <property name="failing" value="0"/>
+            <property name="skipped" value="0"/>
+            <property name="passRate" value="100%"/>
+            <property name="failRate" value="0%"/>
+            <property name="testStartTime" value="Aug 20, 2020 10:31 AM"/>
+            <property name="testExecutionTime" value="35.34 s"/>
+            <property name="testTotalTime" value="35.34 s"/>
+            <property name="commandTime" value="70.73 s"/>
+            <property name="hostname" value="https://syngentacanada--full.my.salesforce.com"/>
+            <property name="orgId" value="00D2f0000000casEAA"/>
+            <property name="username" value="aakash.sidana@syngenta.com.full"/>
+            <property name="testRunId" value="7072f00000PxNzR"/>
+            <property name="userId" value="0053m00000AlyrWAAR"/>
+            <property name="testRunCoverage" value="79%"/>
+            <property name="orgWideCoverage" value="78%"/>
+        </properties>
+        <testcase name="BatchInsertOlisTest" classname="BatchInsertOlisTest" time="8.05">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest" time="8.46">
+        </testcase>
+        <testcase name="runTest1" classname="Contact_TriggerTest" time="0.01">
+        </testcase>
+        <testcase name="runTest" classname="Contact_TriggerTest2" time="4.65">
+        </testcase>
+        <testcase name="runTest" classname="Contact_Trigger_Primary_Contact_Test" time="6.01">
+        </testcase>
+        <testcase name="testMethod1" classname="TestBatchDelete" time="3.53">
+        </testcase>
+        <testcase name="testMethod1" classname="TestBatchUpdateContactsActive" time="4.64">
+        </testcase>
+    </testsuite>
+</testsuites>
