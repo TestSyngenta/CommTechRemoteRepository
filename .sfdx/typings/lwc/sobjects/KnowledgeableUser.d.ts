@@ -2,6 +2,14 @@ declare module "@salesforce/schema/KnowledgeableUser.Id" {
   const Id:any;
   export default Id;
 }
+declare module "@salesforce/schema/KnowledgeableUser.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/KnowledgeableUser.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/KnowledgeableUser.User" {
   const User:any;
   export default User;

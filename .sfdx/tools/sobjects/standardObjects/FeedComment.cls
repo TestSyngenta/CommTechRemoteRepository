@@ -39,10 +39,14 @@ global class FeedComment {
     global List<FeedAttachment> FeedAttachments;
     global List<FeedComment> FeedThreadedComments;
     global List<FeedRevision> FeedRevisions;
+    global List<NetworkActivityAudit> AuditableEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToFeedComment;
     global List<AccountFeed> BestComment;
     global List<FeedLike> FeedEntity;
     global List<FlowRecordRelation> RelatedRecord;
     global List<LandingPageFeed> BestComment;
+    global List<NetworkModeration> Entity;
+    global List<OpportunityFeed> BestComment;
 
     global FeedComment () 
     {

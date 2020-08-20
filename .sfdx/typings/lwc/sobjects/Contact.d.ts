@@ -1262,14 +1262,6 @@ declare module "@salesforce/schema/Contact.AgriclimeRefNumber__c" {
   const AgriclimeRefNumber__c:string;
   export default AgriclimeRefNumber__c;
 }
-declare module "@salesforce/schema/Contact.wint__WebsiteAccountMatchingKey2__c" {
-  const wint__WebsiteAccountMatchingKey2__c:string;
-  export default wint__WebsiteAccountMatchingKey2__c;
-}
-declare module "@salesforce/schema/Contact.wint__WebsiteAccountMatchingKey__c" {
-  const wint__WebsiteAccountMatchingKey__c:string;
-  export default wint__WebsiteAccountMatchingKey__c;
-}
 declare module "@salesforce/schema/Contact.AgriclimeCommittedArea__c" {
   const AgriclimeCommittedArea__c:string;
   export default AgriclimeCommittedArea__c;

@@ -122,8 +122,6 @@ global class Lead {
     global Date Pardot_Implied_Consent_Expiry_Date__c;
     global Boolean TempGuestFlag__c;
     global Double Registered_Guests_Dec619__c;
-    global String wint__WebsiteAccountMatchingKey2__c;
-    global String wint__WebsiteAccountMatchingKey__c;
     global String Pardot_URL_from_Pardot__c;
     global Boolean Pardot_Formula__c;
     global List<AcceptedEventRelation> AcceptedEventRelations;
@@ -148,6 +146,7 @@ global class Lead {
     global List<LeadHistory> Histories;
     global List<LeadShare> Shares;
     global List<ListEmailIndividualRecipient> ListEmailIndividualRecipients;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;
@@ -172,8 +171,6 @@ global class Lead {
     global List<smagicinteract__Incoming_SMS__c> smagicinteract__Incoming_SMS__r;
     global List<smagicinteract__Message_Action__c> smagicinteract__Message_Actions__r;
     global List<smagicinteract__smsMagic__c> smagicinteract__smsMagic__r;
-    global List<wint__Website_Account__c> wint__Website_Accounts_Alternative__r;
-    global List<wint__Website_Account__c> wint__Website_Accounts__r;
     global List<ActivityHistory> PrimaryWho;
     global List<CampaignMember> LeadOrContact;
     global List<CampaignMemberChangeEvent> Lead;

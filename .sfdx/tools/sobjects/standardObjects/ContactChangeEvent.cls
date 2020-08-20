@@ -336,8 +336,6 @@ global class ContactChangeEvent {
     global String AgriclimeName__c;
     global String AgriclimeProgramDetails__c;
     global String AgriclimeRefNumber__c;
-    global String wint__WebsiteAccountMatchingKey2__c;
-    global String wint__WebsiteAccountMatchingKey__c;
     global String AgriclimeCommittedArea__c;
     global String AgriclimeStatus__c;
     global Boolean Pardot_Formula__c;

@@ -40,6 +40,8 @@ global class Crop_Acreage_Deletion__c {
     global List<DuplicateRecordItem> DuplicateRecordItems;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<EventRelation> EventRelations;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<ProcessInstance> ProcessInstances;
     global List<ProcessInstanceHistory> ProcessSteps;
     global List<RecordAction> RecordActions;

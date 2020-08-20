@@ -36,6 +36,7 @@ global class OrderItem {
     global List<CombinedAttachment> CombinedAttachments;
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<OrderItem> ChildOrderItems;
     global List<OrderItemFeed> Feeds;
     global List<OrderItemHistory> Histories;

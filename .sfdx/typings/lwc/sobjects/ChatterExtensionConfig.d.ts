@@ -42,6 +42,14 @@ declare module "@salesforce/schema/ChatterExtensionConfig.ChatterExtensionId" {
   const ChatterExtensionId:any;
   export default ChatterExtensionId;
 }
+declare module "@salesforce/schema/ChatterExtensionConfig.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/ChatterExtensionConfig.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/ChatterExtensionConfig.CanCreate" {
   const CanCreate:boolean;
   export default CanCreate;

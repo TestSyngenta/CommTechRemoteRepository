@@ -16,6 +16,8 @@ global class EntitySubscription {
     global Id CreatedById;
     global Datetime CreatedDate;
     global Boolean IsDeleted;
+    global Network Network;
+    global Id NetworkId;
     global List<FlowRecordRelation> RelatedRecord;
 
     global EntitySubscription () 

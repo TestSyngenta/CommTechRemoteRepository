@@ -72,10 +72,11 @@ global class Organization {
     global List<CombinedAttachment> CombinedAttachments;
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<CustomBrand> CustomBrands;
+    global List<Audience> Container;
     global List<ContentVersion> FirstPublishLocation;
     global List<EmailTemplate> Folder;
     global List<Group> Owner;
-    global List<Stamp> Parent;
+    global List<ReputationLevel> Parent;
 
     global Organization () 
     {

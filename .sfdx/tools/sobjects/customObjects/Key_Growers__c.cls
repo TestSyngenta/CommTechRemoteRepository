@@ -41,6 +41,8 @@ global class Key_Growers__c {
     global List<Event> Events;
     global List<EventRelation> EventRelations;
     global List<Key_Growers__History> Histories;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;

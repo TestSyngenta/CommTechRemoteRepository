@@ -58,3 +58,11 @@ declare module "@salesforce/schema/CollaborationGroupMember.LastFeedAccessDate" 
   const LastFeedAccessDate:any;
   export default LastFeedAccessDate;
 }
+declare module "@salesforce/schema/CollaborationGroupMember.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/CollaborationGroupMember.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}

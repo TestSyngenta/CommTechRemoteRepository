@@ -78,6 +78,14 @@ declare module "@salesforce/schema/SolutionFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/SolutionFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/SolutionFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/SolutionFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

@@ -347,8 +347,6 @@ global class Contact {
     global String AgriclimeName__c;
     global String AgriclimeProgramDetails__c;
     global String AgriclimeRefNumber__c;
-    global String wint__WebsiteAccountMatchingKey2__c;
-    global String wint__WebsiteAccountMatchingKey__c;
     global String AgriclimeCommittedArea__c;
     global String AgriclimeStatus__c;
     global Boolean Pardot_Formula__c;
@@ -402,6 +400,7 @@ global class Contact {
     global List<Customer_Call__c> Customer_Calls__r;
     global List<DeclinedEventRelation> DeclinedEventRelations;
     global List<DuplicateRecordItem> DuplicateRecordItems;
+    global List<Duplicate_Records__c> Duplicate_Records__r;
     global List<EmailMessageRelation> EmailMessageRelations;
     global List<EmailStatus> EmailStatuses;
     global List<Email_Retention__c> Email_Retention__r;
@@ -412,6 +411,7 @@ global class Contact {
     global List<Foundation_Customer__c> Foundation_Customers__r;
     global List<ListEmailIndividualRecipient> ListEmailIndividualRecipients;
     global List<Net_Promoter_Score__c> Test_NPS__r;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;
@@ -444,8 +444,6 @@ global class Contact {
     global List<smagicinteract__Converse_App_Task__c> smagicinteract__Converse_App_Tasks__r;
     global List<smagicinteract__Incoming_SMS__c> smagicinteract__Incoming_SMS__r;
     global List<smagicinteract__smsMagic__c> smagicinteract__smsMagic__r;
-    global List<wint__Website_Account__c> wint__Website_Accounts_Alternative__r;
-    global List<wint__Website_Account__c> wint__Website_Accounts__r;
     global List<AccountContactRoleChangeEvent> Contact;
     global List<ActivityHistory> PrimaryWho;
     global List<AssetChangeEvent> Contact;

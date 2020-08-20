@@ -32,6 +32,8 @@ global class SurveyInvitation {
     global SurveyEmailBranding EmailBranding;
     global Id EmailBrandingId;
     global Datetime InviteExpiryDateTime;
+    global Network Community;
+    global Id CommunityId;
     global Boolean IsDefault;
     global String UUID;
     global String ResponseStatus;

@@ -29,6 +29,8 @@ global class CollaborationGroup {
     global String InformationBody;
     global Boolean HasPrivateFieldsAccess;
     global Boolean CanHaveGuests;
+    global Network Network;
+    global Id NetworkId;
     global Datetime LastViewedDate;
     global Datetime LastReferencedDate;
     global Boolean IsArchived;
@@ -47,6 +49,7 @@ global class CollaborationGroup {
     global List<CombinedAttachment> CombinedAttachments;
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<RecordAction> RecordActions;
     global List<RecordActionHistory> RecordActionHistories;
     global List<Announcement> Parent;

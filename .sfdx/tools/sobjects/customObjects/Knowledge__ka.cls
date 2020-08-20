@@ -36,6 +36,7 @@ global class Knowledge__ka {
     global List<Knowledge__ViewStat> ViewStats;
     global List<Knowledge__VoteStat> VoteStats;
     global List<LinkedArticle> LinkedArticles;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<ProcessInstance> ProcessInstances;
     global List<ProcessInstanceHistory> ProcessSteps;
     global List<Vote> Votes;

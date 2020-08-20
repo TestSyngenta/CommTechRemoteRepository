@@ -24,6 +24,8 @@ global class WorkBadge {
     global Id DefinitionId;
     global User Recipient;
     global Id RecipientId;
+    global Network Network;
+    global Id NetworkId;
     global User Giver;
     global Id GiverId;
     global String ImageUrl;

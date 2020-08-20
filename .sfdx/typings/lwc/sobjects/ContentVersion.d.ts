@@ -162,6 +162,14 @@ declare module "@salesforce/schema/ContentVersion.Origin" {
   const Origin:string;
   export default Origin;
 }
+declare module "@salesforce/schema/ContentVersion.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/ContentVersion.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/ContentVersion.ContentLocation" {
   const ContentLocation:string;
   export default ContentLocation;

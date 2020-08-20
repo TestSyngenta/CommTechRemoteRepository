@@ -410,6 +410,10 @@ declare module "@salesforce/schema/Profile.PermissionsRunFlow" {
   const PermissionsRunFlow:boolean;
   export default PermissionsRunFlow;
 }
+declare module "@salesforce/schema/Profile.PermissionsViewGlobalHeader" {
+  const PermissionsViewGlobalHeader:boolean;
+  export default PermissionsViewGlobalHeader;
+}
 declare module "@salesforce/schema/Profile.PermissionsManageQuotas" {
   const PermissionsManageQuotas:boolean;
   export default PermissionsManageQuotas;
@@ -473,6 +477,14 @@ declare module "@salesforce/schema/Profile.PermissionsCreateCustomizeFilters" {
 declare module "@salesforce/schema/Profile.PermissionsContentHubUser" {
   const PermissionsContentHubUser:boolean;
   export default PermissionsContentHubUser;
+}
+declare module "@salesforce/schema/Profile.PermissionsModerateNetworkFeeds" {
+  const PermissionsModerateNetworkFeeds:boolean;
+  export default PermissionsModerateNetworkFeeds;
+}
+declare module "@salesforce/schema/Profile.PermissionsModerateNetworkFiles" {
+  const PermissionsModerateNetworkFiles:boolean;
+  export default PermissionsModerateNetworkFiles;
 }
 declare module "@salesforce/schema/Profile.PermissionsGovernNetworks" {
   const PermissionsGovernNetworks:boolean;
@@ -633,6 +645,10 @@ declare module "@salesforce/schema/Profile.PermissionsBulkMacrosAllowed" {
 declare module "@salesforce/schema/Profile.PermissionsShareInternalArticles" {
   const PermissionsShareInternalArticles:boolean;
   export default PermissionsShareInternalArticles;
+}
+declare module "@salesforce/schema/Profile.PermissionsModerateNetworkMessages" {
+  const PermissionsModerateNetworkMessages:boolean;
+  export default PermissionsModerateNetworkMessages;
 }
 declare module "@salesforce/schema/Profile.PermissionsManageSessionPermissionSets" {
   const PermissionsManageSessionPermissionSets:boolean;
@@ -917,6 +933,10 @@ declare module "@salesforce/schema/Profile.PermissionsTransactionalEmailSend" {
 declare module "@salesforce/schema/Profile.PermissionsViewPrivateStaticResources" {
   const PermissionsViewPrivateStaticResources:boolean;
   export default PermissionsViewPrivateStaticResources;
+}
+declare module "@salesforce/schema/Profile.PermissionsViewCustomerSentiment" {
+  const PermissionsViewCustomerSentiment:boolean;
+  export default PermissionsViewCustomerSentiment;
 }
 declare module "@salesforce/schema/Profile.PermissionsCreateLtngTempFolder" {
   const PermissionsCreateLtngTempFolder:boolean;

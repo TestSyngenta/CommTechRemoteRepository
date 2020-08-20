@@ -14,6 +14,8 @@ global class LoginHistory {
     global String LoginType;
     global String SourceIp;
     global String LoginUrl;
+    global Network Network;
+    global Id NetworkId;
     global SObject AuthenticationService;
     global Id AuthenticationServiceId;
     global LoginGeo LoginGeo;

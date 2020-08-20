@@ -150,15 +150,3 @@ declare module "@salesforce/schema/Individual.SystemModstamp" {
   const SystemModstamp:any;
   export default SystemModstamp;
 }
-declare module "@salesforce/schema/Individual.wint__Country__c" {
-  const wint__Country__c:string;
-  export default wint__Country__c;
-}
-declare module "@salesforce/schema/Individual.wint__Email__c" {
-  const wint__Email__c:string;
-  export default wint__Email__c;
-}
-declare module "@salesforce/schema/Individual.wint__Unique_Key__c" {
-  const wint__Unique_Key__c:string;
-  export default wint__Unique_Key__c;
-}

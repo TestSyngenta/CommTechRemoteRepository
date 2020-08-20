@@ -66,6 +66,14 @@ declare module "@salesforce/schema/WorkBadge.RecipientId" {
   const RecipientId:any;
   export default RecipientId;
 }
+declare module "@salesforce/schema/WorkBadge.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/WorkBadge.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/WorkBadge.Giver" {
   const Giver:any;
   export default Giver;

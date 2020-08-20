@@ -8,6 +8,8 @@
 
 global class ChatterActivity {
     global Id Id;
+    global Network Network;
+    global Id NetworkId;
     global User Parent;
     global Id ParentId;
     global Integer PostCount;

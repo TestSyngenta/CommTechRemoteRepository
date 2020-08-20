@@ -82,6 +82,8 @@ global class Foundation_Customer__c {
     global List<Foundation_Customer__History> Histories;
     global List<Foundation_Customer__Share> Shares;
     global List<Foundation_Customer__c> Foundation_Customers__r;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;

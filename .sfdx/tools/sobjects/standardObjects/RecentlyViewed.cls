@@ -26,6 +26,8 @@ global class RecentlyViewed {
     global String NameOrAlias;
     global Datetime LastViewedDate;
     global Datetime LastReferencedDate;
+    global Network Network;
+    global Id NetworkId;
     global String Language;
 
     global RecentlyViewed () 

@@ -2,6 +2,14 @@ declare module "@salesforce/schema/ChatterActivity.Id" {
   const Id:any;
   export default Id;
 }
+declare module "@salesforce/schema/ChatterActivity.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/ChatterActivity.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/ChatterActivity.Parent" {
   const Parent:any;
   export default Parent;

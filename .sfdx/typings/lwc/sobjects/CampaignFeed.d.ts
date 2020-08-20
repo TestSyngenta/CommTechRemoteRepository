@@ -78,6 +78,14 @@ declare module "@salesforce/schema/CampaignFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/CampaignFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/CampaignFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/CampaignFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

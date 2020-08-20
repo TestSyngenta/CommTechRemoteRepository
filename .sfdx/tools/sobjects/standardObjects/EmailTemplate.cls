@@ -49,6 +49,12 @@ global class EmailTemplate {
     global List<ContentVersion> FirstPublishLocation;
     global List<DocumentAttachmentMap> Parent;
     global List<EmailMessage> EmailTemplate;
+    global List<Network> CaseCommentEmailTemplate;
+    global List<Network> ChangePasswordEmailTemplate;
+    global List<Network> ForgotPasswordEmailTemplate;
+    global List<Network> LockoutEmailTemplate;
+    global List<Network> VerificationEmailTemplate;
+    global List<Network> WelcomeEmailTemplate;
 
     global EmailTemplate () 
     {

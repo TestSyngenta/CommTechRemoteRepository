@@ -8,6 +8,8 @@
 
 global class Topic {
     global Id Id;
+    global Network Network;
+    global Id NetworkId;
     global String Name;
     global String Description;
     global Datetime CreatedDate;
@@ -20,6 +22,7 @@ global class Topic {
     global List<CustomBrand> CustomBrands;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<ListEmailRecipientSource> ListEmailRecipientSources;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<TopicAssignment> TopicAssignments;
     global List<TopicFeed> Feeds;
     global List<TopicLocalization> Localization;

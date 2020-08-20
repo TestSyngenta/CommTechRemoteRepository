@@ -74,6 +74,14 @@ declare module "@salesforce/schema/RecentlyViewed.LastReferencedDate" {
   const LastReferencedDate:any;
   export default LastReferencedDate;
 }
+declare module "@salesforce/schema/RecentlyViewed.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/RecentlyViewed.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/RecentlyViewed.Language" {
   const Language:string;
   export default Language;

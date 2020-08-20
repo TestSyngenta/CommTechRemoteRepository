@@ -25,6 +25,8 @@ global class WorkBadgeDefinition {
     global String Description;
     global String ImageUrl;
     global Boolean IsActive;
+    global Network Network;
+    global Id NetworkId;
     global Integer LimitNumber;
     global Boolean IsLimitPerUser;
     global Date LimitStartDate;
@@ -35,6 +37,7 @@ global class WorkBadgeDefinition {
     global List<CombinedAttachment> CombinedAttachments;
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<ProcessInstance> ProcessInstances;
     global List<ProcessInstanceHistory> ProcessSteps;
     global List<WorkAccess> WorkAccesses;

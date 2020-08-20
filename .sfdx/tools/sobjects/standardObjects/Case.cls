@@ -315,6 +315,8 @@ global class Case {
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<Event> Events;
     global List<EventRelation> EventRelations;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<OpenActivity> OpenActivities;
     global List<ProcessInstance> ProcessInstances;
     global List<ProcessInstanceHistory> ProcessSteps;

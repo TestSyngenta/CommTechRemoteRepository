@@ -25,6 +25,7 @@ global class ListView {
     global List<ListEmailRecipientSource> ListEmailRecipientSources;
     global List<DuplicateJob> ResultListView;
     global List<ListViewChartInstance> ListViewContext;
+    global List<NavigationMenuItem> DefaultListView;
     global List<UserListView> ListView;
 
     global ListView () 

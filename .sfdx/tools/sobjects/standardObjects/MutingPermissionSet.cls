@@ -120,6 +120,7 @@ global class MutingPermissionSet {
     global Boolean PermissionsViewCaseInteraction;
     global Boolean PermissionsManageAuthProviders;
     global Boolean PermissionsRunFlow;
+    global Boolean PermissionsViewGlobalHeader;
     global Boolean PermissionsManageQuotas;
     global Boolean PermissionsCreateCustomizeDashboards;
     global Boolean PermissionsCreateDashboardFolders;
@@ -136,6 +137,8 @@ global class MutingPermissionSet {
     global Boolean PermissionsConnectOrgToEnvironmentHub;
     global Boolean PermissionsCreateCustomizeFilters;
     global Boolean PermissionsContentHubUser;
+    global Boolean PermissionsModerateNetworkFeeds;
+    global Boolean PermissionsModerateNetworkFiles;
     global Boolean PermissionsGovernNetworks;
     global Boolean PermissionsSalesConsole;
     global Boolean PermissionsTwoFactorApi;
@@ -176,6 +179,7 @@ global class MutingPermissionSet {
     global Boolean PermissionsSubmitMacrosAllowed;
     global Boolean PermissionsBulkMacrosAllowed;
     global Boolean PermissionsShareInternalArticles;
+    global Boolean PermissionsModerateNetworkMessages;
     global Boolean PermissionsManageSessionPermissionSets;
     global Boolean PermissionsManageTemplatedApp;
     global Boolean PermissionsUseTemplatedApp;
@@ -247,6 +251,7 @@ global class MutingPermissionSet {
     global Boolean PermissionsCreateLtngTempInPub;
     global Boolean PermissionsTransactionalEmailSend;
     global Boolean PermissionsViewPrivateStaticResources;
+    global Boolean PermissionsViewCustomerSentiment;
     global Boolean PermissionsCreateLtngTempFolder;
     global Boolean PermissionsCampaignInsightsUser;
     global Boolean PermissionsApexRestServices;

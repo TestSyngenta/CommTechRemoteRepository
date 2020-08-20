@@ -50,6 +50,7 @@ global class SocialPost {
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<LinkedArticle> LinkedArticles;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<ProcessInstance> ProcessInstances;

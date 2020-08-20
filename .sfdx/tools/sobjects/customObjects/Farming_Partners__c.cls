@@ -45,6 +45,8 @@ global class Farming_Partners__c {
     global List<Event> Events;
     global List<EventRelation> EventRelations;
     global List<Farming_Partners__History> Histories;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;

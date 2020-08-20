@@ -70,6 +70,14 @@ declare module "@salesforce/schema/WorkBadgeDefinition.IsActive" {
   const IsActive:boolean;
   export default IsActive;
 }
+declare module "@salesforce/schema/WorkBadgeDefinition.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/WorkBadgeDefinition.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/WorkBadgeDefinition.LimitNumber" {
   const LimitNumber:number;
   export default LimitNumber;

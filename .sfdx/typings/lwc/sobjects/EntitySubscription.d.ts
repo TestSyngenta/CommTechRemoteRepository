@@ -34,3 +34,11 @@ declare module "@salesforce/schema/EntitySubscription.IsDeleted" {
   const IsDeleted:boolean;
   export default IsDeleted;
 }
+declare module "@salesforce/schema/EntitySubscription.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/EntitySubscription.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}

@@ -50,3 +50,11 @@ declare module "@salesforce/schema/CollaborationGroupRecord.RecordId" {
   const RecordId:any;
   export default RecordId;
 }
+declare module "@salesforce/schema/CollaborationGroupRecord.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/CollaborationGroupRecord.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}

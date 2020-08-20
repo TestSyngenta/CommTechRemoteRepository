@@ -25,6 +25,7 @@ global class ContentAsset {
     global Boolean IsVisibleByExternalUsers;
     global List<ChatterExtension> Icon;
     global List<ContentDocument> ContentAsset;
+    global List<ContentFolder> FeaturedMedia;
     global List<ContentWorkspace> WorkspaceImage;
     global List<CustomBrandAsset> AssetSource;
     global List<Recommendation> Image;

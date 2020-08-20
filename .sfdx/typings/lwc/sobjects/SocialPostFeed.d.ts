@@ -78,6 +78,14 @@ declare module "@salesforce/schema/SocialPostFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/SocialPostFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/SocialPostFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/SocialPostFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

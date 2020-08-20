@@ -98,6 +98,14 @@ declare module "@salesforce/schema/SurveyInvitation.InviteExpiryDateTime" {
   const InviteExpiryDateTime:any;
   export default InviteExpiryDateTime;
 }
+declare module "@salesforce/schema/SurveyInvitation.Community" {
+  const Community:any;
+  export default Community;
+}
+declare module "@salesforce/schema/SurveyInvitation.CommunityId" {
+  const CommunityId:any;
+  export default CommunityId;
+}
 declare module "@salesforce/schema/SurveyInvitation.IsDefault" {
   const IsDefault:boolean;
   export default IsDefault;

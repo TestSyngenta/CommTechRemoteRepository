@@ -52,6 +52,7 @@ global class Site {
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<DomainSite> SiteDomainPaths;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<SiteFeed> Feeds;
     global List<SiteHistory> Histories;
     global List<SiteIframeWhiteListUrl> SiteIframeWhiteListUrls;

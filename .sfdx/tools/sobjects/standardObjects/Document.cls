@@ -38,6 +38,7 @@ global class Document {
     global List<CustomBrandAsset> AssetSource;
     global List<DocumentAttachmentMap> Document;
     global List<FlowRecordRelation> RelatedRecord;
+    global List<Network> EmailFooterLogo;
 
     global Document () 
     {

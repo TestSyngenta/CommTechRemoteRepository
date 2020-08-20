@@ -124,6 +124,7 @@ global class PermissionSetLicense {
     global Boolean MaximumPermissionsViewCaseInteraction;
     global Boolean MaximumPermissionsManageAuthProviders;
     global Boolean MaximumPermissionsRunFlow;
+    global Boolean MaximumPermissionsViewGlobalHeader;
     global Boolean MaximumPermissionsManageQuotas;
     global Boolean MaximumPermissionsCreateCustomizeDashboards;
     global Boolean MaximumPermissionsCreateDashboardFolders;
@@ -140,6 +141,8 @@ global class PermissionSetLicense {
     global Boolean MaximumPermissionsConnectOrgToEnvironmentHub;
     global Boolean MaximumPermissionsCreateCustomizeFilters;
     global Boolean MaximumPermissionsContentHubUser;
+    global Boolean MaximumPermissionsModerateNetworkFeeds;
+    global Boolean MaximumPermissionsModerateNetworkFiles;
     global Boolean MaximumPermissionsGovernNetworks;
     global Boolean MaximumPermissionsSalesConsole;
     global Boolean MaximumPermissionsTwoFactorApi;
@@ -180,6 +183,7 @@ global class PermissionSetLicense {
     global Boolean MaximumPermissionsSubmitMacrosAllowed;
     global Boolean MaximumPermissionsBulkMacrosAllowed;
     global Boolean MaximumPermissionsShareInternalArticles;
+    global Boolean MaximumPermissionsModerateNetworkMessages;
     global Boolean MaximumPermissionsManageSessionPermissionSets;
     global Boolean MaximumPermissionsManageTemplatedApp;
     global Boolean MaximumPermissionsUseTemplatedApp;
@@ -251,6 +255,7 @@ global class PermissionSetLicense {
     global Boolean MaximumPermissionsCreateLtngTempInPub;
     global Boolean MaximumPermissionsTransactionalEmailSend;
     global Boolean MaximumPermissionsViewPrivateStaticResources;
+    global Boolean MaximumPermissionsViewCustomerSentiment;
     global Boolean MaximumPermissionsCreateLtngTempFolder;
     global Boolean MaximumPermissionsCampaignInsightsUser;
     global Boolean MaximumPermissionsApexRestServices;

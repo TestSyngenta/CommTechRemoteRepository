@@ -110,6 +110,7 @@ global class Profile {
     global Boolean PermissionsViewCaseInteraction;
     global Boolean PermissionsManageAuthProviders;
     global Boolean PermissionsRunFlow;
+    global Boolean PermissionsViewGlobalHeader;
     global Boolean PermissionsManageQuotas;
     global Boolean PermissionsCreateCustomizeDashboards;
     global Boolean PermissionsCreateDashboardFolders;
@@ -126,6 +127,8 @@ global class Profile {
     global Boolean PermissionsConnectOrgToEnvironmentHub;
     global Boolean PermissionsCreateCustomizeFilters;
     global Boolean PermissionsContentHubUser;
+    global Boolean PermissionsModerateNetworkFeeds;
+    global Boolean PermissionsModerateNetworkFiles;
     global Boolean PermissionsGovernNetworks;
     global Boolean PermissionsSalesConsole;
     global Boolean PermissionsTwoFactorApi;
@@ -166,6 +169,7 @@ global class Profile {
     global Boolean PermissionsSubmitMacrosAllowed;
     global Boolean PermissionsBulkMacrosAllowed;
     global Boolean PermissionsShareInternalArticles;
+    global Boolean PermissionsModerateNetworkMessages;
     global Boolean PermissionsManageSessionPermissionSets;
     global Boolean PermissionsManageTemplatedApp;
     global Boolean PermissionsUseTemplatedApp;
@@ -237,6 +241,7 @@ global class Profile {
     global Boolean PermissionsCreateLtngTempInPub;
     global Boolean PermissionsTransactionalEmailSend;
     global Boolean PermissionsViewPrivateStaticResources;
+    global Boolean PermissionsViewCustomerSentiment;
     global Boolean PermissionsCreateLtngTempFolder;
     global Boolean PermissionsCampaignInsightsUser;
     global Boolean PermissionsApexRestServices;
@@ -281,6 +286,10 @@ global class Profile {
     global Datetime LastReferencedDate;
     global List<User> Users;
     global List<Name> Profile;
+    global List<Network> SelfRegProfile;
+    global List<NetworkAffinity> Profile;
+    global List<NetworkMemberGroup> Parent;
+    global List<PermissionSet> Profile;
 
     global Profile () 
     {

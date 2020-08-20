@@ -28,6 +28,7 @@ global class EnhancedLetterhead {
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<EnhancedLetterheadFeed> Feeds;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<RecordAction> RecordActions;
     global List<RecordActionHistory> RecordActionHistories;
     global List<ContentVersion> FirstPublishLocation;

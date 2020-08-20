@@ -8,6 +8,8 @@
 
 global class TopicUserEvent {
     global Id Id;
+    global Network Network;
+    global Id NetworkId;
     global User User;
     global Id UserId;
     global Topic Topic;

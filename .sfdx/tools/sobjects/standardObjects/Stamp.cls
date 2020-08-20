@@ -9,7 +9,7 @@
 global class Stamp {
     global Id Id;
     global Boolean IsDeleted;
-    global Organization Parent;
+    global SObject Parent;
     global Id ParentId;
     global String MasterLabel;
     global Datetime CreatedDate;

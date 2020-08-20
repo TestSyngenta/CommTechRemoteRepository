@@ -94,6 +94,14 @@ declare module "@salesforce/schema/FeedItem.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/FeedItem.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/FeedItem.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/FeedItem.BestComment" {
   const BestComment:any;
   export default BestComment;

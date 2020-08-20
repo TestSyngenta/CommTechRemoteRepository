@@ -22,6 +22,8 @@ global class CollaborationGroupMember {
     global Id LastModifiedById;
     global Datetime SystemModstamp;
     global Datetime LastFeedAccessDate;
+    global Network Network;
+    global Id NetworkId;
     global List<FlowRecordRelation> RelatedRecord;
 
     global CollaborationGroupMember () 

@@ -30,6 +30,8 @@ global class FI_Forecast__c {
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<EventRelation> EventRelations;
     global List<FI_Forecast__Share> Shares;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<ProcessInstance> ProcessInstances;

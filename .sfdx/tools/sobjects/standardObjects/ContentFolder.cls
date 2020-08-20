@@ -19,6 +19,8 @@ global class ContentFolder {
     global Datetime SystemModstamp;
     global ContentFolder ParentContentFolder;
     global Id ParentContentFolderId;
+    global ContentAsset FeaturedMedia;
+    global Id FeaturedMediaId;
     global List<ContentFolderLink> ContentFolderLinks;
     global List<ContentFolder> ParentContentFolder;
     global List<ContentWorkspace> RootContentFolder;

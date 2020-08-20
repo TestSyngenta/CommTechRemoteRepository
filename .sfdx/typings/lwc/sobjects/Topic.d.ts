@@ -2,6 +2,14 @@ declare module "@salesforce/schema/Topic.Id" {
   const Id:any;
   export default Id;
 }
+declare module "@salesforce/schema/Topic.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/Topic.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/Topic.Name" {
   const Name:string;
   export default Name;

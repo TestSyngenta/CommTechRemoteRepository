@@ -42,6 +42,8 @@ global class Activities__c {
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<Event> Events;
     global List<EventRelation> EventRelations;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;

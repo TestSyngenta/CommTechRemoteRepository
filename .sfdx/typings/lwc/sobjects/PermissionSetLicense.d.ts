@@ -466,6 +466,10 @@ declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsRunFlo
   const MaximumPermissionsRunFlow:boolean;
   export default MaximumPermissionsRunFlow;
 }
+declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsViewGlobalHeader" {
+  const MaximumPermissionsViewGlobalHeader:boolean;
+  export default MaximumPermissionsViewGlobalHeader;
+}
 declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsManageQuotas" {
   const MaximumPermissionsManageQuotas:boolean;
   export default MaximumPermissionsManageQuotas;
@@ -529,6 +533,14 @@ declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsCreate
 declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsContentHubUser" {
   const MaximumPermissionsContentHubUser:boolean;
   export default MaximumPermissionsContentHubUser;
+}
+declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsModerateNetworkFeeds" {
+  const MaximumPermissionsModerateNetworkFeeds:boolean;
+  export default MaximumPermissionsModerateNetworkFeeds;
+}
+declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsModerateNetworkFiles" {
+  const MaximumPermissionsModerateNetworkFiles:boolean;
+  export default MaximumPermissionsModerateNetworkFiles;
 }
 declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsGovernNetworks" {
   const MaximumPermissionsGovernNetworks:boolean;
@@ -689,6 +701,10 @@ declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsBulkMa
 declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsShareInternalArticles" {
   const MaximumPermissionsShareInternalArticles:boolean;
   export default MaximumPermissionsShareInternalArticles;
+}
+declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsModerateNetworkMessages" {
+  const MaximumPermissionsModerateNetworkMessages:boolean;
+  export default MaximumPermissionsModerateNetworkMessages;
 }
 declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsManageSessionPermissionSets" {
   const MaximumPermissionsManageSessionPermissionSets:boolean;
@@ -973,6 +989,10 @@ declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsTransa
 declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsViewPrivateStaticResources" {
   const MaximumPermissionsViewPrivateStaticResources:boolean;
   export default MaximumPermissionsViewPrivateStaticResources;
+}
+declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsViewCustomerSentiment" {
+  const MaximumPermissionsViewCustomerSentiment:boolean;
+  export default MaximumPermissionsViewCustomerSentiment;
 }
 declare module "@salesforce/schema/PermissionSetLicense.MaximumPermissionsCreateLtngTempFolder" {
   const MaximumPermissionsCreateLtngTempFolder:boolean;

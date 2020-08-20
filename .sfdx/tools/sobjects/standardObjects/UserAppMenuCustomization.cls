@@ -18,7 +18,7 @@ global class UserAppMenuCustomization {
     global User LastModifiedBy;
     global Id LastModifiedById;
     global Datetime SystemModstamp;
-    global ConnectedApplication Application;
+    global SObject Application;
     global Id ApplicationId;
     global Integer SortOrder;
     global List<FlowRecordRelation> RelatedRecord;

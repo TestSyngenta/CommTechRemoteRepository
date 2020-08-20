@@ -78,6 +78,14 @@ declare module "@salesforce/schema/OpportunityFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/OpportunityFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/OpportunityFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/OpportunityFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

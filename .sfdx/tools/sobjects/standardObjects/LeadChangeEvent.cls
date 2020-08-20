@@ -116,8 +116,6 @@ global class LeadChangeEvent {
     global Date Pardot_Implied_Consent_Expiry_Date__c;
     global Boolean TempGuestFlag__c;
     global Double Registered_Guests_Dec619__c;
-    global String wint__WebsiteAccountMatchingKey2__c;
-    global String wint__WebsiteAccountMatchingKey__c;
     global String Pardot_URL_from_Pardot__c;
     global Boolean Pardot_Formula__c;
 

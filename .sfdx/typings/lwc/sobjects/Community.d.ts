@@ -46,3 +46,11 @@ declare module "@salesforce/schema/Community.IsPublished" {
   const IsPublished:boolean;
   export default IsPublished;
 }
+declare module "@salesforce/schema/Community.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/Community.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}

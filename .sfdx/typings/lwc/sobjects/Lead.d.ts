@@ -426,14 +426,6 @@ declare module "@salesforce/schema/Lead.Registered_Guests_Dec619__c" {
   const Registered_Guests_Dec619__c:number;
   export default Registered_Guests_Dec619__c;
 }
-declare module "@salesforce/schema/Lead.wint__WebsiteAccountMatchingKey2__c" {
-  const wint__WebsiteAccountMatchingKey2__c:string;
-  export default wint__WebsiteAccountMatchingKey2__c;
-}
-declare module "@salesforce/schema/Lead.wint__WebsiteAccountMatchingKey__c" {
-  const wint__WebsiteAccountMatchingKey__c:string;
-  export default wint__WebsiteAccountMatchingKey__c;
-}
 declare module "@salesforce/schema/Lead.Pardot_URL_from_Pardot__c" {
   const Pardot_URL_from_Pardot__c:string;
   export default Pardot_URL_from_Pardot__c;

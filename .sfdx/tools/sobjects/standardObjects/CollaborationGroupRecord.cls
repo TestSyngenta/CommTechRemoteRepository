@@ -20,6 +20,8 @@ global class CollaborationGroupRecord {
     global Id CollaborationGroupId;
     global SObject Record;
     global Id RecordId;
+    global Network Network;
+    global Id NetworkId;
     global List<FlowRecordRelation> RelatedRecord;
 
     global CollaborationGroupRecord () 

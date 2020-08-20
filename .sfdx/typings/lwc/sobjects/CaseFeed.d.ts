@@ -78,6 +78,14 @@ declare module "@salesforce/schema/CaseFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/CaseFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/CaseFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/CaseFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

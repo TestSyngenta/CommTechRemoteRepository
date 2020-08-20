@@ -314,6 +314,7 @@ b) The highest SDP sales for the household in the last 3 full years
     global List<Customer_Experience_Trials__c> Customer_Experience_Trials1__r;
     global List<Customer_Knowledge__c> Customer_Knowledge__r;
     global List<DuplicateRecordItem> DuplicateRecordItems;
+    global List<Duplicate_Records__c> Duplicate_Records1__r;
     global List<EmailMessage> Emails;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<Event> Events;
@@ -322,6 +323,7 @@ b) The highest SDP sales for the household in the last 3 full years
     global List<Foundation_Customer__c> Foundation_Customers__r;
     global List<Foundation_Customer__c> Retailer_Foundation_Customer__r;
     global List<LookedUpFromActivity> Activities__r;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OTG_Sales_History__c> OTG_Sales_History_Records__r;
@@ -378,6 +380,7 @@ b) The highest SDP sales for the household in the last 3 full years
     global List<FeedComment> Parent;
     global List<FlowRecordRelation> RelatedRecord;
     global List<Lead> ConvertedAccount;
+    global List<NetworkSelfRegistration> Account;
     global List<OpenActivity> PrimaryAccount;
     global List<OpportunityChangeEvent> Account;
     global List<TaskChangeEvent> What;

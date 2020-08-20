@@ -78,6 +78,14 @@ declare module "@salesforce/schema/DashboardComponentFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/DashboardComponentFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/DashboardComponentFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/DashboardComponentFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

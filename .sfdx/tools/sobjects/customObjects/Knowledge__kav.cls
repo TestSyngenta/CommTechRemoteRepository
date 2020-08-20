@@ -68,6 +68,7 @@ global class Knowledge__kav {
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<Knowledge__DataCategorySelection> DataCategorySelections;
     global List<LinkedArticle> LinkedArticles;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<ProcessInstance> ProcessInstances;
     global List<ProcessInstanceHistory> ProcessSteps;
     global List<TopicAssignment> TopicAssignments;

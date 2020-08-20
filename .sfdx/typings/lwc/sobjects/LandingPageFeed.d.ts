@@ -78,6 +78,14 @@ declare module "@salesforce/schema/LandingPageFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/LandingPageFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/LandingPageFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/LandingPageFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

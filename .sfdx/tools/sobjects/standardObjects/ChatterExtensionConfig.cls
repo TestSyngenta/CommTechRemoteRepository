@@ -18,6 +18,8 @@ global class ChatterExtensionConfig {
     global Datetime SystemModstamp;
     global ChatterExtension ChatterExtension;
     global Id ChatterExtensionId;
+    global Network Network;
+    global Id NetworkId;
     global Boolean CanCreate;
     global Boolean CanRead;
     global Integer Position;

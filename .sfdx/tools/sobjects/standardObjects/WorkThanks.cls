@@ -20,6 +20,8 @@ global class WorkThanks {
     global Datetime SystemModstamp;
     global User Giver;
     global Id GiverId;
+    global Network Network;
+    global Id NetworkId;
     global String Message;
     global FeedItem FeedItem;
     global Id FeedItemId;

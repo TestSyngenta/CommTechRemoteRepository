@@ -45,9 +45,6 @@ global class Individual {
     global User LastModifiedBy;
     global Id LastModifiedById;
     global Datetime SystemModstamp;
-    global String wint__Country__c;
-    global String wint__Email__c;
-    global String wint__Unique_Key__c;
     global List<Contact> Contacts;
     global List<ContactPointEmail> ContactPointEmails;
     global List<ContactPointPhone> ContactPointPhones;
@@ -56,8 +53,6 @@ global class Individual {
     global List<IndividualHistory> Histories;
     global List<IndividualShare> Shares;
     global List<Lead> Leads;
-    global List<wint__Website_Account__c> wint__Website_Accounts_Alternative__r;
-    global List<wint__Website_Account__c> wint__Website_Accounts__r;
     global List<AuthorizationFormConsent> Party;
     global List<ContactChangeEvent> Individual;
     global List<FlowRecordRelation> RelatedRecord;

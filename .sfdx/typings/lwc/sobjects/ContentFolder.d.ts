@@ -46,3 +46,11 @@ declare module "@salesforce/schema/ContentFolder.ParentContentFolderId" {
   const ParentContentFolderId:any;
   export default ParentContentFolderId;
 }
+declare module "@salesforce/schema/ContentFolder.FeaturedMedia" {
+  const FeaturedMedia:any;
+  export default FeaturedMedia;
+}
+declare module "@salesforce/schema/ContentFolder.FeaturedMediaId" {
+  const FeaturedMediaId:any;
+  export default FeaturedMediaId;
+}

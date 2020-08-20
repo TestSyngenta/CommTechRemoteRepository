@@ -78,6 +78,14 @@ declare module "@salesforce/schema/LinkedArticleFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/LinkedArticleFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/LinkedArticleFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/LinkedArticleFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

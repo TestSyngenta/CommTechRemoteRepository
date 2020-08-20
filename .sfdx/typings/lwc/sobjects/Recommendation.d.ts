@@ -54,6 +54,14 @@ declare module "@salesforce/schema/Recommendation.Description" {
   const Description:string;
   export default Description;
 }
+declare module "@salesforce/schema/Recommendation.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/Recommendation.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/Recommendation.Image" {
   const Image:any;
   export default Image;

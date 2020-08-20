@@ -86,6 +86,14 @@ declare module "@salesforce/schema/CollaborationGroup.CanHaveGuests" {
   const CanHaveGuests:boolean;
   export default CanHaveGuests;
 }
+declare module "@salesforce/schema/CollaborationGroup.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/CollaborationGroup.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/CollaborationGroup.LastViewedDate" {
   const LastViewedDate:any;
   export default LastViewedDate;

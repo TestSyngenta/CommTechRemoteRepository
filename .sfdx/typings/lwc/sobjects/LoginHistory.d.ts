@@ -26,6 +26,14 @@ declare module "@salesforce/schema/LoginHistory.LoginUrl" {
   const LoginUrl:string;
   export default LoginUrl;
 }
+declare module "@salesforce/schema/LoginHistory.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/LoginHistory.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/LoginHistory.AuthenticationService" {
   const AuthenticationService:any;
   export default AuthenticationService;

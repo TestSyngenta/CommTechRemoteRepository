@@ -15,6 +15,8 @@ global class FeedRevision {
     global Boolean IsDeleted;
     global SObject FeedEntity;
     global Id FeedEntityId;
+    global Network OriginNetwork;
+    global Id OriginNetworkId;
     global Integer Revision;
     global String Action;
     global String EditedAttribute;

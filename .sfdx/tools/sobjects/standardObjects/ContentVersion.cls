@@ -48,6 +48,8 @@ global class ContentVersion {
     global SObject FirstPublishLocation;
     global Id FirstPublishLocationId;
     global String Origin;
+    global Network Network;
+    global Id NetworkId;
     global String ContentLocation;
     global String TextPreview;
     global String ExternalDocumentInfo1;
@@ -73,6 +75,7 @@ global class ContentVersion {
     global Boolean SyngentaDSA__Internal_Document__c;
     global Boolean SyngentaDSA__IsFeatured__c;
     global List<ContentVersionHistory> Histories;
+    global List<NetworkActivityAudit> AuditableEntities;
     global List<AccountFeed> RelatedRecord;
     global List<ContentDistribution> ContentVersion;
     global List<ContentDocument> LatestPublishedVersion;

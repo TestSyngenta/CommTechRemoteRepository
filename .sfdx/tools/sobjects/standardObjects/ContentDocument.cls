@@ -45,6 +45,8 @@ global class ContentDocument {
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<ContentVersion> ContentVersions;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
+    global List<NetworkActivityAudit> AuditableEntities;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<TopicAssignment> TopicAssignments;
     global List<AttachedContentDocument> ContentDocument;
     global List<ContentFolderMember> ChildRecord;
@@ -54,6 +56,8 @@ global class ContentDocument {
     global List<FeedComment> Parent;
     global List<FlowRecordRelation> RelatedRecord;
     global List<FolderedContentDocument> ContentDocument;
+    global List<NetworkModeration> Entity;
+    global List<OwnedContentDocument> ContentDocument;
 
     global ContentDocument () 
     {

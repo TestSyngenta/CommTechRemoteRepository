@@ -78,6 +78,14 @@ declare module "@salesforce/schema/Commercial_Experience_Demos__Feed.InsertedByI
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/Commercial_Experience_Demos__Feed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/Commercial_Experience_Demos__Feed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/Commercial_Experience_Demos__Feed.BestComment" {
   const BestComment:any;
   export default BestComment;

@@ -78,6 +78,14 @@ declare module "@salesforce/schema/SurveyFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/SurveyFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/SurveyFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/SurveyFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

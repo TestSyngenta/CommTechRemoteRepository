@@ -98,6 +98,7 @@ global class Event {
     global List<EventFeed> Feeds;
     global List<EventRelation> EventRelations;
     global List<EventWhoRelation> EventWhoRelations;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<SurveySubject> SurveySubjectEntities;
     global List<TopicAssignment> TopicAssignments;
     global List<UndecidedEventRelation> UndecidedEventRelations;

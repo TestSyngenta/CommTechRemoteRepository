@@ -27,6 +27,8 @@ global class SiteFeed {
     global Id RelatedRecordId;
     global User InsertedBy;
     global Id InsertedById;
+    global String NetworkScope;
+    global String Visibility;
     global FeedComment BestComment;
     global Id BestCommentId;
     global List<FeedAttachment> FeedAttachments;

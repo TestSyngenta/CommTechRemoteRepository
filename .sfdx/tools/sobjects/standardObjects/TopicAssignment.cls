@@ -8,6 +8,8 @@
 
 global class TopicAssignment {
     global Id Id;
+    global Network Network;
+    global Id NetworkId;
     global Topic Topic;
     global Id TopicId;
     global SObject Entity;

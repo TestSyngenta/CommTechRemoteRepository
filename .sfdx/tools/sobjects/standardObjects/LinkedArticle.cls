@@ -32,6 +32,7 @@ global class LinkedArticle {
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<LinkedArticleFeed> Feeds;
     global List<LinkedArticleHistory> Histories;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<TopicAssignment> TopicAssignments;

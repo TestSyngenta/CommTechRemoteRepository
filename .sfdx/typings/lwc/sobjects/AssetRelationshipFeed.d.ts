@@ -78,6 +78,14 @@ declare module "@salesforce/schema/AssetRelationshipFeed.InsertedById" {
   const InsertedById:any;
   export default InsertedById;
 }
+declare module "@salesforce/schema/AssetRelationshipFeed.NetworkScope" {
+  const NetworkScope:string;
+  export default NetworkScope;
+}
+declare module "@salesforce/schema/AssetRelationshipFeed.Visibility" {
+  const Visibility:string;
+  export default Visibility;
+}
 declare module "@salesforce/schema/AssetRelationshipFeed.BestComment" {
   const BestComment:any;
   export default BestComment;

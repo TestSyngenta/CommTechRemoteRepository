@@ -19,6 +19,8 @@ global class Community {
     global String Description;
     global Boolean IsActive;
     global Boolean IsPublished;
+    global Network Network;
+    global Id NetworkId;
 
     global Community () 
     {

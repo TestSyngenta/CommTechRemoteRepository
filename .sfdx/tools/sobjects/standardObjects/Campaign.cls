@@ -122,6 +122,7 @@ global class Campaign {
     global List<ListEmailRecipientSource> ListEmailRecipientSources;
     global List<MarketingForm> MarketingForms;
     global List<MarketingLink> MarketingLinks;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<OpenActivity> OpenActivities;
     global List<Opportunity> Opportunities;
     global List<ProcessInstance> ProcessInstances;

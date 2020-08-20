@@ -50,6 +50,14 @@ declare module "@salesforce/schema/WorkThanks.GiverId" {
   const GiverId:any;
   export default GiverId;
 }
+declare module "@salesforce/schema/WorkThanks.Network" {
+  const Network:any;
+  export default Network;
+}
+declare module "@salesforce/schema/WorkThanks.NetworkId" {
+  const NetworkId:any;
+  export default NetworkId;
+}
 declare module "@salesforce/schema/WorkThanks.Message" {
   const Message:string;
   export default Message;

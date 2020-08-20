@@ -30,6 +30,14 @@ declare module "@salesforce/schema/FeedRevision.FeedEntityId" {
   const FeedEntityId:any;
   export default FeedEntityId;
 }
+declare module "@salesforce/schema/FeedRevision.OriginNetwork" {
+  const OriginNetwork:any;
+  export default OriginNetwork;
+}
+declare module "@salesforce/schema/FeedRevision.OriginNetworkId" {
+  const OriginNetworkId:any;
+  export default OriginNetworkId;
+}
 declare module "@salesforce/schema/FeedRevision.Revision" {
   const Revision:number;
   export default Revision;

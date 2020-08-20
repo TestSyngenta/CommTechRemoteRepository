@@ -37,6 +37,7 @@ global class KnowledgeArticle {
     global List<KnowledgeArticleViewStat> ViewStats;
     global List<KnowledgeArticleVoteStat> VoteStats;
     global List<LinkedArticle> LinkedArticles;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<ProcessInstance> ProcessInstances;
     global List<ProcessInstanceHistory> ProcessSteps;
     global List<Vote> Votes;

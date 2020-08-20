@@ -103,6 +103,8 @@ Information, Products, Business support.
     global List<EventRelation> EventRelations;
     global List<FinancialCommitments__c> Financial_Commitments__r;
     global List<Key_Growers__c> Key_Growers__r;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;

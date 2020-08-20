@@ -42,6 +42,7 @@ global class MarketingForm {
     global List<Event> Events;
     global List<EventRelation> EventRelations;
     global List<MarketingFormFeed> Feeds;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<OpenActivity> OpenActivities;
     global List<Task> Tasks;
     global List<TaskRelation> TaskRelations;

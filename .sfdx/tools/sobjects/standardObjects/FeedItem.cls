@@ -31,6 +31,8 @@ global class FeedItem {
     global Id RelatedRecordId;
     global User InsertedBy;
     global Id InsertedById;
+    global String NetworkScope;
+    global String Visibility;
     global FeedComment BestComment;
     global Id BestCommentId;
     global Boolean HasContent;
@@ -45,6 +47,8 @@ global class FeedItem {
     global List<FeedRevision> FeedRevisions;
     global List<FeedSignal> FeedSignals;
     global List<FeedTrackedChange> FeedTrackedChanges;
+    global List<NetworkActivityAudit> AuditableEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToFeedItem;
     global List<TopicAssignment> TopicAssignments;
     global List<WorkThanks> FeedItemThanks;
     global List<Announcement> FeedItem;
@@ -53,6 +57,7 @@ global class FeedItem {
     global List<FeedPollChoice> FeedItem;
     global List<FeedSignal> FeedEntity;
     global List<FlowRecordRelation> RelatedRecord;
+    global List<NetworkModeration> Entity;
 
     global FeedItem () 
     {

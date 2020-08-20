@@ -450,6 +450,10 @@ declare module "@salesforce/schema/MutingPermissionSet.PermissionsRunFlow" {
   const PermissionsRunFlow:boolean;
   export default PermissionsRunFlow;
 }
+declare module "@salesforce/schema/MutingPermissionSet.PermissionsViewGlobalHeader" {
+  const PermissionsViewGlobalHeader:boolean;
+  export default PermissionsViewGlobalHeader;
+}
 declare module "@salesforce/schema/MutingPermissionSet.PermissionsManageQuotas" {
   const PermissionsManageQuotas:boolean;
   export default PermissionsManageQuotas;
@@ -513,6 +517,14 @@ declare module "@salesforce/schema/MutingPermissionSet.PermissionsCreateCustomiz
 declare module "@salesforce/schema/MutingPermissionSet.PermissionsContentHubUser" {
   const PermissionsContentHubUser:boolean;
   export default PermissionsContentHubUser;
+}
+declare module "@salesforce/schema/MutingPermissionSet.PermissionsModerateNetworkFeeds" {
+  const PermissionsModerateNetworkFeeds:boolean;
+  export default PermissionsModerateNetworkFeeds;
+}
+declare module "@salesforce/schema/MutingPermissionSet.PermissionsModerateNetworkFiles" {
+  const PermissionsModerateNetworkFiles:boolean;
+  export default PermissionsModerateNetworkFiles;
 }
 declare module "@salesforce/schema/MutingPermissionSet.PermissionsGovernNetworks" {
   const PermissionsGovernNetworks:boolean;
@@ -673,6 +685,10 @@ declare module "@salesforce/schema/MutingPermissionSet.PermissionsBulkMacrosAllo
 declare module "@salesforce/schema/MutingPermissionSet.PermissionsShareInternalArticles" {
   const PermissionsShareInternalArticles:boolean;
   export default PermissionsShareInternalArticles;
+}
+declare module "@salesforce/schema/MutingPermissionSet.PermissionsModerateNetworkMessages" {
+  const PermissionsModerateNetworkMessages:boolean;
+  export default PermissionsModerateNetworkMessages;
 }
 declare module "@salesforce/schema/MutingPermissionSet.PermissionsManageSessionPermissionSets" {
   const PermissionsManageSessionPermissionSets:boolean;
@@ -957,6 +973,10 @@ declare module "@salesforce/schema/MutingPermissionSet.PermissionsTransactionalE
 declare module "@salesforce/schema/MutingPermissionSet.PermissionsViewPrivateStaticResources" {
   const PermissionsViewPrivateStaticResources:boolean;
   export default PermissionsViewPrivateStaticResources;
+}
+declare module "@salesforce/schema/MutingPermissionSet.PermissionsViewCustomerSentiment" {
+  const PermissionsViewCustomerSentiment:boolean;
+  export default PermissionsViewCustomerSentiment;
 }
 declare module "@salesforce/schema/MutingPermissionSet.PermissionsCreateLtngTempFolder" {
   const PermissionsCreateLtngTempFolder:boolean;

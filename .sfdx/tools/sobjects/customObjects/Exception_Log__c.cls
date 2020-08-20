@@ -48,6 +48,8 @@ global class Exception_Log__c {
     global List<Event> Events;
     global List<EventRelation> EventRelations;
     global List<Exception_Log__History> Histories;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<OpenActivity> OpenActivities;

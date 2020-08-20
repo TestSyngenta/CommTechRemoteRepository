@@ -41,6 +41,7 @@ global class LandingPage {
     global List<Event> Events;
     global List<EventRelation> EventRelations;
     global List<LandingPageFeed> Feeds;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<OpenActivity> OpenActivities;
     global List<Task> Tasks;
     global List<TaskRelation> TaskRelations;

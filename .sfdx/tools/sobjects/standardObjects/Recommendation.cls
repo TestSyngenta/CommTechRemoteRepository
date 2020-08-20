@@ -21,6 +21,8 @@ global class Recommendation {
     global Datetime LastReferencedDate;
     global String ActionReference;
     global String Description;
+    global Network Network;
+    global Id NetworkId;
     /* For best results, use a 1000 px x 380 px image at 72 dpi or one with a similar ratio.
     */
     global ContentAsset Image;

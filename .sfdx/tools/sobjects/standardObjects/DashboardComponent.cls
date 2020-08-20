@@ -19,6 +19,7 @@ global class DashboardComponent {
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<DashboardComponentFeed> Feeds;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
+    global List<NetworkActivityAudit> ParentEntities;
     global List<ContentVersion> FirstPublishLocation;
     global List<FeedComment> Parent;
     global List<FlowRecordRelation> RelatedRecord;

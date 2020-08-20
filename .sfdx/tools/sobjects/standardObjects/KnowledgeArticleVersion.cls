@@ -63,6 +63,7 @@ global class KnowledgeArticleVersion {
     global List<CombinedAttachment> CombinedAttachments;
     global List<ContentDocumentLink> ContentDocumentLinks;
     global List<LinkedArticle> LinkedArticles;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<ProcessInstance> ProcessInstances;
     global List<ProcessInstanceHistory> ProcessSteps;
     global List<TopicAssignment> TopicAssignments;

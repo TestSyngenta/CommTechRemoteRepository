@@ -60,6 +60,8 @@ global class Territory__c {
     global List<DuplicateRecordItem> DuplicateRecordItems;
     global List<EntitySubscription> FeedSubscriptionsForEntity;
     global List<EventRelation> EventRelations;
+    global List<NetworkActivityAudit> ParentEntities;
+    global List<NetworkUserHistoryRecent> NetworkUserHistoryRecentToRecord;
     global List<Note> Notes;
     global List<NoteAndAttachment> NotesAndAttachments;
     global List<Opportunity> Opportunities1__r;
