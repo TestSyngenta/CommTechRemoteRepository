@@ -1,3 +1,13 @@
+/**************************************************************************************
+* Apex Class Name  :     TestBatchDelete
+* Version            :     1.0
+* Created Date       :     17/Aug/2020
+* Function           :     This is Test class for Batch Delete class  
+* Modification Log
+* Developer                   Date                   Description
+* ----------------------------------------------------------------------------
+* Aakash                     17/Aug/2020                Created.
+*************************************************************************************/
 @isTest 
 public class TestBatchDelete 
 {
