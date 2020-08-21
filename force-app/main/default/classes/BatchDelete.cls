@@ -1,13 +1,43 @@
+/**************************************************************************************
+* Apex Class Name  :     BatchDelete
+* Version            :     1.0
+* Created Date       :     14/Aug/2020
+* Function           :     This is Batch class to match duplicate contacts and delete them  
+* Modification Log
+* Developer                   Date                   Description
+* ----------------------------------------------------------------------------
+* Aakash                     14/Aug/2020                Created.
+*************************************************************************************/
 global class BatchDelete implements Database.Batchable<sObject> {
+  // Variable declaration 
   global List<Contact> contactstoCheck = new List<Contact>();
   global List<Contact> contactstoDelete = new List<Contact>();
   global List<Contact> finalcontactstoDelete = new List<Contact>();
   global Set<Id> AccountIds = new Set<Id>();
 
+  /********************************************************************************************
+ * Method   : start
+ * Description: Batch implementation Method to pass data to execute method
+ * ------------------------------------------------------------------------------------------
+ * Date          Name                    Modification Description
+ * ------------------------------------------------------------------------------------------
+ * 14/Aug/2020  Aakash       Created     
+ ********************************************************************************************/ 
   global Database.QueryLocator start(Database.BatchableContext bc) {
+    //Query to get duplicates contacts without email address
     string query = ' SELECT Id, AccountId, Account.Name, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone FROM Contact WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = null ORDER BY FirstName, LastName, Primary_Contact__c ASC';
     return Database.getQueryLocator(query);
   }
+/********************************************************************************************
+ * Method   : execute
+ * Description: logic to find contacts with only one duplicate and if there is any realted
+ * record and if it is primary then leave it or delete the other one with having no related
+ * record and not primary and also create log for the deleted records.
+ * ------------------------------------------------------------------------------------------
+ * Date          Name                    Modification Description
+ * ------------------------------------------------------------------------------------------
+ * 14/Aug/2020  Aakash       Created     
+ ********************************************************************************************/
 
   global void execute(Database.BatchableContext BC, List<Contact> listofduplicateContacts) {
     if (listofduplicateContacts <> null) {
@@ -24,7 +54,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
         WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = NULL AND AccountId = :loopId
         ORDER BY LastName, FirstName, Primary_Contact__c ASC
       ];
-      
+
       String lastFirstName = '';
       String lastLastName = '';
       String tempPhone = '';
@@ -43,7 +73,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
                 loopOverSame.MobilePhone = tempmobileNumber;
                 
               }
-
+              //create logs and save the delete contacts in custom object called Duplicate Records     
               if (ContactstoDelete.size() > 0 && contactstoDelete[0].FirstName == loopOverSame.FirstName && contactstoDelete[0].LastName == loopOverSame.LastName) {
                 Duplicate_Records__c fr = new Duplicate_Records__c();
                 finalcontactstoDelete.add(contactstoDelete[0]);
@@ -63,9 +93,8 @@ global class BatchDelete implements Database.Batchable<sObject> {
                 setofToBeDeletedRecords.add(fr);
                 
               }
-
-              Duplicate_Records__c dr = new Duplicate_Records__c();
-              
+              //also create logs for the winner contacts to compare phone numbers and mobile number in future
+              Duplicate_Records__c dr = new Duplicate_Records__c(); 
               dr.Account_Id__c = AccContact.AccountId;
               dr.Account_Name__c = AccContact.Account.Name;
               dr.Contact_Id__c = AccContact.Id;
@@ -78,11 +107,10 @@ global class BatchDelete implements Database.Batchable<sObject> {
               dr.Had_Email_Retention__c = AccContact.Has_Email_Retention__c;
               dr.Had_NPS__c = AccContact.Has_NPS__c;
               dr.Had_Related_Case__c = AccContact.Has_Related_Case__c;
-
               setofLeavingRecords.add(dr);
              
             }
-          
+          //Check if there is one duplicate contact of a winner contacts otherwise ignore
             if (ContactstoCheck.size() == 2) {
               contactstoCheck.clear();
             }
@@ -109,7 +137,14 @@ global class BatchDelete implements Database.Batchable<sObject> {
     Database.insert(setofLeavingRecords, false);
     delete finalcontactstoDelete;
   }
-
+  /********************************************************************************************
+ * Method   : finish
+ * Description: Delete Duplicate Contacts
+ * ------------------------------------------------------------------------------------------
+ * Date          Name                    Modification Description
+ * ------------------------------------------------------------------------------------------
+ * 14/Aug/2018  Aakash       Created     
+ ********************************************************************************************/
   global void finish(Database.BatchableContext BC) {
   }
 }
