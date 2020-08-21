@@ -28,15 +28,11 @@ global class BatchDelete implements Database.Batchable<sObject> {
       List<Contact> listofRelatedContacts = [
         SELECT Id, AccountId, Account.Name, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone, MobilePhone
         FROM Contact
-        WHERE
-          Duplicate_Contact_On_Same_Account__c = TRUE
-          AND Email = NULL
-          
-          AND AccountId = :loopId
+        WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = NULL AND AccountId = :loopId
         ORDER BY LastName, FirstName, Primary_Contact__c ASC
       ];
 
-      //System.debug('Test first Contact in the loop' + listofRelatedContacts);
+     
 
       String lastFirstName = '';
       String lastLastName = '';
@@ -51,17 +47,15 @@ global class BatchDelete implements Database.Batchable<sObject> {
             if (ContactstoCheck.size() == 1 && loopOverSame.Primary_Contact__c == true && contactstoDelete.size() == 1) {
               if (loopOverSame.phone == null && tempPhone <> null) {
                 loopOverSame.phone = tempPhone;
-                //UpdatedList.add(loopOverSame);
+                
               } else if (loopOverSame.MobilePhone == null && tempmobileNumber <> null) {
                 loopOverSame.MobilePhone = tempmobileNumber;
-                //UpdatedList.add(loopOverSame);
+                
               }
-
 
               if (ContactstoDelete.size() > 0 && contactstoDelete[0].FirstName == loopOverSame.FirstName && contactstoDelete[0].LastName == loopOverSame.LastName) {
                 Duplicate_Records__c fr = new Duplicate_Records__c();
                 finalcontactstoDelete.add(contactstoDelete[0]);
-                //fr.Duplicate_Contacts__c = contactstodelete[0].Id;
                 fr.Account_Id__c = contactstodelete[0].AccountId;
                 fr.Account_Name__c = contactstodelete[0].Account.Name;
                 fr.Contact_Id__c = contactstodelete[0].Id;
@@ -76,12 +70,11 @@ global class BatchDelete implements Database.Batchable<sObject> {
                 fr.Had_Related_Case__c = contactstoDelete[0].Has_Related_Case__c;
                 fr.toBeDeleted__c = true;
                 setofToBeDeletedRecords.add(fr);
-                //Database.insert(fr);
-                //contactstoDelete.clear();
+                
               }
 
               Duplicate_Records__c dr = new Duplicate_Records__c();
-              //dr.Duplicate_Contacts__c = AccContact.Id;
+              
               dr.Account_Id__c = AccContact.AccountId;
               dr.Account_Name__c = AccContact.Account.Name;
               dr.Contact_Id__c = AccContact.Id;
@@ -96,12 +89,9 @@ global class BatchDelete implements Database.Batchable<sObject> {
               dr.Had_Related_Case__c = AccContact.Has_Related_Case__c;
 
               setofLeavingRecords.add(dr);
-              //Database.insert (dr);
-              //contactstoCheck.clear();
+             
             }
-            //Insert(setofToBeDeletedRecords);
-
-            //contactstoCheck.clear();
+          
             if (ContactstoCheck.size() == 2) {
               contactstoCheck.clear();
             }
@@ -110,12 +100,10 @@ global class BatchDelete implements Database.Batchable<sObject> {
           contactstoCheck.clear();
         }
 
-        
-        if(AccContact.Has_NPS__c == FALSE && AccContact.Has_Related_Case__c == FALSE && AccContact.Has_Email_Retention__c == FALSE && AccContact.Is_Campaign_Member__c == FALSE){
-        contactstoDelete.add(AccContact);
+        if (AccContact.Has_NPS__c == false && AccContact.Has_Related_Case__c == false && AccContact.Has_Email_Retention__c == false && AccContact.Is_Campaign_Member__c == false) {
+          contactstoDelete.add(AccContact);
         }
-        
-        
+
         if (contactstoDelete.size() > 1) {
           contactstoDelete.clear();
         }
