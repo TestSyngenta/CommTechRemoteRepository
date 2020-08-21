@@ -1,13 +1,7 @@
 global class BatchDelete implements Database.Batchable<sObject> {
-  global List<Contact> globallistofContacts = new List<Contact>();
   global List<Contact> contactstoCheck = new List<Contact>();
   global List<Contact> contactstoDelete = new List<Contact>();
-  global List<Contact> contactsToKeep = new List<Contact>();
-  global List<Contact> tempcontactsToKeep = new List<Contact>();
   global List<Contact> finalcontactstoDelete = new List<Contact>();
-
-  global Id globalContactId;
-  global Contact Cons;
   global Set<Id> AccountIds = new Set<Id>();
 
   global Database.QueryLocator start(Database.BatchableContext bc) {
@@ -23,7 +17,6 @@ global class BatchDelete implements Database.Batchable<sObject> {
     }
     List<Duplicate_Records__c> setofLeavingRecords = new List<Duplicate_Records__c>();
     List<Duplicate_Records__c> setofToBeDeletedRecords = new List<Duplicate_Records__c>();
-    List<Contact> UpdatedList = new List<Contact>();
     for (Id loopId : AccountIds) {
       List<Contact> listofRelatedContacts = [
         SELECT Id, AccountId, Account.Name, FirstName, LastName, Primary_Contact__c, Has_NPS__c, Has_Related_Case__c, Has_Email_Retention__c, Is_Campaign_Member__c, phone, MobilePhone
@@ -31,9 +24,7 @@ global class BatchDelete implements Database.Batchable<sObject> {
         WHERE Duplicate_Contact_On_Same_Account__c = TRUE AND Email = NULL AND AccountId = :loopId
         ORDER BY LastName, FirstName, Primary_Contact__c ASC
       ];
-
-     
-
+      
       String lastFirstName = '';
       String lastLastName = '';
       String tempPhone = '';
